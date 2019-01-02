@@ -16,11 +16,11 @@ if(isempty(javaclasspath))
     javaclasspath(cellarraywithpaths);
 end
 
-neqsim.util.database.NeqSimDataBase.setDataBaseType("mySQL");
-neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:mysql://tr-w33:3306/neqsimthermodatabase");
+%neqsim.util.database.NeqSimDataBase.setDataBaseType("mySQL");
+%neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:mysql://tr-w33:3306/neqsimthermodatabase");
 
 %neqsim.util.database.NeqSimDataBase.setDataBaseType("mySQLNTNU");
-neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:mysql://tr-w33:3306/neqsimthermodatabase");
+%neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:mysql://tr-w33:3306/neqsimthermodatabase");
 
 %neqsim.util.database.NeqSimDataBase.setDataBaseType("MSAccessUCanAccess");
 %NeqSimDataBase.dataBasePathMSAccess = strcat(databasepath, 'NeqSimDatabase.mdb');

@@ -8,6 +8,7 @@ system1.addComponent('n-butane', 1.0);
 system1.addComponent('i-butane', 0.6);
 system1.addComponent('n-hexane', 0.3);
 system1.addPlusFraction('C6', 1.3, 100.3 / 1000.0, 0.8232);
+system1.addComponent('water', 1e-10);
 system1.addComponent('TEG', 1e-10);
 
 system1.createDatabase(1);
