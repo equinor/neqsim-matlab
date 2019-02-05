@@ -1,9 +1,9 @@
-function testSystem = PHflash(testSystem, display)
-    if nargin==1
+function testSystem = PHflash(testSystem, enthalpy, display)
+    if nargin==2
         display=1
     end
     testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(testSystem);
-    testFlash.PHflash(testSystem.getEnthalpy(),0);
+    testFlash.PHflash(enthalpy,0);
     if display==1
         testFlash.displayResult;
     end

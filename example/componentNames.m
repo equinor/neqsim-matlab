@@ -1,3 +1,3 @@
-namesInDatbase = neqsim.util.database.NeqSimDataBase.ComponentNames
+namesInDatbase = neqsim.util.database.NeqSimDataBase.getComponentNames
 
 

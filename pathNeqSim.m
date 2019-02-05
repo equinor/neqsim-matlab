@@ -16,6 +16,10 @@ if(isempty(javaclasspath))
     javaclasspath(cellarraywithpaths);
 end
 
+neqsim.util.database.NeqSimDataBase.setDataBaseType("Derby");
+neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:derby:classpath:data/neqsimthermodatabase");
+
+
 %neqsim.util.database.NeqSimDataBase.setDataBaseType("mySQL");
 %neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:mysql://tr-w33:3306/neqsimthermodatabase");
 
