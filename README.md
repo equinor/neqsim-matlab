@@ -4,7 +4,7 @@ NeqSim Python is a Python interface to the [NeqSim Java library](https://github.
 ## Releases
 
 ## Getting Started
-See the [NeqSim Matlab Wiki](/wiki) for how to use NeqSim Matlab.
+See the [NeqSim Matlab Wiki](https://github.com/equinor/neqsimmatlab/wiki) for how to use NeqSim Matlab.
 
 
 ### Initial setup
