@@ -2,6 +2,7 @@
 NeqSim Python is a Python interface to the [NeqSim Java library](https://github.com/equinor/neqsim) for estimation of fluid behavior and process design for oil and gas production.
 
 ## Releases
+See [release folder](https://github.com/equinor/neqsimmatlab/releases)
 
 ## Getting Started
 See the [NeqSim Matlab Wiki](https://github.com/equinor/neqsimmatlab/wiki) for how to use NeqSim Matlab.
