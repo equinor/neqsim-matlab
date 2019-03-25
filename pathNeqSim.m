@@ -1,4 +1,4 @@
-pathstring = 'C:\Users\esol\OneDrive - Statoil ASA\programming\neqsimmatlab\';
+pathstring = 'C:\Users\esol\OneDrive - Equinor\programming\neqsimmatlab\';
 
 addpath(strcat(pathstring));
 addpath(strcat(pathstring, 'example'));
