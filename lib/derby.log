@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Apr 12 13:59:35 CEST 2019:
+Booting Derby (version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137)) instance a816c00e-016a-116a-cb98-00000616b628 
+on database directory classpath:data/neqsimthermodatabase in READ ONLY mode with class loader com.mathworks.jmi.CustomURLClassLoader@841e575. 
+Loaded from file:/C:/Users/esol/OneDrive%20-%20Equinor/programming/neqsimmatlab/ext/NeqSim.jar.
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_121-b13
+user.dir=C:\Users\esol\Documents\MATLAB
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
