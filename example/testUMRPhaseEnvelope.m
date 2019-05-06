@@ -7,4 +7,5 @@ fluid1.setMixingRule('UNIFAC_UMRPRU');
 %fluid1 = readFluid(2044);
 %TPflash(fluid1);
 PTenvelope(fluid1);
+fluid1
 

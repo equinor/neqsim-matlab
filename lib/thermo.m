@@ -12,13 +12,15 @@ elseif(strcmp('cpa',eosname))
 elseif(strcmp('srk-mc',eosname))
         system = neqsim.thermo.system.SystemSrkMathiasCopeman(298,1.0);
 elseif(strcmp('umr',eosname))
-        system = neqsim.thermo.system.SystemUMRPRUEos(298,1.0);
+        system = neqsim.thermo.system.SystemUMRPRUMCEos(298,1.0);
 elseif(strcmp('GERG2004',eosname))
         system = neqsim.thermo.system.SystemGERG2004Eos(298,1.0);
 elseif(strcmp('electrolyte',eosname))
         system = neqsim.thermo.system.SystemFurstElectrolyteEos(298,1.0);
+elseif(strcmp('electrolyteCPA',eosname))
+        system = neqsim.thermo.system.SystemElectrolyteCPAstatoil(298,1.0);
 else
-    system = neqsim.thermo.system.SystemSrkEos(298,1.0);
+        system = neqsim.thermo.system.SystemSrkEos(298,1.0);
 end
 
  if(nargin>=3)

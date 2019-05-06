@@ -19,16 +19,6 @@ end
 neqsim.util.database.NeqSimDataBase.setDataBaseType("Derby");
 neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:derby:classpath:data/neqsimthermodatabase");
 
-
-%neqsim.util.database.NeqSimDataBase.setDataBaseType("mySQL");
-%neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:mysql://tr-w33:3306/neqsimthermodatabase");
-
-%neqsim.util.database.NeqSimDataBase.setDataBaseType("mySQLNTNU");
-%neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:mysql://tr-w33:3306/neqsimthermodatabase");
-
-%neqsim.util.database.NeqSimDataBase.setDataBaseType("MSAccessUCanAccess");
-%NeqSimDataBase.dataBasePathMSAccess = strcat(databasepath, 'NeqSimDatabase.mdb');
-
 if ~exist('processOperations')
     global processOperations
     processOperations = neqsim.processSimulation.processSystem.ProcessSystem;

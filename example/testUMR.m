@@ -1,4 +1,4 @@
-fluid1 = thermo('UMR-PRU-EoS',273.15+55, 25.0);
+fluid1 = thermo('umr',273.15+55, 25.0);
 fluid1.addComponent('nitrogen', 2.4526);
 fluid1.addComponent('CO2', 1.6318);
 fluid1.addComponent('methane', 5.221);

@@ -1,4 +1,3 @@
-processOperations.clearAll
 pressure = 100.0;
 temperatureGuess = 10.0;  % cheched
 
