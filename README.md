@@ -1,5 +1,5 @@
 # NeqSim Matlab
-NeqSim Python is a Matlab interface to the [NeqSim Java library](https://github.com/equinor/neqsim) for estimation of fluid behavior and process design for oil and gas production.
+NeqSim Matlab is part of the [NeqSim project](https://equinor.github.io/neqsimhome/). NeqSim Matlab is a Matlab interface to the [NeqSim Java library](https://github.com/equinor/neqsim) for estimation of fluid behavior and process design for oil and gas production.
 
 ## Releases
 See [release folder](https://github.com/equinor/neqsimmatlab/releases)
@@ -37,4 +37,3 @@ lib/ : various labraries used for implementing NeqSim in Matlab
 ext/: external libraries used by NeqSim Matlab
 changelog.txt : History of what changed between each version.
 license.txt: license document
-
