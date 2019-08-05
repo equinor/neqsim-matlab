@@ -1,6 +1,6 @@
 function testSystem = TPflash(testSystem, display)
     if nargin==1
-        display=1
+        display=0
     end
     testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(testSystem);
     testFlash.TPflash;
