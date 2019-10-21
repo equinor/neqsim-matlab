@@ -6,7 +6,7 @@ function densGERG = density(phase)
 %
 % Even Solbraa, 2001.
 %
-import neqsim.thermo.GERG.NeqSimGERG2008;
+import neqsim.thermo.util.GERG.NeqSimGERG2008;
 
 GERGfluid = NeqSimGERG2008();
 densGERG = GERGfluid.getDensity(phase);
