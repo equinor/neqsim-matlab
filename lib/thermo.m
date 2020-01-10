@@ -15,10 +15,14 @@ elseif(strcmp('umr',eosname))
         system = neqsim.thermo.system.SystemUMRPRUMCEos(298,1.0);
 elseif(strcmp('GERG2004',eosname))
         system = neqsim.thermo.system.SystemGERG2004Eos(298,1.0);
+elseif(strcmp('ScSrk',eosname))
+        system = neqsim.thermo.system.SystemSrkSchwartzentruberEos(298,1.0);
 elseif(strcmp('electrolyte',eosname))
         system = neqsim.thermo.system.SystemFurstElectrolyteEos(298,1.0);
 elseif(strcmp('electrolyteCPA',eosname))
         system = neqsim.thermo.system.SystemElectrolyteCPAstatoil(298,1.0);
+elseif(strcmp('UMR-PRU-EoS',eosname))
+        system = neqsim.thermo.system.SystemUMRPRUMCEos(298,1.0);
 else
         system = neqsim.thermo.system.SystemSrkEos(298,1.0);
 end
