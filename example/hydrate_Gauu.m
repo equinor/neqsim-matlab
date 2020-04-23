@@ -1,4 +1,5 @@
-processOperations.clearAll
+resetProcessOperations();
+
 pressure = 50.0;
 temperatureGuess =10.0;  % to check
 

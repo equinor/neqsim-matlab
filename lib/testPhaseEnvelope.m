@@ -1,5 +1,4 @@
-run 'G:\T&P\F&T\PRA\Gassprosessering\Dataverktøy\neqsim\neqsim\toolbox\matlab\addpathNeqSim'
-processOperations.clearAll
+resetProcessOperations();
 
 system = neqsim.thermo.system.readFluid(2022);
 PTenvelope(system);

@@ -14,5 +14,6 @@ for n= 1:m
     ppmWater(n) = system1.getPhase(0).getComponent('water').getx()*1e6;
 end
 
-XLrange = ['C1:C',num2str(m)];
-xlswrite('c:/prestemp.xls',ppmWater',XLrange);
+% removed because folder does not exist
+% XLrange = ['C1:C',num2str(m)];
+% xlswrite('c:/prestemp.xls',ppmWater',XLrange);

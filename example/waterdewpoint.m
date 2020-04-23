@@ -1,4 +1,5 @@
-processOperations.clearAll
+resetProcessOperations();
+
 pressure = 70.0;
 temperatureGuess = -50.0;  % cheched
 

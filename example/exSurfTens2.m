@@ -45,7 +45,7 @@ molardensity_methane_liq = system1.getPhase(1).getComponent('methane').getNumber
 deltamolardensity_methane = (molardensity_methane_liq - molardensity_methane_gas)/100.0;
 
 % creates an interface system
-system2 = thermo.system.SystemSrkEos(280.0,10.0);
+system2 = neqsim.thermo.system.SystemSrkEos(280.0,10.0);
 system2.addComponent('methane', molardensity_methane_gas);
 system2.addComponent('n-heptane', molardensity_n_heptane_gas);
 system2.setMixingRule(2);

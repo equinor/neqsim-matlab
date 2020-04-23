@@ -1,3 +1,6 @@
+global processOperations
+
+resetProcessOperations();
 processOperations.clearAll
 
 

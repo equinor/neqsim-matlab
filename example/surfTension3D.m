@@ -11,6 +11,8 @@ system1.getInterphaseProperties().setInterfacialTensionModel(0);
 TPflash(system1,0);
 
 system1.initPhysicalProperties();
+
+% todo: this fails
 system1.getInterphaseProperties().getSurfaceTension(0);
 
 temperature = (-195+273.15):1.54:(200)

@@ -12,10 +12,10 @@ system1.addComponent('n-pentane', 1.64);
 system1.addComponent('n-hexane', 3.29);
 system1.addComponent('n-heptane', 8.22);
 system1.addComponent('n-octane', 9.32);
-!system1.addComponent('C9', 8.77);
-!system1.addComponent('C10', 8.22);
-!system1.addComponent('C11', 4.93);
-!system1.addComponent('C12', 8.22);
+%system1.addComponent('C9', 8.77);
+%system1.addComponent('C10', 8.22);
+%system1.addComponent('C11', 4.93);
+%system1.addComponent('C12', 8.22);
 
 %system1.addComponent('MEG', 30.0);
 %system1.addComponent('methanol', 30.0);
@@ -27,7 +27,16 @@ system1.createDatabase(1);
 system1.setMultiPhaseCheck(0);
 system1.setMixingRule(9);    
 
-% defining streams
+% % defining streams
+% Error using hydrate (line 28)
+% Java exception occurred:
+% java.lang.NullPointerException
+% 
+% 	at neqsim.thermo.system.SystemThermo.resetPhysicalProperties(SystemThermo.java:1795)
+% 
+% 	at neqsim.thermo.system.SystemSrkEos.resetPhysicalProperties(SystemSrkEos.java:20)
+% 
+% 	at neqsim.thermo.system.SystemThermo.setMixingRule(SystemThermo.java:1883)
 inStream = stream(system1,'teststream');
 
 % calculatiing hydrate temperature of stream

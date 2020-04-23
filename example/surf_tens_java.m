@@ -1,10 +1,6 @@
 %calculate the interfacial tension of methane + n-butane at310.95K and
 %108 Bar
 
-%initialiserer og legger NeqSim bibliotek på path
-run 'G:\T&P\F&T\PRA\Gassprosessering\Dataverktøy\neqsim\neqsim\toolbox\matlab\addpathNeqSim'
-InitNeqSim
-
 system1 = neqsim.thermo.system.SystemPrEos(310.93,108.00); 
 system1.addComponent('methane', 0.736); %mole frac like feed
 system1.addComponent('n-butane',0.264);
@@ -16,6 +12,7 @@ TPflash(system1,0); %how to close the report
 system1.getInterphaseProperties().setInterfacialTensionModel(1); 
 system1.initPhysicalProperties();
 
+% todo: this fails
 dens1 = system1.getInterphaseProperties().getSurfaceTensionModel(0).getMolarDensity(0);
 dens2 = system1.getInterphaseProperties().getSurfaceTensionModel(0).getMolarDensity(1);
 zsurf = (system1.getInterphaseProperties().getSurfaceTensionModel(0).getz()).*1e9;
