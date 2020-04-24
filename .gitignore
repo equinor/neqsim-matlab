@@ -2,6 +2,10 @@
 # Created by https://www.gitignore.io/api/java,maven,netbeans
 # Edit at https://www.gitignore.io/?templates=java,maven,netbeans
 
+**/derby.log
+**/data_check.txt
+**/*.asv
+
 ### power point###
 # Power point files
 *.ppt

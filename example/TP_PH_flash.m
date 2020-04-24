@@ -1,7 +1,3 @@
-%initialiserer og legger NeqSim bibliotek på path
-run 'G:\T&P\F&T\PRA\Gassprosessering\Dataverktøy\neqsim\neqsim\toolbox\matlab\addpathNeqSim'
-InitNeqSim
-
 pressure = 10.0;                                % pressure in bara
 temperature = 273.15;                           % temperature in Kelvin
  

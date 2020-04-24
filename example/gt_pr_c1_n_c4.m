@@ -42,8 +42,8 @@ fprintf(fid,'Mole Density in liquid phase [Mol/m-3]=  ');fprintf(fid, '%6.3f\t %
 fprintf(fid,'Mole Density in vopor phase [Mol/m-3]=  ');fprintf(fid, '%6.3f\t %6.3f\n', den_vap_liqht,den_vap_ref); 
 
 %calculate the a and b paramter for vt srk eos according paper lin_duan_2007
-gas_constant=neqsim.thermo.ThermodynamicConstantsInterface.R; %Gas constant
-NA=neqsim.thermo.ThermodynamicConstantsInterface.avagadroNumber; %avogadro constant
+gas_constant = neqsim.thermo.ThermodynamicConstantsInterface.R; %Gas constant
+NA = neqsim.thermo.ThermodynamicConstantsInterface.avagadroNumber; %avogadro constant
 for i=1:2
     omega(i)=system1.getPhase(0).getComponent(i-1).getAcentricFactor();
     zc(i)= system1.getPhase(0).getComponent(i-1).getCriticalCompressibilityFactor();
@@ -119,6 +119,7 @@ while (abs(err_den_2)>1e-6)
    den_interface_1(j)=den_interface_1(j-1)+d_den1_d_den2(j-1)*del_den_2;
   
    %find delta density 1  by using newton raphson to slove object function
+   % newton inter fails
    newton_inter  
    den_interface_1(j)=den1_inter_new ;%den1_inter_new from newton raphson
    %when density of ref comp 2 equals to liquid density of comp2,stop.

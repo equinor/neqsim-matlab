@@ -1,5 +1,5 @@
-processOperations.clearAll
-
+global processOperations
+resetProcessOperations();
 
 % setting up feed fluid and thermodynamic model
 system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+16.0, 50.0);

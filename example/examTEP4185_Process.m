@@ -1,4 +1,4 @@
-processOperations.clearAll
+resetProcessOperations()
 
 system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+70.0, 150.0);
 system1.addComponent('methane',75.0);

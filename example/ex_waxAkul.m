@@ -34,6 +34,48 @@ system1.setMultiPhaseCheck(1);
 
 system1.setTemperature(280.0);
 system1.setPressure(5.0);
+
+% Error using TPflash (line 6)
+% Java exception occurred:
+% java.lang.RuntimeException: neqsim.util.exception.IsNaNException
+% 
+% 	at neqsim.thermo.phase.PhaseEos.init(PhaseEos.java:92)
+% 
+% 	at neqsim.thermo.phase.PhaseSrkEos.init(PhaseSrkEos.java:16)
+% 
+% 	at neqsim.thermo.phase.PhaseSolid.init(PhaseSolid.java:37)
+% 
+% 	at neqsim.thermo.phase.PhaseWax.init(PhaseWax.java:38)
+% 
+% 	at neqsim.thermo.system.SystemThermo.initAnalytic(SystemThermo.java:1534)
+% 
+% 	at neqsim.thermo.system.SystemSrkEos.initAnalytic(SystemSrkEos.java:20)
+% 
+% 	at neqsim.thermo.system.SystemThermo.init(SystemThermo.java:1430)
+% 
+% 	at neqsim.thermo.system.SystemSrkEos.init(SystemSrkEos.java:20)
+% 
+% 	at neqsim.thermodynamicOperations.flashOps.TPmultiflashWAX.stabilityAnalysis(TPmultiflashWAX.java:294)
+% 
+% 	at neqsim.thermodynamicOperations.flashOps.TPmultiflashWAX.run(TPmultiflashWAX.java:369)
+% 
+% 	at neqsim.thermodynamicOperations.flashOps.TPflash.run(TPflash.java:303)
+% 
+% 	at neqsim.thermodynamicOperations.ThermodynamicOperations.TPflash(ThermodynamicOperations.java:143)
+% 
+% Caused by: neqsim.util.exception.IsNaNException
+% 
+% 	at neqsim.thermo.phase.PhaseEos.molarVolume(PhaseEos.java:304)
+% 
+% 	at neqsim.thermo.phase.PhaseSrkEos.molarVolume(PhaseSrkEos.java:16)
+% 
+% 	at neqsim.thermo.phase.PhaseEos.init(PhaseEos.java:88)
+% 
+% 	... 11 more
+% 
+% 
+% Error in ex_waxAkul (line 37)
+% TPflash(system1,1);
 TPflash(system1,1);
 
 %calcWAT(system1);
