@@ -6,7 +6,7 @@ fractions2 = [0.054, 0.454, 1.514, 0, 89.92, 5.324, 1.535, 0.232, 0.329, 0.094, 
 P_bar = [1, 10, 100, 200, 1, 10, 100, 200, 1, 10, 100, 200];
 T_C = [15, 15, 15, 15, 30, 30, 30, 30, 150, 150, 150, 150];
 
-fluid = thermo('srk', 298,10);
+fluid = thermo('srk',298,10);
 for c = 1:components.length
     fluid.addComponent(components(c),fractions1(c));
 end
@@ -78,11 +78,11 @@ for c = 1:size(P_bar,2)
     TPflash(fluid,0);
     fluid.init(2);
     fluid.initPhysicalProperties();
-    
+
     enthalpy(c) = fluid.getEnthalpy();
     entropy(c) = fluid.getEntropy();
     numberOfPhases(c) = fluid.getNumberOfPhases();
-    mixMolarVolume(c) =  1.0 / fluid.getDensity("mol/m3"); 
+    mixMolarVolume(c) = 1.0/fluid.getDensity("mol/m3");
     mixDensity(c) = fluid.getDensity("kg/m3");
     mixZfactor(c) = fluid.getZ();
     mixEnthalpy(c) = fluid.getEnthalpy("Jmol");
@@ -92,58 +92,58 @@ for c = 1:size(P_bar,2)
     mixKappa(c) = fluid.getKappa();
     mixViscosity(c) = fluid.getViscosity("kg/msec");
     mixThermalConductivity(c) = fluid.getConductivity("W/mK");
-    
-    if(fluid.hasPhaseType("gas"))
+
+    if (fluid.hasPhaseType("gas"))
         phaseNumber = fluid.getPhaseNumberOfPhase("gas");
-        gasFractionc(c) = fluid.getMoleFraction(phaseNumber) * 100; 
-        gasMolarVolume(c) = 1.0 / fluid.getPhase(phaseNumber).getDensity("mol/m3");
-        gasVolumeFraction(c) = fluid.getCorrectedVolumeFraction(phaseNumber) * 100; 
+        gasFractionc(c) = fluid.getMoleFraction(phaseNumber)*100;
+        gasMolarVolume(c) = 1.0/fluid.getPhase(phaseNumber).getDensity("mol/m3");
+        gasVolumeFraction(c) = fluid.getCorrectedVolumeFraction(phaseNumber)*100;
         gasDensity(c) = fluid.getPhase(phaseNumber).getDensity("kg/m3");
         gasZ(c) = fluid.getPhase(phaseNumber).getZ();
-        gasMolarMass(c)= fluid.getPhase(phaseNumber).getMolarMass() * 1000;
+        gasMolarMass(c) = fluid.getPhase(phaseNumber).getMolarMass()*1000;
         gasEnthalpy(c) = fluid.getPhase(phaseNumber).getEnthalpy("J/mol");
-        gasWtFraction(c) = fluid.getWtFraction(phaseNumber) * 100;
+        gasWtFraction(c) = fluid.getWtFraction(phaseNumber)*100;
         gasKappa(c) = fluid.getPhase(phaseNumber).getGamma();
         gasViscosity(c) = fluid.getPhase(phaseNumber).getViscosity("kg/msec");
         gasThermalConductivity(c) = fluid.getPhase(phaseNumber).getConductivity("W/mK");
         gasSoundSpeed(c) = fluid.getPhase(phaseNumber).getSoundSpeed();
-        gasJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient() / 1e5;
+        gasJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient()/1e5;
     end
-    
-    if(fluid.hasPhaseType("oil"))
+
+    if (fluid.hasPhaseType("oil"))
         phaseNumber = fluid.getPhaseNumberOfPhase("oil");
-        oilFractionc(c) = fluid.getMoleFraction(phaseNumber) * 100;
-        oilMolarVolume(c) = 1.0 / fluid.getPhase(phaseNumber).getDensity("mol/m3");
-        oilVolumeFraction(c) = fluid.getCorrectedVolumeFraction(phaseNumber) * 100;
+        oilFractionc(c) = fluid.getMoleFraction(phaseNumber)*100;
+        oilMolarVolume(c) = 1.0/fluid.getPhase(phaseNumber).getDensity("mol/m3");
+        oilVolumeFraction(c) = fluid.getCorrectedVolumeFraction(phaseNumber)*100;
         oilDensity(c) = fluid.getPhase(phaseNumber).getDensity("kg/m3");
         oilZ(c) = fluid.getPhase(phaseNumber).getZ();
-        oilMolarMass(c)= fluid.getPhase(phaseNumber).getMolarMass() * 1000;
+        oilMolarMass(c) = fluid.getPhase(phaseNumber).getMolarMass()*1000;
         oilEnthalpy(c) = fluid.getPhase(phaseNumber).getEnthalpy("J/mol");
-        oilWtFraction(c) = fluid.getWtFraction(phaseNumber) * 100;
+        oilWtFraction(c) = fluid.getWtFraction(phaseNumber)*100;
         oilKappa(c) = fluid.getPhase(phaseNumber).getGamma();
         oilViscosity(c) = fluid.getPhase(phaseNumber).getViscosity("kg/msec");
         oilThermalConductivity(c) = fluid.getPhase(phaseNumber).getConductivity("W/mK");
         oilSoundSpeed(c) = fluid.getPhase(phaseNumber).getSoundSpeed();
-        oilJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient() / 1e5;
+        oilJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient()/1e5;
     end
-    
-      if(fluid.hasPhaseType("aqueous"))
+
+    if (fluid.hasPhaseType("aqueous"))
         phaseNumber = fluid.getPhaseNumberOfPhase("aqueous");
-        waterFractionc(c) = fluid.getMoleFraction(phaseNumber) * 100;
-        waterMolarVolume(c) = 1.0 / fluid.getPhase(phaseNumber).getDensity("mol/m3");
-        waterVolumeFraction(c) = fluid.getCorrectedVolumeFraction(phaseNumber) * 100; 
+        waterFractionc(c) = fluid.getMoleFraction(phaseNumber)*100;
+        waterMolarVolume(c) = 1.0/fluid.getPhase(phaseNumber).getDensity("mol/m3");
+        waterVolumeFraction(c) = fluid.getCorrectedVolumeFraction(phaseNumber)*100;
         waterDensity(c) = fluid.getPhase(phaseNumber).getDensity("kg/m3");
         waterZ(c) = fluid.getPhase(phaseNumber).getZ();
-        waterMolarMass(c)= fluid.getPhase(phaseNumber).getMolarMass() * 1000;
+        waterMolarMass(c) = fluid.getPhase(phaseNumber).getMolarMass()*1000;
         waterEnthalpy(c) = fluid.getPhase(phaseNumber).getEnthalpy("J/mol");
-        waterWtFraction(c) = fluid.getWtFraction(phaseNumber) * 100;
+        waterWtFraction(c) = fluid.getWtFraction(phaseNumber)*100;
         waterKappa(c) = fluid.getPhase(phaseNumber).getGamma();
         waterViscosity(c) = fluid.getPhase(phaseNumber).getViscosity("kg/msec");
-        waterThermalConductivity(c) = fluid.getPhase(phaseNumber).getConductivity("W/mK"); 
+        waterThermalConductivity(c) = fluid.getPhase(phaseNumber).getConductivity("W/mK");
         waterSoundSpeed(c) = fluid.getPhase(phaseNumber).getSoundSpeed();
-        waterJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient() / 1e5;
+        waterJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient()/1e5;
     end
-    
+
 end
 
 errEnth = zeros(1,12);
@@ -151,7 +151,7 @@ errEnth = zeros(1,12);
 for c = 1:size(P_bar,2)
     fluid.setPressure(P_bar(c));
     PHflash(fluid,enthalpy(1,c),0);
-    errEnth(c) = fluid.getTemperature()-273.15-T_C(c);
+    errEnth(c) = fluid.getTemperature() - 273.15 - T_C(c);
 end
 
 
@@ -160,8 +160,7 @@ errEntr = zeros(1,12);
 for c = 1:size(P_bar,2)
     fluid.setPressure(P_bar(c));
     PSflash(fluid,entropy(1,c),0);
-    errEntr(c) = fluid.getTemperature()-273.15-T_C(c);
+    errEntr(c) = fluid.getTemperature() - 273.15 - T_C(c);
 end
 
 fluid.getPhase(0).displayInteractionCoefficients("")
-

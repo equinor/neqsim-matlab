@@ -1,2 +1,2 @@
 function [] = show(testSystem)
-    testSystem.display
+testSystem.display
