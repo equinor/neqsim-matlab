@@ -7,9 +7,9 @@ syst.addComponent('ethane',10.0);
 syst.createDatabase(1);
 syst.setMixingRule(2)
 
-j=0
+j = 0
 for i = (80:200)
-    j=j+1
+    j = j + 1
     disp 'i',i
     a = density(syst,i)
     dens(j) = a(1)

@@ -7,8 +7,8 @@
 % The variable system referes to a thermodyanmic system - eg. system = SystemSrkEos()
 % t - temperature
 % p- pressure
-% 
-% All function return a vector with variables: 
+%
+% All function return a vector with variables:
 % 1. System property (mean/..)
 % 2. Gas pahse property
 % 3. Liquid phase property

@@ -1,11 +1,11 @@
-function testSystem = TPflash(testSystem, display)
-    if nargin==1
-        display=0
-    end
-    testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(testSystem);
-    testFlash.TPflash;
-    if display==1
-        testFlash.displayResult;
-    end
-    clear testFlash;
-    testSystem;
+function testSystem = TPflash(testSystem,display)
+if nargin == 1
+    display = 0
+end
+testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(testSystem);
+testFlash.TPflash;
+if display == 1
+    testFlash.displayResult;
+end
+clear testFlash;
+testSystem;
