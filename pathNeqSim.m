@@ -16,12 +16,12 @@ if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
         error('Input baseFol does not exist');
     end
     addpath(baseFol);
-    addpath(fullfile(baseFol, 'example'));
-    addpath(fullfile(baseFol, 'lib'));
-    
-    librarypath = fullfile(baseFol, 'ext');
+    addpath(fullfile(baseFol,'example'));
+    addpath(fullfile(baseFol,'lib'));
+
+    librarypath = fullfile(baseFol,'ext');
     % databasepath = fullfile(baseFol, 'database');
-    
+
     jarFiles = cellstr(ls(fullfile(librarypath,'*.jar')));
     for k = numel(jarFiles):-1:1
         dynamicJavaPath = javaclasspath('-dynamic');
@@ -30,7 +30,7 @@ if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
             javaclasspath(currJar);
         end
     end
-    
+
     import neqsim.thermo.*;
     import neqsim.thermo.system.*;
     import neqsim.PVTsimulation.simulation.*;
@@ -49,11 +49,11 @@ if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
     import neqsim.processSimulation.processEquipment.absorber.*;
     import neqsim.processSimulation.processEquipment.absorber.*;
     import neqsim.processSimulation.processEquipment.util.*;
-    
+
     neqsim.util.database.NeqSimDataBase.setDataBaseType("Derby");
     neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:derby:classpath:data/neqsimthermodatabase");
-    
+
     resetProcessOperations();
-    
+
     setappdata(0,appDataName,true);
 end

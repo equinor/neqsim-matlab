@@ -3,4 +3,3 @@ function [outputArg1] = componentNames()
 %   Detailed explanation goes here
 outputArg1 = neqsim.util.database.NeqSimDataBase.getComponentNames;
 end
-
