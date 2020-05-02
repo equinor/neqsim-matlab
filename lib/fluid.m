@@ -1,6 +1,6 @@
 function fluid = fluid(definedcomponents, oilcomponents)
 
-unit = 'mole/sec'
+unit = 'mole/sec';
 fluidClass = neqsim.thermo.Fluid();
 fluid = fluidClass.create2(definedcomponents.names, definedcomponents.composition, unit);
 if nargin > 1 
