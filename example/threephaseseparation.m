@@ -25,7 +25,7 @@ fieldWellStream.setPressure(50.0, 'bara');
 %separation efficiency
 wellStreamSeparator = separator(fieldWellStream);
 
-% Set fraction of oil and water to be entrained in gas
+% Set fraction of gas/oil/water to be entrained in gas/oil/water
 wellStreamSeparator.setEntrainment(0.01, "", "oil", "gas");
 wellStreamSeparator.setEntrainment(0.01, "", "aqueous", "gas");
 % Set fraction of gas and water to be entrained in oil
