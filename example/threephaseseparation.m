@@ -13,9 +13,8 @@
 
 
 %1. Specify defined components
-<<<<<<< HEAD
 definedcomponents.names = {'water', 'methane', 'ethane', 'propane'};
-definedcomponents.composition = [0.1 0.7 0.1 0.1];
+definedcomponents.composition = [0.1 0.7 0.05 0.05];
 
 %specify oil components
 oilcomponents.names = {'C7', 'C8'};
@@ -23,27 +22,12 @@ oilcomponents.composition = [0.05, 0.05];
 oilcomponents.molarmass = [0.10, 0.120];
 oilcomponents.relativedensity = [0.7, 0.73];
 oilcomponents.plusfraction = 0;
-=======
-definedcomponents.names = {'water', 'methane', 'ethane', 'propane'}
-definedcomponents.composition = [0.12 0.1 0.9 0.05]
-
-%specify oil components
-oilcomponents.names = {'C7', 'C8'}
-oilcomponents.composition = [0.10, 0.220]
-oilcomponents.molarmass = [0.10, 0.120]
-oilcomponents.relativedensity = [0.7, 0.73]
-oilcomponents.plusfraction = 0
->>>>>>> a8f38dfc7756d0b5f9cb1c8b5ff203bbe8a24ae0
 
 % Create a neqsim fluid based on defined and oil components
 fieldFluid = fluid(definedcomponents, oilcomponents);
 
 %2. Initializing the process simulation
-<<<<<<< HEAD
 resetProcessOperations();
-=======
-resetProcessOperations()
->>>>>>> a8f38dfc7756d0b5f9cb1c8b5ff203bbe8a24ae0
 
 %Create a well stream with the field fluid and set flow, pressure and temperature
 fieldWellStream = stream(fieldFluid);
@@ -73,41 +57,19 @@ separatedAqueousStream = stream(wellStreamSeparator.getWaterOutStream());
 %running the process
 runProcess();
 
-<<<<<<< HEAD
-
-
 % 3. Select the resulting gas stream and read the density of the gas phase in this stream
-=======
-%Specify temperature change of gas stream after separator
-deltaT = 10.0;
-
-% 3. Select the resulting gas stream and read the density of the gas phase in this stream
-flash(separatedGasStream.getFluid(),'TP', separatedGasStream.getTemperature("C"), separatedGasStream.getPressure('bara'), "C", "bara");
->>>>>>> a8f38dfc7756d0b5f9cb1c8b5ff203bbe8a24ae0
 gasDensityAtSeparatorConditions = separatedGasStream.getFluid().getPhase('gas').getDensity('kg/m3');
 gasCompositionAtSeparatorConditions = separatedGasStream.getFluid().getPhase('gas').getComposition('molefraction');
 separatedGasStream.getFluid()
-%To shwo detailed results of the flash calculation, unncomment the follwong commands:
-%separatedGasStream.getFluid()
-%printfluid(separatedGasStream.getFluid()
 
-<<<<<<< HEAD
 %4. Reduce temperature by delta T and flash it at constant volume
 deltaT = 10.0;
-=======
-%4. Reduce temperature by delta T and flash it at constante volume
->>>>>>> a8f38dfc7756d0b5f9cb1c8b5ff203bbe8a24ae0
 flash(separatedGasStream.getFluid(),'TV', (separatedGasStream.getTemperature("C")-deltaT), separatedGasStream.getFluid().getVolume("m3"), "C", "m3");
 gasDensityAfterTemperatureReduction = separatedGasStream.getFluid().getPhase('gas').getDensity('kg/m3');
 gasCompositionAfterTemperatureReduction = separatedGasStream.getFluid().getPhase('gas').getComposition('molefraction');
 pressureAfterTemperatureReduction = separatedGasStream.getFluid().getPressure('bara');
-%To shwo detailed results of the flash calculation, unncomment the follwong commands:
-%separatedGasStream.getFluid()
-%printfluid(separatedGasStream.getFluid()
-<<<<<<< HEAD
-%separatedGasStream.getFluid()
-=======
 separatedGasStream.getFluid()
->>>>>>> a8f38dfc7756d0b5f9cb1c8b5ff203bbe8a24ae0
+
+%Calculate change in fluid density
 changeInDensity = (gasDensityAfterTemperatureReduction-gasDensityAtSeparatorConditions)/gasDensityAtSeparatorConditions*100
 %print final results.....
