@@ -40,11 +40,11 @@ fieldWellStream.setPressure(150.0,'bara');
 wellStreamSeparator = separator(fieldWellStream);
 
 % Set fraction of gas/oil/water to be entrained in gas/oil/water
-wellStreamSeparator.setEntrainment(0.01,"","oil","gas");
+wellStreamSeparator.setEntrainment(0.05,"","oil","gas");
 wellStreamSeparator.setEntrainment(0.01,"","aqueous","gas");
 % Set fraction of gas and water to be entrained in oil
-wellStreamSeparator.setEntrainment(0.002,"","gas","oil");
-wellStreamSeparator.setEntrainment(0.01,"","aqueous","oil");
+wellStreamSeparator.setEntrainment(0.001,"","gas","oil");
+wellStreamSeparator.setEntrainment(0.001,"","aqueous","oil");
 % Set fraction of gas and oil to be entrained in aqueous
 wellStreamSeparator.setEntrainment(0.001,"","gas","aqueous");
 wellStreamSeparator.setEntrainment(0.01,"","oil","aqueous");
@@ -61,21 +61,26 @@ runProcess();
 gasDensityAtSeparatorConditions = separatedGasStream.getFluid().getPhase('gas').getDensity('kg/m3');
 oilDensityAtSeparatorConditions = separatedOilStream.getFluid().getPhase('oil').getDensity('kg/m3');
 gasCompositionAtSeparatorConditions = separatedGasStream.getFluid().getPhase('gas').getComposition('molefraction');
+volumeFractionGasInOilSample = separatedOilStream.getFluid().getPhaseFraction('gas', "volume");
+volumeFractionOilInGasSample = separatedGasStream.getFluid().getPhaseFraction('oil', "volume");
+
 separatedGasStream.getFluid()
 separatedOilStream.getFluid()
 %4. Reduce temperature by delta T and flash it at constant volume
-deltaT = 5.0;
+for cdeltaT = 1:10
+%deltaT = 1.0;
 flash(separatedGasStream.getFluid(),'TV', (separatedGasStream.getTemperature("C")-deltaT), separatedGasStream.getFluid().getVolume("m3"), "C", "m3");
 flash(separatedOilStream.getFluid(),'TV', (separatedOilStream.getTemperature("C")-deltaT), separatedOilStream.getFluid().getVolume("m3"), "C", "m3");
 gasDensityAfterTemperatureReduction = separatedGasStream.getFluid().getPhase('gas').getDensity('kg/m3');
 oilDensityAfterTemperatureReduction = separatedOilStream.getFluid().getPhase('oil').getDensity('kg/m3');
 gasCompositionAfterTemperatureReduction = separatedGasStream.getFluid().getPhase('gas').getComposition('molefraction');
 pressureAfterTemperatureReduction = separatedGasStream.getFluid().getPressure('bara');
-separatedGasStream.getFluid()
-separatedOilStream.getFluid()
+%separatedGasStream.getFluid()
+%separatedOilStream.getFluid()
 
 %Calculate change in fluid density
-changeInDensityGas = (gasDensityAfterTemperatureReduction-gasDensityAtSeparatorConditions)/gasDensityAtSeparatorConditions*100
-changeInDensityOil = (oilDensityAfterTemperatureReduction-oilDensityAtSeparatorConditions)/oilDensityAtSeparatorConditions*100
+changeInDensityGas(cdeltaT) = (gasDensityAfterTemperatureReduction-gasDensityAtSeparatorConditions)/gasDensityAtSeparatorConditions*100
+changeInDensityOil(cdeltaT) = (oilDensityAfterTemperatureReduction-oilDensityAtSeparatorConditions)/oilDensityAtSeparatorConditions*100
+end
 
 %print final results.....
