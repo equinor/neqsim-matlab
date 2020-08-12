@@ -107,26 +107,25 @@ while (abs(err_den_2) > 1e-6)
         dmudv(i) = 1e5*system(j).getPhase(0).getComponent(i-1).getChemicalPotentialdV(system(j).getPhase(0));
         dpdn(i) = -dmudv(i);
     end
-
+    
     pre_inter_new = 1e5*system(j).getPressure();
     dpdv = system(j).getPhase(0).getdPdTVn(); %perhaps dpdv= - system(j).getPhase(0).getdPdTVn()
-
-
+    
     dn2dv = (pre_inter_new - pre_inter_old) - ((dpdv + dpdn(1)*den_interface_1(j - 1))/dpdn(2));
-
+    
     d_mu_1_d_den_2 = (dmudv(1) + dmudn(1,1)*den_interface_1(j - 1) + dmudn(1,2)*dn2dv)/(dn2dv - den_ref(j));
     d_mu_2_d_den_2 = (dmudv(2) + dmudn(2,1)*den_interface_1(j - 1) + dmudn(2,2)*dn2dv)/(dn2dv - den_ref(j));
-
+    
     dn1dv = (pre_inter_new - pre_inter_old) - ((dpdv + dpdn(2)*den_ref(j))/dpdn(1));
     d_mu_1_d_den_1 = (dmudv(1) + dmudn(1,1)*dn1dv + dmudn(1,2)*den_ref(j))/(dn1dv - den_interface_1(j - 1));
     d_mu_2_d_den_1 = (dmudv(2) + dmudn(2,1)*dn1dv + dmudn(2,2)*den_ref(j))/(dn1dv - den_interface_1(j - 1));
-
+    
     d_den1_d_den2(j-1) = (sqrt(k_infl(2))*d_mu_1_d_den_2 - sqrt(k_infl(1))*d_mu_2_d_den_2)/ ...
         (sqrt(k_infl(1))*d_mu_2_d_den_1 - sqrt(k_infl(2))*d_mu_1_d_den_1);
-
+    
     %initial valve of density of comp.1 at interface
     den_interface_1(j) = den_interface_1(j-1) + d_den1_d_den2(j-1)*del_den_2;
-
+    
     %find delta density 1  by using newton raphson to slove object function
     % newton inter fails
     newton_inter

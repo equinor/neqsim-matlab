@@ -118,7 +118,7 @@ while (abs(err_den_2) > 1e-6)
     system2.addComponent('n-butane',del_den_2/1e5);
     system2.init_x_y();
     system2.init(3);
-
+    
     for i = 1:2
         mu_inter(i) = system2.getPhase(0).getComponent(i-1).getChemicalPotential(system2.getTemperature(),system2.getPhase(0).getPressure());
         dmudn(1,i) = system2.getPhase(0).getComponent(0).getChemicalPotentialdNTV(i-1,system2.getPhase(0));
@@ -126,29 +126,29 @@ while (abs(err_den_2) > 1e-6)
         dmudv(i) = 1e5*system2.getPhase(0).getComponent(i-1).getChemicalPotentialdV(system2.getPhase(0));
         dpdn(i) = -dmudv(i);
     end
-
+    
     pre_inter_new = 1e5*system2.getPhase(0).getPressure();
     dpdv = 1e10*system2.getPhase(0).getdPdVTn(); %perhaps dpdv= - system2.getPhase(0).getdPdTVn()
     dn2dv = (pre_inter_new - pre_inter_old) - ((dpdv + dpdn(1)*den_interface_1(j - 1))/dpdn(2));
-
+    
     d_mu_1_d_den_2 = (dmudv(1) + dmudn(1,1)*den_interface_1(j - 1) + dmudn(1,2)*dn2dv)/(dn2dv - den_ref(j));
     d_mu_2_d_den_2 = (dmudv(2) + dmudn(2,1)*den_interface_1(j - 1) + dmudn(2,2)*dn2dv)/(dn2dv - den_ref(j));
-
+    
     dn1dv = (pre_inter_new - pre_inter_old) - ((dpdv + dpdn(2)*den_ref(j))/dpdn(1));
     d_mu_1_d_den_1 = (dmudv(1) + dmudn(1,1)*dn1dv + dmudn(1,2)*den_ref(j))/(dn1dv - den_interface_1(j - 1));
     d_mu_2_d_den_1 = (dmudv(2) + dmudn(2,1)*dn1dv + dmudn(2,2)*den_ref(j))/(dn1dv - den_interface_1(j - 1));
-
+    
     d_den1_d_den2(j-1) = (sqrt(k_infl(2))*d_mu_1_d_den_2 - sqrt(k_infl(1))*d_mu_2_d_den_2)/ ...
         (sqrt(k_infl(1))*d_mu_2_d_den_1 - sqrt(k_infl(2))*d_mu_1_d_den_1);
-
+    
     %initial valve of density of comp.1 at interface
     den_interface_1(j) = den_interface_1(j-1) + d_den1_d_den2(j-1)*del_den_2;
-
+    
     %find delta density 1  by using newton raphson to slove object function
     newton_inter
     den_interface_1(j) = den1_inter_new; %den1_inter_new from newton raphson
     del_den_interface_1 = den_interface_1(j) - den_interface_1(j-1);
-
+    
     %den_interface_1(j)
     %when density of ref comp 2 equals to liquid density of comp2,stop.
     err_den_2 = den_ref(j) - den_liq_ref;
@@ -158,7 +158,6 @@ while (abs(err_den_2) > 1e-6)
     fprintf(fid,'Density 2 in interface =  ');
     fprintf(fid,'%6.3f\n',den_ref(j));
 end
-
 
 %using number density to calculate the new d_den1_d_den2 + kappa + pressure difference for each grid
 %equilibrium phase property has to be calculated by input number density
@@ -196,7 +195,7 @@ for j = 1:500
     system_NA(j).init(3);
     % system_NA(j).getPhase(0).getPressure()
     % pause
-
+    
     for i = 1:2
         mu_inter(i) = system_NA(j).getPhase(0).getComponent(i-1).getChemicalPotential(system_NA(j).getTemperature(),system_NA(j).getPhase(0).getPressure());
         dmudn(1,i) = system_NA(j).getPhase(0).getComponent(0).getChemicalPotentialdNTV(i-1,system_NA(j).getPhase(0));
@@ -204,23 +203,22 @@ for j = 1:500
         dmudv(i) = 1e5*system_NA(j).getPhase(0).getComponent(i-1).getChemicalPotentialdV(system_NA(j).getPhase(0));
         dpdn(i) = -dmudv(i);
     end
-
+    
     pre_inter_new = 1e5*system_NA(j).getPhase(0).getPressure();
     dpdv = 1e10*system_NA(j).getPhase(0).getdPdVTn(); %perhaps dpdv= - system(j).getPhase(0).getdPdTVn()
     dn2dv = (pre_inter_new - pre_inter_old) - ((dpdv + dpdn(1)*den_interface_1(j))/dpdn(2));
-
-
+    
+    
     d_mu_1_d_den_2 = (dmudv(1) + dmudn(1,1)*den_interface_1(j) + dmudn(1,2)*dn2dv)/(dn2dv - den_ref(j));
     d_mu_2_d_den_2 = (dmudv(2) + dmudn(2,1)*den_interface_1(j) + dmudn(2,2)*dn2dv)/(dn2dv - den_ref(j));
-
+    
     dn1dv = (pre_inter_new - pre_inter_old) - ((dpdv + dpdn(2)*den_ref(j))/dpdn(1));
     d_mu_1_d_den_1 = (dmudv(1) + dmudn(1,1)*dn1dv + dmudn(1,2)*den_ref(j))/(dn1dv - den_interface_1(j));
     d_mu_2_d_den_1 = (dmudv(2) + dmudn(2,1)*dn1dv + dmudn(2,2)*den_ref(j))/(dn1dv - den_interface_1(j));
-
+    
     d_den1_d_den2_na(j) = (sqrt(k_infl(2))*d_mu_1_d_den_2 - sqrt(k_infl(1))*d_mu_2_d_den_2)/ ...
         (sqrt(k_infl(1))*d_mu_2_d_den_1 - sqrt(k_infl(2))*d_mu_1_d_den_1);
-
-
+    
     kappa(j) = k_infl(1)*d_den1_d_den2_na(j).^2 + 2*sqrt(k_infl(1)*k_infl(2))*d_den1_d_den2_na(j) + k_infl(2);
     pre_differ(j) = pre_inter_new - pressure_equi;
     %mu_times_den(j)=den_interface_1_na(j)*(mu_inter(1)-mu_equi(1))+den_ref_na(j)*(mu_inter(2)-mu_equi(2))-pre_differ(j);
@@ -229,17 +227,14 @@ for j = 1:500
     mu_times_den(j)
     pause(0.1)
     ift_integer_obj(j) = sqrt(2*kappa(j)*mu_times_den(j))*del_den_2*NA;
-
-
+    
     if (j == 1)
         z_interger_obj = 0.d0; % z equal density of comp 2=vap density
     else
         z_interger_obj(j) = z_interger_obj(j-1) + sqrt(kappa(j)/(2*(mu_times_den(j))))*del_den_2*NA*1e9;
     end
     pre_inter_old = pre_inter_new;
-
 end
-
 
 % plot density profile at interface
 m = 2;
@@ -265,6 +260,5 @@ hold on
 
 %calculat the interfacial tension
 int_tension = sum(ift_integer_obj)*1e3 %unit of interfacial tension mN\m
-
 
 fclose(fid)

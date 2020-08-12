@@ -1,6 +1,6 @@
-function fluid = flash(fluid, flashtype, spec1, spec2, unitspec1, unitspec2)
+function fluid = flash(fluid,flashtype,spec1,spec2,unitspec1,unitspec2)
 % Run a flash calculation for a fluid
-% function fluid = flash(fluid, flashtype, spec1, spec2, unitspec1, unitspec2)
+% function fluid = flash(fluid,flashtype,spec1,spec2,unitspec1,unitspec2)
 %
 % INPUT:
 %  - fluid - A neqsim fluid java object
@@ -11,9 +11,9 @@ function fluid = flash(fluid, flashtype, spec1, spec2, unitspec1, unitspec2)
 % - unitspec2 - the unit for the seccond specification (eg. "C"/"K"/"J/mol")
 % OUTPUT:
 %  - fluid    - A neqsim fluid java object after running the flash
-    testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(fluid);
-    testFlash.flash(flashtype, spec1, spec2, unitspec1, unitspec2);
-    fluid.initProperties();
-    clear testFlash;
-    fluid;
+testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(fluid);
+testFlash.flash(flashtype,spec1,spec2,unitspec1,unitspec2);
+fluid.initProperties();
+clear testFlash;
+fluid;
 end
