@@ -109,7 +109,6 @@ system_newton.setNumberOfPhases(1); % we have 2 phases, why
 system_newton.setUseTVasIndependentVariables(1);
 system_newton.getPhase(0).setTotalVolume(1.0); %?? we need to set total system volume at interface as 1m-3; not vapor phase volume, unit of volume
 
-
 while (abs(err_den_2) > 1e-6)
     j = j + 1;
     den_ref(j) = den_ref(j-1) + del_den_2; % density of comp 2 at interface
@@ -260,5 +259,4 @@ hold on
 
 %calculat the interfacial tension
 int_tension = sum(ift_integer_obj)*1e3 %unit of interfacial tension mN\m
-
-fclose(fid)
+fclose(fid);
