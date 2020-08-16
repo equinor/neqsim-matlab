@@ -1,5 +1,4 @@
 %use newton rapson method to find new density of component 1 at interface
-
 del_den_err = 1.d0;
 den1_inter_old = den_interface_1(j);
 pre_inter_old = 1e5*system2.getPhase(0).getPressure();

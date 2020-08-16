@@ -84,7 +84,7 @@ den_ref = den_vap_ref; %initial reference density: density comp.2 in vapor phase
 err_den_2 = 1.d0;
 den_interface_1 = den_vap_liqht; % initial density : density of comp.1 in vapor phase
 pre_inter_old = pressure_equi;
-ref_Vol = system1.getPhase(0).getTotalVolume()
+ref_Vol = system1.getPhase(0).getTotalVolume();
 
 while (abs(err_den_2) > 1e-6)
     j = j + 1;

@@ -78,8 +78,8 @@ for cdeltaT = 1:10
     %separatedOilStream.getFluid()
     
     %Calculate change in fluid density
-    changeInDensityGas(cdeltaT) = (gasDensityAfterTemperatureReduction - gasDensityAtSeparatorConditions)/gasDensityAtSeparatorConditions*100
-    changeInDensityOil(cdeltaT) = (oilDensityAfterTemperatureReduction - oilDensityAtSeparatorConditions)/oilDensityAtSeparatorConditions*100
+    changeInDensityGas(cdeltaT) = (gasDensityAfterTemperatureReduction - gasDensityAtSeparatorConditions)/gasDensityAtSeparatorConditions*100;
+    changeInDensityOil(cdeltaT) = (oilDensityAfterTemperatureReduction - oilDensityAtSeparatorConditions)/oilDensityAtSeparatorConditions*100;
 end
 
 %print final results.....

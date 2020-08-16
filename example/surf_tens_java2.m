@@ -21,7 +21,7 @@ if (system1.getNumberOfPhases() > 1)
     zsurf = (system1.getInterphaseProperties().getSurfaceTensionModel(0).getz()).*1e9;
     % plot density profile at interface
     
-    int_tension = 1e3*system1.getInterphaseProperties().getSurfaceTension(0) %unit of interfacial tension mN\m
+    int_tension = 1e3*system1.getInterphaseProperties().getSurfaceTension(0); %unit of interfacial tension mN\m
     
     m = 2;
     n = 2;
@@ -41,7 +41,7 @@ if (system1.getNumberOfPhases() > 1)
     hold on
     
     %calculat the interfacial tension
-    int_tension = 1e3*system1.getInterphaseProperties().getSurfaceTension(0) %unit of interfacial tension mN\m
+    int_tension = 1e3*system1.getInterphaseProperties().getSurfaceTension(0); %unit of interfacial tension mN\m
     
     %output the composition,volume and density into data_check.txt
     fid = fopen('data_check.txt','wt');
