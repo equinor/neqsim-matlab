@@ -1,4 +1,8 @@
 function t = hydt(testSystem)
+
+pathNeqSim();
+
+
 if testSystem.doHydrateCheck() == 0
     testSystem.setHydrateCheck(1);
 end

@@ -1,6 +1,6 @@
 %calculate the interfacial tension of methane + n-butane at310.95K and
 %108 Bar
-clear all
+pathNeqSim();
 
 system1 = neqsim.thermo.system.SystemSrkEos(310.95,108.00);
 system1.addComponent('methane',0.736); %mole frac like feed
@@ -143,13 +143,13 @@ while (abs(err_den_2) > 1e-6)
     %initial valve of density of comp.1 at interface
     den_interface_1(j) = den_interface_1(j-1) + d_den1_d_den2(j-1)*del_den_2;
     
-    %find delta density 1  by using newton raphson to slove object function
-    newton_inter
-    den_interface_1(j) = den1_inter_new; %den1_inter_new from newton raphson
+    %find delta density 1  by using newton raphson to solve object function
+    
+    den_interface_1(j) = den1_inter_new; % den1_inter_new from newton raphson
     del_den_interface_1 = den_interface_1(j) - den_interface_1(j-1);
     
-    %den_interface_1(j)
-    %when density of ref comp 2 equals to liquid density of comp2,stop.
+    % den_interface_1(j)
+    % when density of ref comp 2 equals to liquid density of comp2,stop.
     err_den_2 = den_ref(j) - den_liq_ref;
     fprintf(fid,'%3i\t',j);
     fprintf(fid,'Density 1 in interface =  ');
@@ -158,8 +158,8 @@ while (abs(err_den_2) > 1e-6)
     fprintf(fid,'%6.3f\n',den_ref(j));
 end
 
-%using number density to calculate the new d_den1_d_den2 + kappa + pressure difference for each grid
-%equilibrium phase property has to be calculated by input number density
+% using number density to calculate the new d_den1_d_den2 + kappa + pressure difference for each grid
+% equilibrium phase property has to be calculated by input number density
 system_NA_equi = neqsim.thermo.system.SystemSrkEos(310.95,108.000);
 system_NA_equi.addComponent('methane',den_vap_liqht/1e5);
 system_NA_equi.addComponent('n-butane',den_vap_ref/1e5);
@@ -168,11 +168,11 @@ system_NA_equi.useVolumeCorrection(0);
 system_NA_equi.init(0);
 system_NA_equi.setNumberOfPhases(1); % we have 2 phases, why
 system_NA_equi.setUseTVasIndependentVariables(1);
-system_NA_equi.getPhase(0).setTotalVolume(1.0); %?? we need to set total system volume at interface as 1m-3; not vapor phase volume, unit of volume
+system_NA_equi.getPhase(0).setTotalVolume(1.0); % ?? we need to set total system volume at interface as 1m-3; not vapor phase volume, unit of volume
 system_NA_equi.init_x_y();
 system_NA_equi.init(3);
 
-pressure_equi = 1e5*system_NA_equi.getPhase(0).getPressure(); %change unit to pascal
+pressure_equi = 1e5*system_NA_equi.getPhase(0).getPressure(); % change unit to pascal
 for i = 1:2
     mu_equi(i) = system_NA_equi.getPhase(0).getComponent(i-1).getChemicalPotential(system_NA_equi.getTemperature(),system_NA_equi.getPhase(0).getPressure()); %get chemical potential from vapor phase for both comp
 end

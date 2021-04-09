@@ -1,6 +1,8 @@
 pressure = 100.0;
 temperatureGuess = 10.0; % cheched
 
+pathNeqSim();
+
 % Defining system of components
 system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+temperatureGuess,pressure);
 system1.addComponent('methane',40.72);

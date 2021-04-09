@@ -1,4 +1,3 @@
-clear all
 hold on
 
 syst = thermo('srk',190,0.01);

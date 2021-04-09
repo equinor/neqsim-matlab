@@ -1,6 +1,9 @@
-function gasscrubber = gasscrubber(teststream,name);
+function gasscrubber = gasscrubber(teststream,name)
 % p specifies the outlet pressure
 global processOperations
+
+pathNeqSim();
+
 gasscrubber = neqsim.processSimulation.processEquipment.separator.GasScrubberSimple(teststream);
 if (nargin >= 2)
     gasscrubber.setName(name);

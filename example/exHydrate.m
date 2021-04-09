@@ -1,3 +1,5 @@
+pathNeqSim();
+
 system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+28.0,135.0);
 system1.addComponent('CO2',2.251);
 system1.addComponent('nitrogen',0.55);

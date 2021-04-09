@@ -5,7 +5,7 @@ function nargout = dynvisc(thermoSystem,t,p)
 % and the number of phases.
 %
 % Even Solbraa, 2001.
-%
+
 if (nargin >= 3)
     thermoSystem.setPressure(p);
 end

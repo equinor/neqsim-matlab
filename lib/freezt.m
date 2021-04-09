@@ -1,4 +1,7 @@
 function t = freezt(testSystem,pressure)
+
+pathNeqSim();
+
 if nargin == 2
     testSystem.setPressure(pressure);
 end

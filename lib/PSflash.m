@@ -1,11 +1,12 @@
 function testSystem = PSflash(testSystem,entropy,display)
-if nargin == 2
-    display = 1
+pathNeqSim();
+
+if nargin < 3
+    display = true;
 end
 testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(testSystem);
 testFlash.PSflash(entropy);
-if display == 1
+if display
     testFlash.displayResult;
 end
 clear testFlash;
-testSystem;

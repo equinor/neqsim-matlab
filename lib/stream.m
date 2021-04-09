@@ -1,5 +1,7 @@
 function stream = stream(testSystem,name,t,p)
 global processOperations
+
+pathNeqSim();
 if (nargin >= 4)
     testSystem.setPressure(p);
 end
@@ -11,4 +13,3 @@ if (nargin >= 2)
     stream.setName(name);
 end
 processOperations.add(stream);
-stream;

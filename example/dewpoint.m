@@ -1,4 +1,4 @@
-clear all
+pathNeqSim();
 
 system1 = neqsim.thermo.system.SystemSrkEos(310.95,60.0);
 system1.addComponent('methane',0.8);

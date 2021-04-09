@@ -1,5 +1,21 @@
 function t = waterdewt(testSystem,pressure)
-if nargin == 2
+%
+% function t = waterdewt(testSystem,pressure)
+%
+% INPUT:
+%  - testSystem
+%
+% OPTIONAL INPUT:
+%  - pressure
+%
+% OUTPUT:
+%  - t
+%
+% DESCRIPTION:
+%
+pathNeqSim();
+
+if nargin > 1
     testSystem.setPressure(pressure);
 end
 testSystem.init(0)

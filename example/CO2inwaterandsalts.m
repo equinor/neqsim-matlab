@@ -15,7 +15,7 @@ temp = 0;
 func = 0;
 func2 = 0;
 func3 = 0;
-ph = 0
+ph = 0;
 for i = 1:10
     fluid1.setTemperature(313.15);
     fluid1.setPressure(0.05+10.0*i);
@@ -24,8 +24,8 @@ for i = 1:10
     func(i) = fluid1.getPhase(1).getComponent('CO2').getx(); %()/(fluid1.getPhase(1).getComponent('water').getNumberOfMolesInPhase()*fluid1.getPhase(1).getComponent('water').getMolarMass());
     func2(i) = fluid1.getPhase(1).getComponent('HCO3-').getNumberOfMolesInPhase()/(fluid1.getPhase(1).getComponent('water').getNumberOfMolesInPhase()*fluid1.getPhase(1).getComponent('water').getMolarMass());
     func3(i) = fluid1.getPhase(1).getComponent('CO3--').getNumberOfMolesInPhase()/(fluid1.getPhase(1).getComponent('water').getNumberOfMolesInPhase()*fluid1.getPhase(1).getComponent('water').getMolarMass());
-    ph(i) = fluid1.getPhase(1).getpH()
-    fluid1.initPhysicalProperties()
+    ph(i) = fluid1.getPhase(1).getpH();
+    fluid1.initPhysicalProperties();
 end
 hold off
 plot(temp,func);

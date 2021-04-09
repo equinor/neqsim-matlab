@@ -1,5 +1,8 @@
-function splitter1 = splitter(teststream,numb,name);
+function splitter1 = splitter(teststream,numb,name)
 global processOperations
+
+pathNeqSim();
+
 splitter1 = neqsim.processSimulation.processEquipment.splitter.Splitter(teststream);
 if (nargin >= 2)
     splitter1.setSplitNumber(numb)
@@ -9,4 +12,3 @@ if (nargin >= 3)
 end
 
 processOperations.add(splitter1);
-splitter1;

@@ -1,3 +1,6 @@
+pathNeqSim();
+
+
 system1 = neqsim.thermo.system.SystemSrkEos(273,10);
 %system1.addComponent('methane', 10.0);
 %system1.addComponent('ethane', 10.0);

@@ -1,2 +1,2 @@
-function [] = savefluid(testSystem,filepath)
+function savefluid(testSystem,filepath)
 testSystem.saveObjectToFile(filepath,"")

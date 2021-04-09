@@ -41,4 +41,3 @@ for m = 1:numb
         system(m) = SystemSrkEos(temp1(m),pres1(m));
     end
 end
-system;

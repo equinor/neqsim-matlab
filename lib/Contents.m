@@ -10,7 +10,7 @@
 %
 % All function return a vector with variables:
 % 1. System property (mean/..)
-% 2. Gas pahse property
+% 2. Gas phase property
 % 3. Liquid phase property
 % 4. Number of phases
 %

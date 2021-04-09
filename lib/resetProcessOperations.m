@@ -7,6 +7,8 @@ function resetProcessOperations()
 
 global processOperations
 
+pathNeqSim();
+
 if ~isempty(processOperations)
     processOperations.clearAll
 end

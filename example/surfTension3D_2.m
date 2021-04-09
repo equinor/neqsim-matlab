@@ -1,3 +1,5 @@
+pathNeqSim();
+
 system1 = neqsim.thermo.system.SystemPrEos(310.93,108.00);
 system1.addComponent('methane',0.736); %mole frac like feed
 system1.addComponent('n-butane',0.264);

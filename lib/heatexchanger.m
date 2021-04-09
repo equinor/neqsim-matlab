@@ -1,6 +1,9 @@
-function heatexchanger = heatexchanger(teststream,outTemperature,name);
+function heatexchanger = heatexchanger(teststream,outTemperature,name)
 % p specifies the outlet pressure
 global processOperations
+
+pathNeqSim();
+
 heatexchanger = neqsim.processSimulation.processEquipment.heatExchanger.Heater(teststream);
 if (nargin >= 2)
     heatexchanger.setOutTemperature(outTemperature)

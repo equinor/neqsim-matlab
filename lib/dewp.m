@@ -1,4 +1,7 @@
 function p = dewp(testSystem,t)
+
+pathNeqSim();
+
 if nargin == 2
     testSystem.setTemperature(t);
 end

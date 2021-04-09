@@ -1,7 +1,7 @@
 %calculate the interfacial tension of methane + n-butane at310.95K and
 %108 Bar
 %reference comp. : highest boiling point
-clear all
+pathNeqSim();
 
 system1 = neqsim.thermo.system.SystemPrEos(310.95,108); %
 system1.addComponent('methane',0.8); %mole frac like feed
