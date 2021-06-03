@@ -1,12 +1,34 @@
-function testSystem = PHflash(testSystem,enthalpy,display)
+function thermoSystem = PHflash(thermoSystem,enthalpy,display)
+% Summary description
+% function thermoSystem = PHflash(thermoSystem,enthalpy,display)
+%
+% INPUT:
+%  - thermoSystem - Thermodynamic system
+%  - enthalpy   - Desc
+%
+% OPTIONAL INPUT:
+%  - display    - Desc
+%
+% OUTPUT:
+%  - thermoSystem - Desc
+%
+% DESCRIPTION:
+%
+%
+% EXAMPLE:
+% thermoSystem = PHflash(thermoSystem,enthalpy,display);
+
+narginchk(2,3);
+
 pathNeqSim();
 
 if nargin < 3
-    display = true;
+    display = false;
 end
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(testSystem);
+
+testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
 testFlash.PHflash(enthalpy,0);
 if display
-    testFlash.displayResult;
+    testFlash.displayResult();
 end
 clear testFlash;

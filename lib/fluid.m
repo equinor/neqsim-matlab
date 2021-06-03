@@ -1,4 +1,20 @@
 function fluid = fluid(definedcomponents,oilcomponents)
+% Summary description
+% function fluid = fluid(definedcomponents,oilcomponents)
+%
+% INPUT:
+%  - definedcomponents - Desc
+%  - oilcomponents     - Desc
+%
+% OUTPUT:
+%  - fluid             - Desc
+%
+% DESCRIPTION:
+%
+%
+% EXAMPLE:
+% fluid = fluid(definedcomponents,oilcomponents);
+
 
 pathNeqSim();
 
@@ -8,5 +24,4 @@ fluid = fluidClass.create2(definedcomponents.names,definedcomponents.composition
 
 if nargin > 1
     fluid = fluidClass.addOilFractions(oilcomponents.names,oilcomponents.composition,oilcomponents.molarmass,oilcomponents.relativedensity,oilcomponents.plusfraction);
-end
 end

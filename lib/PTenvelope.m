@@ -1,9 +1,34 @@
-function testFlash = PTenvelope(testSystem)
+function testFlash = PTenvelope(thermoSystem,display)
+% Summary description
+% function testFlash = PTenvelope(thermoSystem,display)
+%
+% INPUT:
+%  - thermoSystem - Thermodynamic system
+%
+% OPTIONAL INPUT:
+%  - display - 
+%
+% OUTPUT:
+%  - testFlash  - Desc
+%
+% DESCRIPTION:
+%
+%
+% EXAMPLE:
+% testFlash = PTenvelope(thermoSystem);
+
+narginchk(1,2);
+
 pathNeqSim();
 
-testSystem.init(0)
-testSystem.init(1)
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(testSystem);
+if nargin < 2
+    display = false;
+end
+
+thermoSystem.init(0)
+thermoSystem.init(1)
+testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
 testFlash.calcPTphaseEnvelope();
-testFlash.displayResult();
-return;
+if display
+    testFlash.displayResult();
+end

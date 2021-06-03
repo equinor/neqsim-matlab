@@ -4,7 +4,7 @@
 % NeqSim toolbox for Matlab.
 % Implemented methods:
 %
-% The variable system referes to a thermodyanmic system - eg. system = SystemSrkEos()
+% The variable system referes to a thermodynamic system - eg. system = SystemSrkEos()
 % t - temperature
 % p- pressure
 %

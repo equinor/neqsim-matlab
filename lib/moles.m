@@ -1,5 +1,24 @@
-function nargout = moles(thermoSystem,t,p)
-% Calculates the number of moles in phase for a given thermodyanmic system
+function S = moles(thermoSystem,t,p)
+% Summary description
+% function S = moles(thermoSystem,t,p)
+%
+% INPUT:
+%  - thermoSystem - Thermodynamic system
+%
+% OPTIONAL INPUT:
+%  - t            - Desc
+%  - p            - Desc
+%
+% OUTPUT:
+%  - S      - Desc
+%
+% DESCRIPTION:
+%
+%
+% EXAMPLE:
+% nargout = moles(thermoSystem,t,p);
+
+% Calculates the number of moles in phase for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % THe output is number of moles in phase, gas number of moles in phase, liquid number of moles in phase
 % and the number of phases.
@@ -7,25 +26,25 @@ function nargout = moles(thermoSystem,t,p)
 % Even Solbraa, 2001.
 %
 
-if (nargin >= 3)
+if nargin > 2
     thermoSystem.setPressure(p);
 end
-if (nargin >= 2)
+if nargin > 1
     thermoSystem.setTemperature(t);
     TPflash(thermoSystem,0);
 end
 thermoSystem.init(2);
-nargout(1) = thermoSystem.getNumberOfMoles;
+S(1) = thermoSystem.getNumberOfMoles;
 if (thermoSystem.getNumberOfPhases == 1)
     if (thermoSystem.getPhase(0).getPhaseType == 1)
-        nargout(2) = thermoSystem.getPhase(0).getNumberOfMolesInPhase;
-        nargout(3) = 0;
+        S(2) = thermoSystem.getPhase(0).getNumberOfMolesInPhase;
+        S(3) = 0;
     else
-        nargout(3) = thermoSystem.getPhase(0).getNumberOfMolesInPhase;
-        nargout(2) = 0;
+        S(3) = thermoSystem.getPhase(0).getNumberOfMolesInPhase;
+        S(2) = 0;
     end
 else
-    nargout(2) = thermoSystem.getPhase(0).getNumberOfMolesInPhase;
-    nargout(3) = thermoSystem.getPhase(1).getNumberOfMolesInPhase;
+    S(2) = thermoSystem.getPhase(0).getNumberOfMolesInPhase;
+    S(3) = thermoSystem.getPhase(1).getNumberOfMolesInPhase;
 end
-nargout(4) = thermoSystem.getNumberOfPhases;
+S(4) = thermoSystem.getNumberOfPhases;

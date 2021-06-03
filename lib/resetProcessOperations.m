@@ -1,9 +1,9 @@
 function resetProcessOperations()
-%
+% Reset global variable processOperations
 % function resetProcessOperations()
 %
 % DESCRIPTION:
-% Wrapper for
+% Reset global variable processOperations
 
 global processOperations
 

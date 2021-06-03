@@ -1,11 +1,25 @@
 function mixer = mixer(name)
-% p specifies the outlet pressure
+% Summary description
+% function mixer = mixer(name)
+%
+% INPUT:
+%  - name  - Desc
+%
+% OUTPUT:
+%  - mixer - Desc
+%
+% DESCRIPTION:
+%
+%
+% EXAMPLE:
+% mixer = mixer(name);
+
 global processOperations
 
 pathNeqSim();
 
 mixer = neqsim.processSimulation.processEquipment.mixer.StaticMixer;
-if (nargin >= 1)
+if nargin > 0
     mixer.setName(name);
 end
 processOperations.add(mixer);

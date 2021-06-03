@@ -4,9 +4,8 @@ function runProcess()
 %
 % DESCRIPTION:
 % Run processOperations simulation
-% Wrapper for processOperations.run() in java.
+% Wrapper for java call processOperations.run().
 
 global processOperations
 
 processOperations.run();
-end

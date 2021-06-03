@@ -17,8 +17,8 @@ system1.initPhysicalProperties();
 % todo: this fails
 system1.getInterphaseProperties().getSurfaceTension(0);
 
-temperature = (-195 + 273.15):1.54:(200)
-pressure = 1:5:400
+temperature = (-195 + 273.15):1.54:(200);
+pressure = 1:5:400;
 
 for n = 1:80
     system1.setTemperature(temperature(n));

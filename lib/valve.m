@@ -1,5 +1,25 @@
 function valve = valve(teststream,p,name)
-% p specifies the outlet pressure
+% Summary description
+% function valve = valve(teststream,p,name)
+%
+% INPUT:
+%  - teststream - Desc
+%  - p          - Valve outlet pressure
+%
+% OPTIONAL INPUT:
+%  - name       - Desc
+%
+% OUTPUT:
+%  - valve      - Desc
+%
+% DESCRIPTION:
+%
+%
+% EXAMPLE:
+% valve = valve(teststream,p,name);
+
+narginchk(2,3);
+
 global processOperations
 
 pathNeqSim();
