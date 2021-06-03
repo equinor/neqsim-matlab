@@ -17,7 +17,6 @@ system1.setPressure(20);
 TPflash(system1);
 f20 = system1.getPhase(0).getComponent('H2S').getFugasityCoefficient();
 
-
 % c
 system1.setTemperature(323.15);
 system1.setPressure(70);

@@ -1,5 +1,4 @@
 % Verification of NeqSim for gas 1
-
 components = ["water"; "nitrogen"; "CO2"; "H2S"; "methane"; "ethane"; "propane"; "i-butane"; "n-butane"; "i-pentane"; "n-pentane"; "n-hexane"];
 fractions1 = [2.18, 0.48, 1.77, 0, 62.88, 12.36, 9.58, 2.21, 2.47, 0.98, 0.46, 4.63];
 fractions2 = [0.054, 0.454, 1.514, 0, 89.92, 5.324, 1.535, 0.232, 0.329, 0.094, 0.107, 0.437];
@@ -70,7 +69,6 @@ waterViscosity = zeros(1,12);
 waterThermalConductivity = zeros(1,12);
 waterSoundSpeed = zeros(1,12);
 waterJouleThomsonCoefficient = zeros(1,12);
-
 
 for c = 1:size(P_bar,2)
     fluid.setTemperature(T_C(c)+273.15);
@@ -143,20 +141,16 @@ for c = 1:size(P_bar,2)
         waterSoundSpeed(c) = fluid.getPhase(phaseNumber).getSoundSpeed();
         waterJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient()/1e5;
     end
-    
 end
 
 errEnth = zeros(1,12);
-
 for c = 1:size(P_bar,2)
     fluid.setPressure(P_bar(c));
     PHflash(fluid,enthalpy(1,c),0);
     errEnth(c) = fluid.getTemperature() - 273.15 - T_C(c);
 end
 
-
 errEntr = zeros(1,12);
-
 for c = 1:size(P_bar,2)
     fluid.setPressure(P_bar(c));
     PSflash(fluid,entropy(1,c),0);

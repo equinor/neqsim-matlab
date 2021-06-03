@@ -11,7 +11,6 @@ system2.addComponent('n-butane',10.0);
 system2.addComponent('water',10.0);
 system2.setMixingRule(2);
 
-system3 = addfluids(system1,system2)
-
+system3 = addfluids(system1,system2);
 
 TPflash(system3,1)

@@ -30,7 +30,6 @@ HPmixer = mixer('HP mixer');
 HPmixer.addStream(inStream);
 HPmixer.addStream(MeOHstream);
 
-
 choke = valve(HPmixer.getOutStream,132.0,'calc stream');
 outtream = choke.getOutStream;
 
