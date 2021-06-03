@@ -38,8 +38,10 @@ fieldWellStream.setPressure(150.0,'bara');
 %separation efficiency
 wellStreamSeparator = separator(fieldWellStream);
 
+% Todo: fails when calling setEntrainment
+
 % Set fraction of gas/oil/water to be entrained in gas/oil/water
-wellStreamSeparator.setEntrainment(0.05,"","oil","gas");
+wellStreamSeparator.setEntrainment(0.05,'','oil','gas');
 wellStreamSeparator.setEntrainment(0.01,"","aqueous","gas");
 % Set fraction of gas and water to be entrained in oil
 wellStreamSeparator.setEntrainment(0.001,"","gas","oil");

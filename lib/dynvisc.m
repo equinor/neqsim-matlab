@@ -1,5 +1,5 @@
 function S = dynvisc(thermoSystem,t,p)
-% Summary description
+% Calculates the dynamic viscosity for a given thermodynamic system
 % function S = dynvisc(thermoSystem,t,p)
 %
 % INPUT:
@@ -11,7 +11,7 @@ function S = dynvisc(thermoSystem,t,p)
 %  - S      - Desc
 %
 % DESCRIPTION:
-% Calculates the helmholtzenergy for a given thermodynamic system
+% Calculates the dynamic viscosity for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % THe output is total molar helmholtzenergy, gas molar helmholtzenergy, liquid molar helmholtzenergy
 % and the number of phases.
@@ -20,8 +20,6 @@ function S = dynvisc(thermoSystem,t,p)
 %
 % EXAMPLE:
 % S = dynvisc(thermoSystem,t,p);
-
-
 
 if nargin > 2 
     thermoSystem.setPressure(p);

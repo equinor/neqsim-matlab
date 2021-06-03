@@ -18,8 +18,9 @@ system1.setMixingRule(9);
 % defining streams
 inStream = stream(system1,'teststream');
 
-temperature = [];
-ppmwater = [];
+numPoints = 15;
+temperature = zeros(numPoints,1);
+ppmwater = zeros(numPoints,1);
 for i = 1:15
     system1.addComponent('water',10e-6);
     %inStream.getSolidFormationTemperature('hydrate'); %use names hydrate or water

@@ -1,5 +1,5 @@
 function S = kinvisc(thermoSystem,t,p)
-% Summary description
+% Calculates the kinematic viscosity for a given thermodynamic system
 % function S = kinvisc(thermoSystem,t,p)
 %
 % INPUT:
@@ -13,17 +13,15 @@ function S = kinvisc(thermoSystem,t,p)
 %  - S      - Desc
 %
 % DESCRIPTION:
-%
-%
-% EXAMPLE:
-% nargout = kinvisc(thermoSystem,t,p);
-
 % Calculates the kinematic viscosity for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % The output is total molar kinematic viscosity, gas molar helmholtzenergy, liquid molar helmholtzenergy
 % and the number of phases.
 %
 % Even Solbraa, 2001.
+%
+% EXAMPLE:
+% nargout = kinvisc(thermoSystem,t,p);
 
 if nargin > 2
     thermoSystem.setPressure(p);

@@ -1,5 +1,5 @@
 function S = molarmass(thermoSystem,t,p)
-% Summary description
+% Calculates the molar mass for a given thermodynamic system
 % function S = molarmass(thermoSystem,t,p)
 %
 % INPUT:
@@ -13,17 +13,17 @@ function S = molarmass(thermoSystem,t,p)
 %  - nargout      - Desc
 %
 % DESCRIPTION:
-%
-%
-% EXAMPLE:
-% nargout = molarmass(thermoSystem,t,p);
-
-% Calculates the helmholtzenergy for a given thermodynamic system
+% Calculates the molar mass for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % THe output is total molar helmholtzenergy, gas molar helmholtzenergy, liquid molar helmholtzenergy
 % and the number of phases.
 %
 % Even Solbraa, 2001.
+%
+% EXAMPLE:
+% nargout = molarmass(thermoSystem,t,p);
+
+pathNeqSim();
 
 if nargin > 2
     thermoSystem.setPressure(p);

@@ -1,5 +1,5 @@
 function S = helmholtzenergy(thermoSystem,t,p)
-% Summary description
+% Calculates the helmholtzenergy for a given thermodynamic system
 % function S = helmholtzenergy(thermoSystem,t,p)
 %
 % INPUT:
@@ -13,17 +13,15 @@ function S = helmholtzenergy(thermoSystem,t,p)
 %  - nargout      - Desc
 %
 % DESCRIPTION:
-%
-%
-% EXAMPLE:
-% nargout = helmholtzenergy(thermoSystem,t,p);
-
 % Calculates the helmholtzenergy for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % THe output is total molar helmholtzenergy, gas molar helmholtzenergy, liquid molar helmholtzenergy
 % and the number of phases.
 %
 % Even Solbraa, 2001.
+%
+% EXAMPLE:
+% nargout = helmholtzenergy(thermoSystem,t,p);
 
 if nargin > 2
     thermoSystem.setPressure(p);

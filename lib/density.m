@@ -1,5 +1,5 @@
 function S = density(thermoSystem,t,p)
-%
+% Calculates the density for a given thermodynamic system
 % function S = density(thermoSystem,t,p)
 %
 % INPUT:

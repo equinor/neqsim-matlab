@@ -10,7 +10,7 @@ function separator = separator(teststream,name)
 %  - separator  - Desc
 %
 % DESCRIPTION:
-%
+% Create processEquipment separator
 %
 % EXAMPLE:
 % separator = separator(teststream,name);

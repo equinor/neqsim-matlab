@@ -1,5 +1,5 @@
 function S = moles(thermoSystem,t,p)
-% Summary description
+% Calculates the number of moles in phase for a given thermodynamic system
 % function S = moles(thermoSystem,t,p)
 %
 % INPUT:
@@ -13,11 +13,6 @@ function S = moles(thermoSystem,t,p)
 %  - S      - Desc
 %
 % DESCRIPTION:
-%
-%
-% EXAMPLE:
-% nargout = moles(thermoSystem,t,p);
-
 % Calculates the number of moles in phase for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % THe output is number of moles in phase, gas number of moles in phase, liquid number of moles in phase
@@ -25,6 +20,8 @@ function S = moles(thermoSystem,t,p)
 %
 % Even Solbraa, 2001.
 %
+% EXAMPLE:
+% nargout = moles(thermoSystem,t,p);
 
 if nargin > 2
     thermoSystem.setPressure(p);

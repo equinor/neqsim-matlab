@@ -13,17 +13,15 @@ function S = entropy(thermoSystem,t,p)
 %  - S      - Desc
 %
 % DESCRIPTION:
-%
-%
-% EXAMPLE:
-% nargout = entropy(thermoSystem,t,p);
-
 % Calculates the entropy for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % THe output is total molar entropy, gas molar entropy, liquid molar entropy
 % and the number of phases.
 %
 % Even Solbraa, 2001.
+%
+% EXAMPLE:
+% nargout = entropy(thermoSystem,t,p);
 
 if nargin > 2
     thermoSystem.setPressure(p);

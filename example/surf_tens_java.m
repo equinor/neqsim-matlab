@@ -14,8 +14,8 @@ TPflash(system1,0); %how to close the report
 system1.getInterphaseProperties().setInterfacialTensionModel(1);
 system1.initPhysicalProperties();
 
-% todo: this fails
-dens1 = system1.getInterphaseProperties().getSurfaceTensionModel(0).getMolarDensity(0);
+% todo: this fails, no function getmolarDensity
+dens1 = system1.getInterphaseProperties().getSurfaceTensionModel(0).getmolarDensity(0);
 dens2 = system1.getInterphaseProperties().getSurfaceTensionModel(0).getMolarDensity(1);
 zsurf = (system1.getInterphaseProperties().getSurfaceTensionModel(0).getz()).*1e9;
 dmudnMatrix = system1.getInterphaseProperties().getSurfaceTensionModel(0).getDmudn2();

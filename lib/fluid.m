@@ -15,7 +15,6 @@ function fluid = fluid(definedcomponents,oilcomponents)
 % EXAMPLE:
 % fluid = fluid(definedcomponents,oilcomponents);
 
-
 pathNeqSim();
 
 unit = 'mole/sec';

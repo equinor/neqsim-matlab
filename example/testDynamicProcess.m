@@ -6,7 +6,7 @@ test.createDatabase(1);
 test.setMixingRule(2);
 TPflash(test)
 
-% this fails
+% todo: this fails
 purgeStream = Stream('Purge Stream',test);
 
 purgeValve = valve(purgeStream,7,'purgv');

@@ -13,7 +13,7 @@ function splitter1 = splitter(teststream,numb,name)
 %  - splitter1  - Desc
 %
 % DESCRIPTION:
-%
+% Create processEquipment splitter
 %
 % EXAMPLE:
 % splitter1 = splitter(teststream,numb,name);

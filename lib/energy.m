@@ -1,5 +1,5 @@
 function S = energy(thermoSystem,t,p)
-% Summary description
+% Calculates the internal energy for a given thermodynamic system
 % function S = energy(thermoSystem,t,p)
 %
 % INPUT:

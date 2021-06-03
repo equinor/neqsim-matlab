@@ -13,17 +13,15 @@ function S = gibbsenergy(thermoSystem,t,p)
 %  - S      - Desc
 %
 % DESCRIPTION:
-%
-%
-% EXAMPLE:
-% nargout = gibbsenergy(thermoSystem,t,p);
-
 % Calculates the gibbsenergy for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % THe output is total molar gibbsenergy, gas molar gibbsenergy, liquid molar gibbsenergy
 % and the number of phases.
 %
 % Even Solbraa, 2001.
+%
+% EXAMPLE:
+% nargout = gibbsenergy(thermoSystem,t,p);
 
 if nargin > 2
     thermoSystem.setPressure(p);

@@ -1,10 +1,10 @@
 function savefluid(thermoSystem,filepath)
-% Summary description
+% Save to file
 % function  = savefluid(thermoSystem,filepath)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system
-%  - filepath   - Desc
+%  - filepath     - Desc
 %
 % OUTPUT:
 %  -  - Desc

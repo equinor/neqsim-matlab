@@ -1,4 +1,3 @@
-% todo: this has internal warnings - [main] ERROR neqsim.thermo.component.ComponentGEUniquac - java.sql.SQLException: Invalid cursor state - no current row.
 fluid1 = thermo('umr',273.15+55,25.0);
 fluid1.addComponent('nitrogen',2.4526);
 fluid1.addComponent('CO2',1.6318);
@@ -16,6 +15,6 @@ fluid1.createDatabase(1);
 fluid1.setMixingRule('HV','UNIFAC_UMRPRU');
 
 dewt(fluid1); % calculating dew point
-fluid1.getTemperature() - 273.15
+fluid1.getTemperature() - 273.15;
 
 PTenvelope(fluid1); % calculating phase envelope

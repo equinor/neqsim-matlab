@@ -31,7 +31,6 @@ for i = 1:2
     dmudv_equi(i) = 1e5*system1.getPhase(0).getComponent(i-1).getChemicalPotentialdV(system1.getPhase(0));
 end
 
-
 %output the composition,volume and density into data_check.txt
 fid = fopen('data_check.txt','wt');
 fprintf(fid,'X= ');

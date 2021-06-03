@@ -1,5 +1,5 @@
 function S = viscosity(thermoSystem,t,p)
-% Summary description
+% Calculates the viscosity for a given thermodynamic system
 % function S = viscosity(thermoSystem,t,p)
 %
 % INPUT:
@@ -13,7 +13,7 @@ function S = viscosity(thermoSystem,t,p)
 %  - S            - Desc
 %
 % DESCRIPTION:
-% Calculates the helmholtzenergy for a given thermodynamic system
+% Calculates the viscosity for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % The output is system viscosity, gas viscosity, liquid viscosity
 % and the number of phases.
@@ -22,7 +22,7 @@ function S = viscosity(thermoSystem,t,p)
 % EXAMPLE:
 % nargout = viscosity(thermoSystem,t,p);
 
-narginchk(1,3;
+narginchk(1,3);
 
 if nargin > 2
     thermoSystem.setPressure(p);

@@ -1,5 +1,5 @@
 function S = enthalpy(thermoSystem,t,p)
-% Summary description
+% Calculates the enthalpy for a given thermodynamic system
 % function S = enthalpy(thermoSystem,t,p)
 %
 % INPUT:
@@ -13,17 +13,15 @@ function S = enthalpy(thermoSystem,t,p)
 %  - S      - Desc
 %
 % DESCRIPTION:
-%
-%
-% EXAMPLE:
-% S = enthalpy(thermoSystem,t,p);
-
 % Calculates the enthalpy for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % THe output is total molar enthalpy, gas molar enthalpy, liquid molar enthalpy
 % and the number of phases.
 %
 % Even Solbraa, 2001.
+%
+% EXAMPLE:
+% S = enthalpy(thermoSystem,t,p);
 
 if (nargin >= 3)
     thermoSystem.setPressure(p);

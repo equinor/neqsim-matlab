@@ -1,5 +1,5 @@
 function S = conductivity(thermoSystem,t,p)
-% Summary description
+% Calculates the conductivity for a given thermodynamic system
 % function S = conductivity(thermoSystem,t,p)
 %
 % INPUT:

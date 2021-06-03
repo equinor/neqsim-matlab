@@ -1,4 +1,3 @@
-
 pathNeqSim();
 
 % Maureen Mariner Composition
