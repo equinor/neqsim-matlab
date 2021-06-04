@@ -41,14 +41,14 @@ wellStreamSeparator = separator(fieldWellStream);
 % Todo: fails when calling setEntrainment
 
 % Set fraction of gas/oil/water to be entrained in gas/oil/water
-wellStreamSeparator.setEntrainment(0.05,'','oil','gas');
-wellStreamSeparator.setEntrainment(0.01,"","aqueous","gas");
+wellStreamSeparator.setEntrainment(0.05,'mole','','oil','gas');
+wellStreamSeparator.setEntrainment(0.01,'mole','','aqueous','gas');
 % Set fraction of gas and water to be entrained in oil
-wellStreamSeparator.setEntrainment(0.001,"","gas","oil");
-wellStreamSeparator.setEntrainment(0.001,"","aqueous","oil");
+wellStreamSeparator.setEntrainment(0.001,'mole','','gas','oil');
+wellStreamSeparator.setEntrainment(0.001,'mole','','aqueous','oil');
 % Set fraction of gas and oil to be entrained in aqueous
-wellStreamSeparator.setEntrainment(0.001,"","gas","aqueous");
-wellStreamSeparator.setEntrainment(0.01,"","oil","aqueous");
+wellStreamSeparator.setEntrainment(0.001,'mole','','gas','aqueous');
+wellStreamSeparator.setEntrainment(0.01,'mole','','oil','aqueous');
 
 % Creating the gas, oil and water streams from the separator
 separatedGasStream = stream(wellStreamSeparator.getGasOutStream());
