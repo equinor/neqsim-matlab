@@ -1,9 +1,9 @@
-function molefractioncontroller = molefractioncontroller(teststream,name)
+function molefractioncontroller = molefractioncontroller(stream,name)
 % Summary description
-% function molefractioncontroller = molefractioncontroller(teststream,name)
+% function molefractioncontroller = molefractioncontroller(stream,name)
 %
 % INPUT:
-%  - teststream             - Desc
+%  - stream - ProcessEquipment stream object
 %  - name                   - Desc
 %
 % OUTPUT:
@@ -13,13 +13,13 @@ function molefractioncontroller = molefractioncontroller(teststream,name)
 %
 %
 % EXAMPLE:
-% molefractioncontroller = molefractioncontroller(teststream,name);
+% molefractioncontroller1 = molefractioncontroller(teststream,name);
+narginchk(1,2);
 
 global processOperations
-
 pathNeqSim();
 
-molefractioncontroller = neqsim.processSimulation.controllerDevice.MoleFractionControllerUtil(teststream);
+molefractioncontroller = neqsim.processSimulation.controllerDevice.MoleFractionControllerUtil(stream);
 if nargin > 1
     molefractioncontroller.setName(name);
 end

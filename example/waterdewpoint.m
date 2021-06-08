@@ -21,7 +21,7 @@ inStream = stream(system1,'teststream');
 numPoints = 15;
 temperature = zeros(numPoints,1);
 ppmwater = zeros(numPoints,1);
-for i = 1:15
+for i = 15:-1:1
     system1.addComponent('water',10e-6);
     %inStream.getSolidFormationTemperature('hydrate'); %use names hydrate or water
     dewt(system1); % use this function to calculate liquid water dewpoint

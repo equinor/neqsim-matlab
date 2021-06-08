@@ -1,12 +1,12 @@
-function pathNeqSim(baseFol)
+function pathNeqSim()
+% Add neqsim functions and jar to path
+% function pathNeqSim()
 % Add NeqSim funtions to path, setup database and call resetProcessOperations
-% function pathNeqSim(baseFol)
-%
-% OPTIONAL INPUT:
 %  - baseFol - Overwrite Neqsim base folder.
 %
 % DESCRIPTION:
-% Add NeqSim jar to path, setup database and call resetProcessOperations
+% Add neqsim jar file to dynamic classpath and matlab neqsim lib functions
+% to matlab path
 
 appDataName = 'NeqSimLoaded';
 if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
@@ -17,6 +17,8 @@ if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
     end
     addpath(baseFol);
     addpath(fullfile(baseFol,'lib'));
+    
+    addpath(fullfile(fileparts(mfilename('fullpath')),'lib'));
     
     librarypath = fullfile(baseFol,'ext');
     
@@ -35,3 +37,4 @@ if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
     
     resetProcessOperations();
 end
+resetProcessOperations();

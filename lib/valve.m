@@ -1,30 +1,29 @@
-function valve = valve(teststream,p,name)
-% Summary description
-% function valve = valve(teststream,p,name)
+function valve = valve(stream,p,name)
+% Create 
+% function valve = valve(stream,p,name)
 %
 % INPUT:
-%  - teststream - Desc
-%  - p          - Valve outlet pressure
+%  - stream - ProcessEquipment stream object
+%  - p      - Valve outlet pressure
 %
 % OPTIONAL INPUT:
-%  - name       - Desc
+%  - name   - Desc
 %
 % OUTPUT:
-%  - valve      - Desc
+%  - valve  - Desc
 %
 % DESCRIPTION:
 %
 %
 % EXAMPLE:
-% valve = valve(teststream,p,name);
+% valve1 = valve(stream1,p,name);
 
 narginchk(2,3);
 
 global processOperations
-
 pathNeqSim();
 
-valve = neqsim.processSimulation.processEquipment.valve.ThrottlingValve(teststream);
+valve = neqsim.processSimulation.processEquipment.valve.ThrottlingValve(stream);
 valve.setOutletPressure(p);
 if nargin > 2
     valve.setName(name);

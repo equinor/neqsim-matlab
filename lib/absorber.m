@@ -1,5 +1,5 @@
 function absorber = absorber(name)
-% Summary description
+% Create processEquipment absorber
 % function absorber = absorber(name)
 %
 % OPTIONAL INPUT:
@@ -9,10 +9,10 @@ function absorber = absorber(name)
 %  - absorber - Desc
 %
 % DESCRIPTION:
-%
+% Create processEquipment absorber
 %
 % EXAMPLE:
-% absorber = absorber(name);
+% absorber_1 = absorber(name);
 
 global processOperations
 pathNeqSim();

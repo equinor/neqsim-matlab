@@ -1,18 +1,17 @@
 function p = bubt(thermoSystem,t)
-% Summary description
+% Get pressure of thermoSystem after bubble point temperature flash
 % function p = bubt(thermoSystem,t)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system
 %
 % OPTIONAL INPUT:
-%  - t          - Desc
-%
+%  - t            - Temperature. Defaults to thermoSystem temperature%
 % OUTPUT:
-%  - p          - Desc
+%  - p            - Desc
 %
 % DESCRIPTION:
-%
+% Get pressure of thermoSystem after bubble point temperature flash
 %
 % EXAMPLE:
 % p = bubt(thermoSystem,t);
@@ -27,5 +26,5 @@ end
 
 testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
 testFlash.bubblePointTemperatureFlash();
-clear testFlash;
 p = thermoSystem.getPressure();
+clear testFlash;

@@ -6,32 +6,35 @@ function stream = stream(thermoSystem,name,t,p)
 %  - thermoSystem - Thermodynamic system
 %
 % OPTIONAL INPUT:
-%  - name       - Desc
-%  - t          - Desc
-%  - p          - Desc
+%  - name       - Name of stream
+%  - t          - Set temperature of thermoSystem
+%  - p          - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - stream     - Desc
+%  - stream     - Java Stream object
 %
 % DESCRIPTION:
-%
+% Create processEquipment stream.
+% Streams are used when creating other processEquipment objects
 %
 % EXAMPLE:
-% stream = stream(thermoSystem,name,t,p);
+% stream_1 = stream(thermoSystem,name,t,p);
 
 narginchk(1,3);
 
 global processOperations
-
 pathNeqSim();
+
 if nargin > 3
     thermoSystem.setPressure(p);
 end
 if nargin > 2
     thermoSystem.setTemperature(t);
 end
+
 stream = neqsim.processSimulation.processEquipment.stream.Stream(thermoSystem);
 if nargin > 1
     stream.setName(name);
 end
+
 processOperations.add(stream);
