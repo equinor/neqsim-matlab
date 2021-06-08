@@ -18,6 +18,8 @@ function system = thermo(eosname,t,p)
 
 narginchk(0,3);
 
+pathNeqSim();
+
 if nargin < 1
     eosname = 'srk';
     %     disp('No method specified. Using default method : SRK-EOS')
