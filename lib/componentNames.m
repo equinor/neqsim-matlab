@@ -12,5 +12,4 @@ narginchk(0,0);
 
 pathNeqSim();
 
-% neqsim.util.database.NeqSimDataBase.NeqSimDataBase();
 components = cellstr(neqsim.util.database.NeqSimDataBase.getComponentNames());
