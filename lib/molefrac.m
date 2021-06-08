@@ -3,15 +3,15 @@ function S = molefrac(thermoSystem,n,t,p)
 % function S = molefrac(thermoSystem,n,t,p)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %  - n            - Desc
 %
 % OPTIONAL INPUT:
-%  - t            - Desc
-%  - p            - Desc
+%  - t            - Set temperature of thermoSystem
+%  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - nargout      - Desc
+%  - S            - Output array
 %
 % DESCRIPTION:
 % Calculates the molefraction of component n in a phase for a given thermodynamic system
@@ -32,7 +32,9 @@ if nargin > 2
     TPflash(thermoSystem,0);
 end
 thermoSystem.init(2);
-S(1) = thermoSystem.getPhase(0).getComponent(n).getz;
+
+S(4) = thermoSystem.getNumberOfPhases();
+S(1) = thermoSystem.getPhase(0).getComponent(n).getz();
 if thermoSystem.getNumberOfPhases == 1
     if thermoSystem.getPhase(0).getPhaseType == 1
         S(2) = thermoSystem.getPhase(0).getComponent(n).getx;
@@ -45,4 +47,3 @@ else
     S(2) = thermoSystem.getPhase(0).getComponent(n).getx;
     S(3) = thermoSystem.getPhase(1).getComponent(n).getx;
 end
-S(4) = thermoSystem.getNumberOfPhases;

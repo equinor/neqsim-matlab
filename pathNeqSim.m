@@ -10,13 +10,7 @@ function pathNeqSim()
 
 appDataName = 'NeqSimLoaded';
 if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
-    if ~exist('baseFol','var') || isempty(baseFol)
-        baseFol = fileparts(mfilename('fullpath'));
-    elseif ~isfolder(baseFol)
-        error('Input baseFol does not exist');
-    end
-    addpath(baseFol);
-    addpath(fullfile(baseFol,'lib'));
+    baseFol = fileparts(mfilename('fullpath'));
     
     addpath(fullfile(fileparts(mfilename('fullpath')),'lib'));
     

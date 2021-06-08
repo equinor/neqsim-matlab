@@ -1,5 +1,5 @@
 function valve = valve(stream,p,name)
-% Create 
+% Create processEquipment ThrottlingValve
 % function valve = valve(stream,p,name)
 %
 % INPUT:
@@ -7,13 +7,13 @@ function valve = valve(stream,p,name)
 %  - p      - Valve outlet pressure
 %
 % OPTIONAL INPUT:
-%  - name   - Desc
+%  - name   - Name of valve
 %
 % OUTPUT:
-%  - valve  - Desc
+%  - valve  - ThrottlingValve object
 %
 % DESCRIPTION:
-%
+% Create processEquipment ThrottlingValve
 %
 % EXAMPLE:
 % valve1 = valve(stream1,p,name);

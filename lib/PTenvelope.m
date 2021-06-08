@@ -6,7 +6,7 @@ function testFlash = PTenvelope(thermoSystem,display)
 %  - thermoSystem - Thermodynamic system
 %
 % OPTIONAL INPUT:
-%  - display - 
+%  - display      - Set true to show result. Defaults to false.
 %
 % OUTPUT:
 %  - testFlash  - Desc

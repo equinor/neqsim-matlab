@@ -31,22 +31,22 @@ end
 
 if nargin > 2
     if size(temp) == 1
-        temp1 = linspace(temp,temp,numb);
+        temp1 = repmat(temp,1,numb);
     else
         temp1 = temp;
     end
 else
-    temp1 = linspace(298.15,298.15,numb);
+    temp1 = repmat(298.15,1,numb);
 end
 
 if nargin > 3
     if size(pres) == 1
-        pres1 = linspace(pres,pres,numb);
+        pres1 = repmat(pres,1,numb);
     else
         pres1 = pres;
     end
 else
-    pres1 = linspace(1.0,1.0,numb);
+    pres1 = repmat(1.0,1,numb);
 end
 
 for m = 1:numb

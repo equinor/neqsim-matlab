@@ -4,10 +4,10 @@ function thermoSystem = PSflash(thermoSystem,entropy,display)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system
-%  - entropy    - Desc
+%  - entropy      - Desc
 %
 % OPTIONAL INPUT:
-%  - display    - Desc
+%  - display      - Set true to show result. Defaults to false.
 %
 % OUTPUT:
 %  - thermoSystem - Desc

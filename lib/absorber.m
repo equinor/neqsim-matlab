@@ -3,16 +3,18 @@ function absorber = absorber(name)
 % function absorber = absorber(name)
 %
 % OPTIONAL INPUT:
-%  - name     - Desc
+%  - name     - Name of absorber
 %
 % OUTPUT:
-%  - absorber - Desc
+%  - absorber - SimpleTEGAbsorber object
 %
 % DESCRIPTION:
 % Create processEquipment absorber
 %
 % EXAMPLE:
 % absorber_1 = absorber(name);
+
+narginchk(0,1);
 
 global processOperations
 pathNeqSim();

@@ -3,11 +3,14 @@ function S = density(thermoSystem,t,p)
 % function S = density(thermoSystem,t,p)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - t
-%  - p
+%  - t            - Set temperature of thermoSystem
+%  - p            - Set pressure of thermoSystem
+%
+% OUTPUT:
+%  - S            - Output array
 %
 % DESCRIPTION:
 % Calculates the density for a given thermodynamic system
@@ -28,17 +31,18 @@ if nargin > 1
     TPflash(thermoSystem,0);
 end
 thermoSystem.init(2);
+
+S(4) = thermoSystem.getNumberOfPhases();
 S(1) = thermoSystem.getDensity;
-if (thermoSystem.getNumberOfPhases == 1)
-    if (thermoSystem.getPhase(0).getPhaseType == 1)
-        S(2) = thermoSystem.getPhase(0).getDensity;
+if thermoSystem.getNumberOfPhases == 1
+    if thermoSystem.getPhase(0).getPhaseType == 1
+        S(2) = thermoSystem.getPhase(0).getDensity();
         S(3) = 0;
     else
-        S(3) = thermoSystem.getPhase(0).getDensity;
+        S(3) = thermoSystem.getPhase(0).getDensity();
         S(2) = 0;
     end
 else
-    S(2) = thermoSystem.getPhase(0).getDensity;
-    S(3) = thermoSystem.getPhase(1).getDensity;
+    S(2) = thermoSystem.getPhase(0).getDensity();
+    S(3) = thermoSystem.getPhase(1).getDensity();
 end
-S(4) = thermoSystem.getNumberOfPhases;

@@ -3,20 +3,20 @@ function compressor = compressor(stream,p,name)
 % function compressor = compressor(stream,p,name)
 %
 % INPUT:
-%  - stream - ProcessEquipment stream object
-%  - p
+%  - stream     - ProcessEquipment stream object
+%  - p          - Outlet pressure of compressor
 %
 % OPTIONAL INPUT:
-%  - name
+%  - name       - Name of compressor
 %
 % OUTPUT:
-%  - compressor
+%  - compressor - Compressor object
 %
 % DESCRIPTION:
-%
+% Create processEquipment compressor
 % 
 % EXAMPLE:
-% compressor1 = compressor(stream,p,name)
+% compressor1 = compressor(stream1,p,name)
 
 narginchk(2,3);
 
@@ -28,5 +28,4 @@ compressor.setOutletPressure(p);
 if nargin > 2
     compressor.setName(name);
 end
-
 processOperations.add(compressor);

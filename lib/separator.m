@@ -3,11 +3,11 @@ function separator = separator(stream,name)
 % function separator = separator(stream,name)
 %
 % INPUT:
-%  - stream - ProcessEquipment stream object
-%  - name       - Desc
+%  - stream    - ProcessEquipment stream object
+%  - name      - Name of separator
 %
 % OUTPUT:
-%  - separator  - Desc
+%  - separator - Separator object
 %
 % DESCRIPTION:
 % Create processEquipment separator

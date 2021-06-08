@@ -6,11 +6,11 @@ function S = conductivity(thermoSystem,t,p)
 %  - thermoSystem - Thermodynamic system
 %
 % OPTIONAL INPUT:
-%  - t            - Desc
-%  - p            - Desc
+%  - t            - Set temperature of thermoSystem
+%  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - S      - Desc
+%  - S            - Output array
 %
 % DESCRIPTION:
 % Calculates the conductivity for a given thermodynamic system
@@ -32,6 +32,8 @@ if nargin > 1
 end
 thermoSystem.init(2);
 thermoSystem.initPhysicalProperties();
+
+S(4) = thermoSystem.getNumberOfPhases();
 S(1) = thermoSystem.getConductivity();
 if (thermoSystem.getNumberOfPhases == 1)
     if (thermoSystem.getPhase(0).getPhaseType == 1)
@@ -44,6 +46,4 @@ if (thermoSystem.getNumberOfPhases == 1)
 else
     S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getConductivity;
     S(3) = thermoSystem.getPhase(1).getPhysicalProperties.getConductivity;
-end
-S(4) = thermoSystem.getNumberOfPhases;
 end

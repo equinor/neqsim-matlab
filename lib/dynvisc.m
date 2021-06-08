@@ -3,12 +3,14 @@ function S = dynvisc(thermoSystem,t,p)
 % function S = dynvisc(thermoSystem,t,p)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
-%  - t            - Desc
-%  - p            - Desc
+%  - thermoSystem - Thermodynamic system object
+%
+% OPTIONAL INPUT:
+%  - t            - Set temperature of thermoSystem
+%  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - S      - Desc
+%  - S            - Output array
 %
 % DESCRIPTION:
 % Calculates the dynamic viscosity for a given thermodynamic system
@@ -29,18 +31,19 @@ if nargin > 1
     TPflash(thermoSystem,0);
 end
 thermoSystem.init(2);
-thermoSystem.initPhysicalProperties;
-S(1) = thermoSystem.getViscosity;
+thermoSystem.initPhysicalProperties();
+
+S(4) = thermoSystem.getNumberOfPhases();
+S(1) = thermoSystem.getViscosity();
 if (thermoSystem.getNumberOfPhases == 1)
     if (thermoSystem.getPhase(0).getPhaseType == 1)
-        S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getViscosity;
+        S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getViscosity();
         S(3) = 0;
     else
-        S(3) = thermoSystem.getPhase(0).getPhysicalProperties.getViscosity;
+        S(3) = thermoSystem.getPhase(0).getPhysicalProperties.getViscosity();
         S(2) = 0;
     end
 else
-    S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getViscosity;
-    S(3) = thermoSystem.getPhase(1).getPhysicalProperties.getViscosity;
+    S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getViscosity();
+    S(3) = thermoSystem.getPhase(1).getPhysicalProperties.getViscosity();
 end
-S(4) = thermoSystem.getNumberOfPhases;

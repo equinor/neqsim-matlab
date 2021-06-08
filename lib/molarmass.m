@@ -3,14 +3,14 @@ function S = molarmass(thermoSystem,t,p)
 % function S = molarmass(thermoSystem,t,p)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - t            - Desc
-%  - p            - Desc
+%  - t            - Set temperature of thermoSystem
+%  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - nargout      - Desc
+%  - S            - Output array
 %
 % DESCRIPTION:
 % Calculates the molar mass for a given thermodynamic system
@@ -33,17 +33,18 @@ if nargin > 1
     TPflash(thermoSystem,0);
 end
 thermoSystem.init(2);
+
+S(4) = thermoSystem.getNumberOfPhases;
 S(1) = thermoSystem.getMolarMass;
 if (thermoSystem.getNumberOfPhases == 1)
     if (thermoSystem.getPhase(0).getPhaseType == 1)
-        S(2) = thermoSystem.getPhase(0).getMolarMass;
+        S(2) = thermoSystem.getPhase(0).getMolarMass();
         S(3) = 0;
     else
-        S(3) = thermoSystem.getPhase(0).getMolarMass;
+        S(3) = thermoSystem.getPhase(0).getMolarMass();
         S(2) = 0;
     end
 else
-    S(2) = thermoSystem.getPhase(0).getMolarMass;
-    S(3) = thermoSystem.getPhase(1).getMolarMass;
+    S(2) = thermoSystem.getPhase(0).getMolarMass();
+    S(3) = thermoSystem.getPhase(1).getMolarMass();
 end
-S(4) = thermoSystem.getNumberOfPhases;

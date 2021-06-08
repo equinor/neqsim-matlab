@@ -1,16 +1,16 @@
 function S = Z(thermoSystem,t,p)
-%
+% Get kinematic viscosity of thermoSystem
 % function S = Z(thermoSystem,t,p)
 %
 % INPUT:
-%  - thermoSystem
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - t
-%  - p
+%  - t            - Set temperature of thermoSystem
+%  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - S
+%  - S            - Output array
 %
 % DESCRIPTION:
 % Calculates the kinematic viscosity for a given thermodyanmic system
@@ -31,8 +31,8 @@ end
 thermoSystem.init(2);
 S(4) = thermoSystem.getNumberOfPhases();
 S(1) = thermoSystem.getZ();
-if (thermoSystem.getNumberOfPhases == 1)
-    if (thermoSystem.getPhase(0).getPhaseType == 1)
+if thermoSystem.getNumberOfPhases == 1
+    if thermoSystem.getPhase(0).getPhaseType == 1
         S(2) = thermoSystem.getPhase(0).getZ();
         S(3) = 0;
     else

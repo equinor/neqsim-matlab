@@ -1,15 +1,12 @@
 function show(thermoSystem)
-% Summary description
+% Show summary table of thermoSystem
 % function show(thermoSystem)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system
 %
-% OUTPUT:
-%  -  - Desc
-%
 % DESCRIPTION:
-%
+% Show summary table of thermoSystem
 %
 % EXAMPLE:
 % show(thermoSystem);

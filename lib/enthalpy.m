@@ -3,14 +3,14 @@ function S = enthalpy(thermoSystem,t,p)
 % function S = enthalpy(thermoSystem,t,p)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - t            - Desc
-%  - p            - Desc
+%  - t            - Set temperature of thermoSystem
+%  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - S      - Desc
+%  - S            - Output array
 %
 % DESCRIPTION:
 % Calculates the enthalpy for a given thermodynamic system
@@ -31,6 +31,8 @@ if (nargin >= 2)
     TPflash(thermoSystem,0);
 end
 thermoSystem.init(3);
+
+S(4) = thermoSystem.getNumberOfPhases();
 S(1) = thermoSystem.getEnthalpy/thermoSystem.getNumberOfMoles;
 if (thermoSystem.getNumberOfPhases == 1)
     if (thermoSystem.getPhase(0).getPhaseType == 1)
@@ -44,4 +46,3 @@ else
     S(2) = thermoSystem.getPhase(0).getEnthalpy/thermoSystem.getPhase(0).getNumberOfMolesInPhase;
     S(3) = thermoSystem.getPhase(1).getEnthalpy/thermoSystem.getPhase(1).getNumberOfMolesInPhase;
 end
-S(4) = thermoSystem.getNumberOfPhases;

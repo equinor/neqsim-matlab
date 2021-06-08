@@ -3,14 +3,14 @@ function S = kinvisc(thermoSystem,t,p)
 % function S = kinvisc(thermoSystem,t,p)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - t            - Desc
-%  - p            - Desc
+%  - t            - Set temperature of thermoSystem
+%  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - S      - Desc
+%  - S            - Output array
 %
 % DESCRIPTION:
 % Calculates the kinematic viscosity for a given thermodynamic system
@@ -31,18 +31,19 @@ if nargin > 1
     TPflash(thermoSystem,0);
 end
 thermoSystem.init(2);
-thermoSystem.initPhysicalProperties;
-S(1) = thermoSystem.getKinematicViscosity;
-if (thermoSystem.getNumberOfPhases == 1)
-    if (thermoSystem.getPhase(0).getPhaseType == 1)
-        S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getKinematicViscosity;
+thermoSystem.initPhysicalProperties();
+
+S(4) = thermoSystem.getNumberOfPhases();
+S(1) = thermoSystem.getKinematicViscosity();
+if thermoSystem.getNumberOfPhases == 1
+    if thermoSystem.getPhase(0).getPhaseType == 1
+        S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getKinematicViscosity();
         S(3) = 0;
     else
-        S(3) = thermoSystem.getPhase(0).getPhysicalProperties.getKinematicViscosity;
+        S(3) = thermoSystem.getPhase(0).getPhysicalProperties.getKinematicViscosity();
         S(2) = 0;
     end
 else
-    S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getKinematicViscosity;
-    S(3) = thermoSystem.getPhase(1).getPhysicalProperties.getKinematicViscosity;
+    S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getKinematicViscosity();
+    S(3) = thermoSystem.getPhase(1).getPhysicalProperties.getKinematicViscosity();
 end
-S(4) = thermoSystem.getNumberOfPhases();

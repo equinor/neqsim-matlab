@@ -6,10 +6,10 @@ function t = waterdewt(thermoSystem,pressure)
 %  - thermoSystem - Thermodynamic system
 %
 % OPTIONAL INPUT:
-%  - pressure   - Thermosystem pressure
+%  - pressure     - Thermosystem pressure
 %
 % OUTPUT:
-%  - t          - Water dew point
+%  - t            - Water dew point
 %
 % DESCRIPTION:
 % Get water dew point temperature of a thermoSystem

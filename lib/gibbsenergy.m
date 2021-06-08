@@ -3,14 +3,14 @@ function S = gibbsenergy(thermoSystem,t,p)
 % function S = gibbsenergy(thermoSystem,t,p)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - t            - Desc
-%  - p            - Desc
+%  - t            - Set temperature of thermoSystem
+%  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - S      - Desc
+%  - S            - Output array
 %
 % DESCRIPTION:
 % Calculates the gibbsenergy for a given thermodynamic system
@@ -31,6 +31,8 @@ if nargin > 1
     TPflash(thermoSystem,0);
 end
 thermoSystem.init(2);
+
+S(4) = thermoSystem.getNumberOfPhases();
 S(1) = thermoSystem.getGibbsEnergy/thermoSystem.getNumberOfMoles;
 if (thermoSystem.getNumberOfPhases == 1)
     if (thermoSystem.getPhase(0).getPhaseType == 1)
@@ -44,4 +46,3 @@ else
     S(2) = thermoSystem.getPhase(0).getGibbsEnergy/thermoSystem.getPhase(0).getNumberOfMolesInPhase;
     S(3) = thermoSystem.getPhase(1).getGibbsEnergy/thermoSystem.getPhase(1).getNumberOfMolesInPhase;
 end
-S(4) = thermoSystem.getNumberOfPhases();

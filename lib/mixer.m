@@ -1,24 +1,25 @@
 function mixer = mixer(name)
-% Summary description
+% Create processEquipment mixer
 % function mixer = mixer(name)
 %
 % INPUT:
-%  - name  - Desc
+%  - name  - Name of mixer
 %
 % OUTPUT:
-%  - mixer - Desc
+%  - mixer - StaticMixer object
 %
 % DESCRIPTION:
-%
+% Create processEquipment mixer
 %
 % EXAMPLE:
 % mixer = mixer(name);
 
-global processOperations
+narginchk(0,1);
 
+global processOperations
 pathNeqSim();
 
-mixer = neqsim.processSimulation.processEquipment.mixer.StaticMixer;
+mixer = neqsim.processSimulation.processEquipment.mixer.StaticMixer();
 if nargin > 0
     mixer.setName(name);
 end

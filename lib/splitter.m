@@ -1,32 +1,33 @@
-function splitter1 = splitter(stream,numb,name)
+function splitter = splitter(stream,numb,name)
 % Create processEquipment splitter
-% function splitter1 = splitter(stream,numb,name)
+% function splitter = splitter(stream,numb,name)
 %
 % INPUT:
 %  - stream - ProcessEquipment stream object
 %
 % OPTIONAL INPUT:
-%  - numb       - Desc
-%  - name       - Desc
+%  - numb       - Number of splits
+%  - name       - Name of splitter
 %
 % OUTPUT:
-%  - splitter1  - Desc
+%  - splitter  - Splitter object
 %
 % DESCRIPTION:
 % Create processEquipment splitter
 %
 % EXAMPLE:
-% splitter1 = splitter(stream,numb,name);
+% splitter1 = splitter(stream1,numb,name);
+
+narginchk(1,3);
 
 global processOperations
 pathNeqSim();
 
-splitter1 = neqsim.processSimulation.processEquipment.splitter.Splitter(stream);
+splitter = neqsim.processSimulation.processEquipment.splitter.Splitter(stream);
 if nargin > 1
-    splitter1.setSplitNumber(numb)
+    splitter.setSplitNumber(numb)
 end
 if nargin > 2
-    splitter1.setName(name);
+    splitter.setName(name);
 end
-
-processOperations.add(splitter1);
+processOperations.add(splitter);
