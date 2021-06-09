@@ -20,6 +20,6 @@ mixer1.addStream(stream2);
 separator1 = separator(mixer1.getOutStream,'troll_separator');
 valve1 = valve(separator1.getGasOutStream,1.0,'troll_valve');
 
-processOperations.run
+runProcess();
 %processOperations.displayResult
 valve1.displayResult

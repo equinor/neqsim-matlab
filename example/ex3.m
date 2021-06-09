@@ -9,13 +9,13 @@ TPflash(test,0);
 
 entalpi = enthalpy(test);
 energi = energy(test);
-beta = Z(test)
-dvisk = dynvisc(test)
-gibbse = gibbsenergy(test)
-helmhe = helmholtzenergy(test)
-M = molarmass(test)
-entr = entropy(test)
-kinvisk = kinvisc(test)
-totmoles = moles(test)
-frac1 = molefrac(test,1)
-conduc = conductivity(test)
+beta = Z(test);
+dvisk = dynvisc(test);
+gibbse = gibbsenergy(test);
+helmhe = helmholtzenergy(test);
+M = molarmass(test);
+entr = entropy(test);
+kinvisk = kinvisc(test);
+totmoles = moles(test);
+frac1 = molefrac(test,1);
+conduc = conductivity(test);

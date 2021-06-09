@@ -6,14 +6,15 @@ P_bar = [1, 10, 100, 200, 1, 10, 100, 200, 1, 10, 100, 200];
 T_C = [15, 15, 15, 15, 30, 30, 30, 30, 150, 150, 150, 150];
 
 fluid = thermo('srk',298,10);
-for c = 1:components.length
+for c = 1:numel(components)
     fluid.addComponent(components(c),fractions1(c));
 end
 
 fluid.setMixingRule(2);
 fluid.setMultiPhaseCheck(1);
 
-enthalpy = zeros(1,12);
+% be careful not to overload (replace) functions with variables
+enthalpy_ = zeros(1,12);
 entropy = zeros(1,12);
 numberOfPhases = zeros(1,12);
 mixMolarVolume = zeros(1,12);
@@ -40,7 +41,6 @@ gasViscosity = zeros(1,12);
 gasThermalConductivity = zeros(1,12);
 gasSoundSpeed = zeros(1,12);
 gasJouleThomsonCoefficient = zeros(1,12);
-
 
 oilFractionc = zeros(1,12);
 oilMolarVolume = zeros(1,12);
@@ -77,7 +77,7 @@ for c = 1:size(P_bar,2)
     fluid.init(2);
     fluid.initPhysicalProperties();
     
-    enthalpy(c) = fluid.getEnthalpy();
+    enthalpy_(c) = fluid.getEnthalpy();
     entropy(c) = fluid.getEntropy();
     numberOfPhases(c) = fluid.getNumberOfPhases();
     mixMolarVolume(c) = 1.0/fluid.getDensity("mol/m3");
@@ -146,7 +146,7 @@ end
 errEnth = zeros(1,12);
 for c = 1:size(P_bar,2)
     fluid.setPressure(P_bar(c));
-    PHflash(fluid,enthalpy(1,c),0);
+    PHflash(fluid,enthalpy_(1,c),0);
     errEnth(c) = fluid.getTemperature() - 273.15 - T_C(c);
 end
 

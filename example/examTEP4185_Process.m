@@ -74,6 +74,9 @@ TEGabsorber.addGasInStream(gasProductHeater.getOutStream);
 TEGabsorber.addSolventInStream(TEGstream);
 TEGabsorber.setNumberOfStages(5);
 TEGabsorber.setStageEfficiency(0.5);
+% todo: Undefined function 'setWaterDewPointTemperature' for input
+% arguments of type
+% 'neqsim.processSimulation.processEquipment.absorber.SimpleTEGAbsorber'.
 TEGabsorber.setWaterDewPointTemperature(253.15,70.0);
 
 gasProductCooler2 = heatexchanger(TEGabsorber.getGasOutStream);

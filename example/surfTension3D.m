@@ -14,7 +14,9 @@ TPflash(system1,0);
 
 system1.initPhysicalProperties();
 
-% todo: this fails
+% todo: this fails MATLAB:UndefinedFunction: No method 'getSurfaceTension'
+% with matching signature found for
+% class'neqsim.physicalProperties.interfaceProperties.InterfaceProperties'.
 system1.getInterphaseProperties().getSurfaceTension(0);
 
 temperature = (-195 + 273.15):1.54:(200);

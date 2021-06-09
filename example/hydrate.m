@@ -27,6 +27,7 @@ system1.addComponent('water',100.0);
 % Setting up calculation methods (multiphase) and mixing rule (temperature dependent kij)
 system1.createDatabase(1);
 system1.setMultiPhaseCheck(0);
+% todo: MATLAB:Java:GenericException: Java exception occurred: java.lang.NullPointerException
 system1.setMixingRule(9);
 
 % % defining streams

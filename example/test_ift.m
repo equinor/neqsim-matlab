@@ -145,6 +145,7 @@ while (abs(err_den_2) > 1e-6)
     
     %find delta density 1  by using newton raphson to solve object function
     
+    % todo fails: den_inter1_new is not defined
     den_interface_1(j) = den1_inter_new; % den1_inter_new from newton raphson
     del_den_interface_1 = den_interface_1(j) - den_interface_1(j-1);
     

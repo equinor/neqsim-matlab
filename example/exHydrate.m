@@ -1,5 +1,7 @@
 pathNeqSim();
 
+resetProcessOperations();
+
 system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+28.0,135.0);
 system1.addComponent('CO2',2.251);
 system1.addComponent('nitrogen',0.55);
@@ -15,6 +17,7 @@ system1.addComponent('methanol',1e-10);
 system1.setMultiPhaseCheck(1);
 system1.createDatabase(1);
 system1.setMixingRule(9);
+% todo: Failed to solve for molarVolume within the iteration limit.
 saturateWithWater(system1);
 
 inStream = stream(system1,'Åsgard stream');
@@ -31,9 +34,9 @@ HPmixer.addStream(inStream);
 HPmixer.addStream(MeOHstream);
 
 choke = valve(HPmixer.getOutStream,132.0,'calc stream');
-outtream = choke.getOutStream;
+outstream = choke.getOutStream;
 
-processOperations.run
+runProcess();
 
-outtream.getHydrateEquilibriumTemperature;
-%outtream.displayResult
+outstream.getHydrateEquilibriumTemperature();
+%outstream.displayResult

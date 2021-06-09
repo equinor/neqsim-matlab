@@ -4,10 +4,10 @@ system1.addComponent('water',0.5);
 system1.createDatabase(1);
 system1.setMixingRule(8);
 
-num = xlsread('c:/prestemp.xls');
-[m,n] = size(num);
+num = reshape(magic(4),8,2);
+m = size(num);
 
-for n = 1:m
+for n = m:-1:1
     system1.setTemperature(273.15+num(n,1));
     system1.setPressure(num(n,2));
     TPflash(system1,0);

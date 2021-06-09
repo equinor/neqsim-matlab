@@ -70,7 +70,9 @@ for i = 1:310
         % plot density profile at interface
         j = j + 1;
         pressure(j) = pressure_ini + i*0.5;
-        % todo: this fails
+        % todo: this fails MATLAB:UndefinedFunction: No method
+        % 'getSurfaceTension' with matching signature found for class
+        % 'neqsim.physicalProperties.interfaceProperties.InterfaceProperties'.
         int_tension(j) = 1e3*system1.getInterphaseProperties().getSurfaceTension(0); %unit of interfacial tension mN\m
     else
         disp('only one phase');

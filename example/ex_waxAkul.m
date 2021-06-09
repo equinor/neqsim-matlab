@@ -69,7 +69,7 @@ system1.setPressure(5.0);
 % 	... 11 more
 %
 %
-% Error in ex_waxAkul (line 37)
+% Error in ex_waxAkul (line 74)
 % TPflash(system1,1);
 TPflash(system1,1);
 

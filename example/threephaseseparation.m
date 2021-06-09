@@ -36,9 +36,7 @@ fieldWellStream.setPressure(150.0,'bara');
 
 %Add a three phase separator taking the well stream as input. Set
 %separation efficiency
-wellStreamSeparator = separator(fieldWellStream);
-
-% Todo: fails when calling setEntrainment
+wellStreamSeparator = separator(fieldWellStream,'sep');
 
 % Set fraction of gas/oil/water to be entrained in gas/oil/water
 wellStreamSeparator.setEntrainment(0.05,'mole','','oil','gas');

@@ -132,8 +132,9 @@ while (abs(err_den_2) > 1e-6)
     %use newton rapson method to find new density of component 1 at interface
     del_den_err = 1.d0;
     den1_inter_old = den_interface_1(j);
-    pre_inter_old = 1e5*system2.getPhase(0).getPressure();
+    pre_inter_old = 1e5*system2.getPhase(0).getPressure(); % should be system(j) not system2?
     
+    % todo: system_newton is not defined before use
     %   system_newton= SystemSrkEos(310.95,108.000);
     %   system_newton.addComponent('methane',  den_interface_1(j-1)/1e5);
     %   system_newton.addComponent('n-butane', den_vap_ref/1e5+j*del_den_2/1e5);
@@ -161,7 +162,7 @@ while (abs(err_den_2) > 1e-6)
             dpdn(i) = -dmudv(i);
         end
         
-        pre_inter_new = 1e5*system_newton.getPhase(0).getPressure(); %perhaps it is pascal here
+        pre_inter_new = 1e5*system_newton.getPhase(0).getPressure(); % perhaps it is pascal here
         dpdv = 1e10*system_newton.getPhase(0).getdPdVTn(); %perhaps dpdv= - system2.getPhase(0).getdPdTVn()
         
         dn1dv = (pre_inter_new - pre_inter_old) - ((dpdv) + dpdn(2)*den_ref(j))/dpdn(1);
