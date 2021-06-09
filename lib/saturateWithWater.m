@@ -1,20 +1,16 @@
-function p = saturateWithWater(thermoSystem)
-% Summary description
+function saturateWithWater(thermoSystem)
+% Saturate thermoSystem with water
 % function p = saturateWithWater(thermoSystem)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system
 %
-% OUTPUT:
-%  - p          - Desc
-%
 % DESCRIPTION:
-%
+% Saturate thermoSystem with water
 %
 % EXAMPLE:
-% p = saturateWithWater(thermoSystem);
+% saturateWithWater(thermoSystem);
 
 testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
 testFlash.saturateWithWater();
-p = testFlash.getPressure();
-clear testFlash;
+% clear testFlash;
