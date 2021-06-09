@@ -1,11 +1,18 @@
 function pathNeqSim()
-% Add neqsim functions and jar to path
+% Add neqsim functions and jar to path, initialize processOperations object
 % function pathNeqSim()
 % Add NeqSim funtions to path, setup database and call resetProcessOperations
 %
 % DESCRIPTION:
 % Add neqsim jar file to dynamic classpath and matlab neqsim lib functions
-% to matlab path
+% to matlab path.
+% Initialize processOperations object 
+
+global processOperations
+
+if isempty(processOperations)
+    processOperations = neqsim.processSimulation.processSystem.ProcessSystem;
+end
 
 appDataName = 'NeqSimLoaded';
 if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
