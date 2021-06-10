@@ -51,4 +51,4 @@
 %   valve                  - Create processEquipment ThrottlingValve
 %   viscosity              - Calculates the viscosity for a given thermodynamic system
 %   waterdewt              - Get water dew point temperature of a thermoSystem
-%   Z                      - Calculates the compressibility for a given thermodyanmic system
+%   Z                      - Calculates the compressibility for a given thermodynamic system

@@ -1,5 +1,5 @@
 function S = Z(thermoSystem,t,p)
-% Calculates the compressibility for a given thermodyanmic system
+% Calculates the compressibility for a given thermodynamic system
 % function S = Z(thermoSystem,t,p)
 %
 % INPUT:
@@ -13,7 +13,7 @@ function S = Z(thermoSystem,t,p)
 %  - S            - Output array
 %
 % DESCRIPTION:
-% Calculates the compressibility for a given thermodyanmic system
+% Calculates the compressibility for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
 % The output is mix compressibility, gas phase compressibility,
 % liquid phase compressibility and the number of phases.
