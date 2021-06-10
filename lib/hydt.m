@@ -6,7 +6,7 @@ function t = hydt(thermoSystem)
 %  - thermoSystem - Thermodynamic system object
 %
 % OUTPUT:
-%  - t          - Desc
+%  - t            - Set temperature of thermoSystem
 %
 % DESCRIPTION:
 %
