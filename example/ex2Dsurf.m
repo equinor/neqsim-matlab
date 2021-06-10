@@ -1,4 +1,4 @@
-test = neqsim.thermo.system.SystemSrkEos();
+test = thermo('srk');
 test.addComponent('methane',10.0);
 test.addComponent('n-heptane',12.0);
 test.addComponent('nC10',1.0);

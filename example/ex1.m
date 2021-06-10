@@ -1,9 +1,9 @@
-system1 = neqsim.thermo.system.SystemSrkEos(280,10);
+system1 = thermo('srk',280,10);
 system1.addComponent('methane',10.0);
 system1.addComponent('water',10.0);
 system1.setMixingRule(2);
 
-system2 = neqsim.thermo.system.SystemSrkEos(280,10);
+system2 = thermo('srk',280,10);
 system2.addComponent('methane',22.0);
 system2.addComponent('water',10.0);
 system2.setMixingRule(2);
