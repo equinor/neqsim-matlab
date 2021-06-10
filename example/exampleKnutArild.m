@@ -25,10 +25,7 @@ system1.setMixingRule(2);
 system1.setMultiPhaseCheck(1);
 %system1.initPhysicalProperties();
 
-% 14:10:42.887 [main] ERROR neqsim.thermo.phase.PhaseEos - Failed to solve for molarVolume within the iteration limit.
-show(system1);
 TPflash(system1,1);
-show(system1);
 bubp(system1);
 %system1.saveFluid(37);
 % BubP = thermodynamicOperations.flashOps.saturationOps.bubblePointPressureFlashDer(system1);

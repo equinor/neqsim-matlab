@@ -13,14 +13,14 @@
 %   dewp                   - Summary description
 %   dewt                   - Summary description
 %   dynvisc                - Calculates the dynamic viscosity for a given thermodynamic system
-%   energy                 - Calculates the internal energy for a given thermodynamic system
-%   enthalpy               - Calculates the enthalpy for a given thermodynamic system
-%   entropy                - Summary description
+%   energy                 - Calculates the molar internal energy for a given thermodynamic system
+%   enthalpy               - Calculates the molar enthalpy for a given thermodynamic system
+%   entropy                - Calculates the molar entropy for a given thermodynamic system
 %   flash                  - Run a flash calculation for a fluid
-%   fluid                  - Summary description
+%   fluid                  - Create NEQsim Fluid object
 %   freezt                 - Summary description
 %   gasscrubber            - Create processEquipment gasscrubber
-%   gibbsenergy            - Summary description
+%   gibbsenergy            - Calculates the molar gibbsenergy for a given thermodynamic system
 %   heatexchanger          - Summary description
 %   helmholtzenergy        - Calculates the helmholtzenergy for a given thermodynamic system
 %   hydt                   - Summary description
@@ -38,9 +38,10 @@
 %   resetProcessOperations - Reset global variable processOperations
 %   runProcess             - Run Process operation simulation
 %   saturateWithWater      - Saturate thermoSystem with water
-%   savefluid              - Save to file
+%   savefluid              - Save thermoSystem to file
 %   separator              - Create processEquipment separator
 %   show                   - Show summary table of NEQSIM object if available
+%   showProcess            - Show Process operation simulation result
 %   splitter               - Create processEquipment splitter
 %   stream                 - Create processEquipment stream
 %   thermo                 - Create thermoSystem
@@ -50,4 +51,4 @@
 %   valve                  - Create processEquipment ThrottlingValve
 %   viscosity              - Calculates the viscosity for a given thermodynamic system
 %   waterdewt              - Get water dew point temperature of a thermoSystem
-%   Z                      - Get kinematic viscosity of thermoSystem
+%   Z                      - Calculates the compressibility for a given thermodyanmic system

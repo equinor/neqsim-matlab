@@ -1,9 +1,9 @@
 function fluid = fluid(definedcomponents,oilcomponents)
-% Summary description
+% Create NEQsim Fluid object
 % function fluid = fluid(definedcomponents,oilcomponents)
 %
 % INPUT:
-%  - definedcomponents - Desc
+%  - definedcomponents - Array of struct with 
 %  - oilcomponents     - Desc
 %
 % OUTPUT:

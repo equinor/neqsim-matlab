@@ -1,5 +1,5 @@
 function S = Z(thermoSystem,t,p)
-% Get kinematic viscosity of thermoSystem
+% Calculates the compressibility for a given thermodyanmic system
 % function S = Z(thermoSystem,t,p)
 %
 % INPUT:
@@ -13,18 +13,23 @@ function S = Z(thermoSystem,t,p)
 %  - S            - Output array
 %
 % DESCRIPTION:
-% Calculates the kinematic viscosity for a given thermodyanmic system
+% Calculates the compressibility for a given thermodyanmic system
 % If temperature or pressure are specified - a TP flash is done.
-% The output is total molar kinematic viscosity, gas molar kinematic viscosity, 
-% liquid molar kinematic viscosity and the number of phases.
+% The output is mix compressibility, gas phase compressibility,
+% liquid phase compressibility and the number of phases.
 %
+% EXAMPLE:
+% S = Z(thermoSystem,t,p)
+
 % Even Solbraa, 2001.
-%
+
 if nargin > 2
     thermoSystem.setPressure(p);
 end
 if nargin > 1
-    thermoSystem.setTemperature(t);
+    if ~isempty(t)
+        thermoSystem.setTemperature(t);
+    end
     TPflash(thermoSystem,0);
 end
 
