@@ -7,6 +7,7 @@ function pathNeqSim()
 % Add neqsim jar file to dynamic classpath and matlab neqsim lib functions
 % to matlab path.
 % Initialize processOperations object 
+javaclasspath('/ext/NeqSim.jar');
 
 global processOperations
 

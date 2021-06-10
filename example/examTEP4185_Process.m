@@ -1,3 +1,4 @@
+global processOperations
 resetProcessOperations()
 
 system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+70.0,150.0);
@@ -77,7 +78,7 @@ TEGabsorber.setStageEfficiency(0.5);
 % todo: Undefined function 'setWaterDewPointTemperature' for input
 % arguments of type
 % 'neqsim.processSimulation.processEquipment.absorber.SimpleTEGAbsorber'.
-TEGabsorber.setWaterDewPointTemperature(253.15,70.0);
+%TEGabsorber.setWaterDewPointTemperature(253.15,70.0);
 
 gasProductCooler2 = heatexchanger(TEGabsorber.getGasOutStream);
 gasProductCooler2.setdT(-5.0);

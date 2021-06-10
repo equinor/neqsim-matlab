@@ -1,5 +1,3 @@
-pathNeqSim();
-
 % Maureen Mariner Composition
 system1 = neqsim.thermo.system.SystemSrkEos(309,280);
 system1.getCharacterization().setTBPModel('PedersenSRK');

@@ -1,5 +1,3 @@
-pathNeqSim();
-
 resetProcessOperations();
 
 system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+28.0,135.0);
