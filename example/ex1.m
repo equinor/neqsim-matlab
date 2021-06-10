@@ -1,3 +1,7 @@
+global processOperations
+
+resetProcessOperations();
+
 system1 = thermo('srk',280,10);
 system1.addComponent('methane',10.0);
 system1.addComponent('water',10.0);
@@ -19,5 +23,6 @@ separator1 = separator(mixer1.getOutStream,'troll_separator');
 valve1 = valve(separator1.getGasOutStream,1.0,'troll_valve');
 
 runProcess();
-%processOperations.displayResult
-valve1.displayResult
+
+show(processOperations)
+show(valve1)

@@ -5,10 +5,9 @@
 %   addfluids              - Summary description
 %   bubp                   - Get thermoSystem pressure after bubblepoint pressure flash
 %   bubt                   - Get pressure of thermoSystem after bubble point temperature flash
-%   componentNames         - Summary of this function goes here
+%   componentNames         - Get all components available in database
 %   compressor             - Create processEquipment compressor
 %   conductivity           - Calculates the conductivity for a given thermodynamic system
-%   Contents2              - Toolbox neqsim
 %   density                - Calculates the density for a given thermodynamic system
 %   densityGERG2008        - Calculates the density using GERG2008 for a given thermodynamic system
 %   dewp                   - Summary description
@@ -31,24 +30,24 @@
 %   molefrac               - Calculates the molefraction of component n in a phase for a given thermodynamic system
 %   molefractioncontroller - Create controllerDevice molefractioncontroller
 %   moles                  - Calculates the number of moles in phase for a given thermodynamic system
-%   PHflash                - Run PH flash
-%   PSflash                - Summary description
+%   PHflash                - Run PH (pressure, enthalpy) flash on thermoSystem
+%   PSflash                - Run PS (pressure, entropy) flash on thermoSystem
 %   PTenvelope             - Summary description
 %   reactionCheck          - Summary description
 %   readFluid              - Summary description
 %   resetProcessOperations - Reset global variable processOperations
 %   runProcess             - Run Process operation simulation
-%   saturateWithWater      - Summary description
+%   saturateWithWater      - Saturate thermoSystem with water
 %   savefluid              - Save to file
 %   separator              - Create processEquipment separator
-%   show                   - Show summary table of thermoSystem
+%   show                   - Show summary table of NEQSIM object if available
 %   splitter               - Create processEquipment splitter
 %   stream                 - Create processEquipment stream
-%   thermo                 - Summary description
+%   thermo                 - Create thermoSystem
 %   thermoArray            - Summary description
 %   TPflash                - Summary description
 %   TPSolidflash           - Summary description
 %   valve                  - Create processEquipment ThrottlingValve
 %   viscosity              - Calculates the viscosity for a given thermodynamic system
 %   waterdewt              - Get water dew point temperature of a thermoSystem
-%   Z                      - function S = Z(thermoSystem,t,p)
+%   Z                      - Get kinematic viscosity of thermoSystem
