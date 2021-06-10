@@ -1,12 +1,12 @@
-function t = waterdewt(thermoSystem,pressure)
+function t = waterdewt(thermoSystem,p)
 % Get water dew point temperature of a thermoSystem
-% function t = waterdewt(thermoSystem,pressure)
+% function t = waterdewt(thermoSystem,p)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - pressure     - Set thermoSystem pressure
+%  - p            - Set thermoSystem pressure
 %
 % OUTPUT:
 %  - t            - Water dew point
@@ -22,7 +22,7 @@ narginchk(1,2);
 pathNeqSim();
 
 if nargin > 1
-    thermoSystem.setPressure(pressure);
+    thermoSystem.setPressure(p);
 end
 thermoSystem.init(0)
 thermoSystem.init(1)

@@ -1,15 +1,15 @@
-function t = freezt(thermoSystem,pressure)
+function t = freezt(thermoSystem,p)
 % Summary description
-% function t = freezt(thermoSystem,pressure)
+% function t = freezt(thermoSystem,p)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - pressure   - Set pressure of thermoSystem
+%  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - t          - Desc
+%  - t            - Desc
 %
 % DESCRIPTION:
 %
@@ -20,7 +20,7 @@ function t = freezt(thermoSystem,pressure)
 pathNeqSim();
 
 if nargin > 2
-    thermoSystem.setPressure(pressure);
+    thermoSystem.setPressure(p);
 end
 thermoSystem.init(0)
 thermoSystem.init(1)
