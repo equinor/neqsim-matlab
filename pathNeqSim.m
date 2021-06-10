@@ -10,10 +10,6 @@ function pathNeqSim()
 
 global processOperations
 
-if isempty(processOperations)
-    processOperations = neqsim.processSimulation.processSystem.ProcessSystem;
-end
-
 appDataName = 'NeqSimLoaded';
 if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
     baseFol = fileparts(mfilename('fullpath'));
@@ -36,4 +32,8 @@ if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
     setappdata(0,appDataName,true);
     
     resetProcessOperations();
+end
+
+if isempty(processOperations)
+    processOperations = neqsim.processSimulation.processSystem.ProcessSystem;
 end
