@@ -1,6 +1,6 @@
 resetProcessOperations();
 
-system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+28.0,135.0);
+system1 = thermo('cpa',273.15+28.0,135.0);
 system1.addComponent('CO2',2.251);
 system1.addComponent('nitrogen',0.55);
 system1.addComponent('methane',65.799);
@@ -20,7 +20,7 @@ saturateWithWater(system1);
 
 inStream = stream(system1,'Åsgard stream');
 
-system2 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+28.0,135.0);
+system2 = thermo('cpa',273.15+28.0,135.0);
 system2.addComponent('methanol',1.67*system1.getPhase(0).getComponent('water').getNumberOfmoles());
 system2.setMultiPhaseCheck(1);
 system2.createDatabase(1);

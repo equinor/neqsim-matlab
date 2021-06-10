@@ -2,7 +2,7 @@ pressure = 100.0;
 temperatureGuess = 10.0; % cheched
 
 % Defining system of components
-system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+temperatureGuess,pressure);
+system1 = thermo('cpa',273.15+temperatureGuess,pressure);
 system1.addComponent('methane',40.72);
 system1.addComponent('ethane',2.41);
 system1.addComponent('propane',1.88);
@@ -20,16 +20,8 @@ system1.createDatabase(1);
 system1.setMixingRule(9);
 system1.setMultiPhaseCheck(1);
 system1.setHydrateCheck(1)
-% % defining streams
-% Error using hydrate (line 28)
-% Java exception occurred:
-% java.lang.NullPointerException
-%
-% 	at neqsim.thermo.system.SystemThermo.resetPhysicalProperties(SystemThermo.java:1795)
-%
-% 	at neqsim.thermo.system.SystemSrkEos.resetPhysicalProperties(SystemSrkEos.java:20)
-%
-% 	at neqsim.thermo.system.SystemThermo.setMixingRule(SystemThermo.java:1883)
+
+% defining streams
 inStream = stream(system1,'teststream');
 inStream.run()
 % calculatiing hydrate temperature of stream

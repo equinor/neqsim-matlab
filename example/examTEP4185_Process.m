@@ -1,7 +1,6 @@
-global processOperations
 resetProcessOperations()
 
-system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+70.0,150.0);
+system1 = thermo('cpa',273.15+70.0,150.0);
 system1.addComponent('methane',75.0);
 system1.addComponent('ethane',7.5);
 system1.addComponent('propane',4.0);
@@ -61,7 +60,7 @@ gasProductHeater.setdT(5.0);
 gasProductHeater.setName('Gas Product Heater');
 %gasProductStream = gasProductScrubber.getGasOutStream()
 
-system2 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+25.0,80.0);
+system2 = thermo('cpa',273.15+25.0,80.0);
 system2.addComponent('methane',1.0e-6);
 system2.addComponent('water',1.0e-4);
 system2.addComponent('TEG',4.0);
@@ -95,9 +94,7 @@ choke2 = valve(HP1cooler.getOutStream,110.0,'Kårstø choke');
 seaCooler2 = heatexchanger(choke2.getOutStream,278.15,'sea cooler');
 inletSeparator2 = separator(seaCooler2.getOutStream(),'Kårstø inlet_separator');
 
-processOperations.run
-processOperations.run
-processOperations.run
+runProcess();
 
 condensateProduct.displayResult
 HP1cooler.displayResult

@@ -2,7 +2,7 @@ global processOperations
 resetProcessOperations();
 
 % setting up feed fluid and thermodynamic model
-system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+16.0,50.0);
+system1 = thermo('cpa',273.15+16.0,50.0);
 system1.addComponent('CO2',0.0448);
 system1.addComponent('nitrogen',0.005);
 system1.addComponent('methane',0.7791);

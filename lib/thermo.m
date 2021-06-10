@@ -46,7 +46,9 @@ switch upper(eosname)
     case upper('umr')
         thermoSystem = neqsim.thermo.system.SystemUMRPRUMCEos(t,p);
     case upper('GERG2004')
-        thermoSystem = neqsim.thermo.system.SystemGERG2004Eos(t,p);
+        thermoSystem = neqsim.thermo.system.SystemGERG2004Eos(t,p); 
+    case upper('GERGwater')
+        thermoSystem = neqsim.thermo.system.SystemGERGwaterEos(t,p); 
     case upper('ScSrk')
         thermoSystem = neqsim.thermo.system.SystemSrkSchwartzentruberEos(t,p);
     case upper('electrolyte')
