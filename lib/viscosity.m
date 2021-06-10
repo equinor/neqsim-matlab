@@ -11,7 +11,7 @@ function S = viscosity(thermoSystem,t,p)
 %
 % OUTPUT:
 %  - S            - Array with system viscosity, gas viscosity, liquid viscosity
-% and the number of phases.
+%                   and the number of phases.
 %
 % DESCRIPTION:
 % Calculates the viscosity for a given thermodynamic system

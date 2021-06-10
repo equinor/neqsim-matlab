@@ -3,10 +3,10 @@ function t = freezt(thermoSystem,pressure)
 % function t = freezt(thermoSystem,pressure)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - pressure   - Desc
+%  - pressure   - Set pressure of thermoSystem
 %
 % OUTPUT:
 %  - t          - Desc

@@ -3,11 +3,8 @@ function savefluid(thermoSystem,filepath)
 % function  = savefluid(thermoSystem,filepath)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
-%  - filepath     - Desc
-%
-% OUTPUT:
-%  -  - Desc
+%  - thermoSystem - Thermodynamic system object
+%  - filepath     - Filepath to store fluid at
 %
 % DESCRIPTION:
 %

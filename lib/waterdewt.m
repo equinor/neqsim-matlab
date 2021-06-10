@@ -3,7 +3,7 @@ function t = waterdewt(thermoSystem,pressure)
 % function t = waterdewt(thermoSystem,pressure)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
 %  - pressure     - Thermosystem pressure

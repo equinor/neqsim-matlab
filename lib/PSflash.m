@@ -1,19 +1,19 @@
 function thermoSystem = PSflash(thermoSystem,entropy,display)
-% Summary description
+% Run PS (pressure, entropy) flash on thermoSystem
 % function thermoSystem = PSflash(thermoSystem,entropy,display)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
-%  - entropy      - Desc
+%  - thermoSystem - Thermodynamic system object
+%  - entropy      - Entropy to use in flash
 %
 % OPTIONAL INPUT:
 %  - display      - Set true to show result. Defaults to false.
 %
 % OUTPUT:
-%  - thermoSystem - Desc
+%  - thermoSystem - Thermodynamic system object
 %
 % DESCRIPTION:
-%
+% Run PS (pressure, entropy) flash on thermoSystem
 %
 % EXAMPLE:
 % thermoSystem = PSflash(thermoSystem,entropy,display);

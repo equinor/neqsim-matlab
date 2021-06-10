@@ -3,7 +3,7 @@ function thermoSystem = TPSolidflash(thermoSystem)
 % function thermoSystem = TPSolidflash(thermoSystem)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OUTPUT:
 %  - thermoSystem - Desc

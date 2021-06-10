@@ -3,7 +3,7 @@ function S = conductivity(thermoSystem,t,p)
 % function S = conductivity(thermoSystem,t,p)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
 %  - t            - Set temperature of thermoSystem

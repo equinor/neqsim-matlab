@@ -3,7 +3,7 @@ function show(thermoSystem)
 % function show(thermoSystem)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % DESCRIPTION:
 % Show summary table of thermoSystem

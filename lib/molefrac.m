@@ -4,7 +4,7 @@ function S = molefrac(thermoSystem,n,t,p)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system object
-%  - n            - Desc
+%  - n            - Component number
 %
 % OPTIONAL INPUT:
 %  - t            - Set temperature of thermoSystem

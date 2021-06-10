@@ -1,9 +1,9 @@
 function thermoSystem = PHflash(thermoSystem,enthalpy,display)
-% Run PH flash
+% Run PH (pressure, enthalpy) flash on thermoSystem
 % function thermoSystem = PHflash(thermoSystem,enthalpy,display)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %  - enthalpy     - Enthalpy to use in flash
 %
 % OPTIONAL INPUT:
@@ -13,7 +13,7 @@ function thermoSystem = PHflash(thermoSystem,enthalpy,display)
 %  - thermoSystem - Desc
 %
 % DESCRIPTION:
-%
+% Run PH (pressure, enthalpy) flash on thermoSystem
 %
 % EXAMPLE:
 % thermoSystem = PHflash(thermoSystem,enthalpy,display);

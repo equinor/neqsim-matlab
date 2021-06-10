@@ -3,7 +3,7 @@ function saturateWithWater(thermoSystem)
 % function p = saturateWithWater(thermoSystem)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % DESCRIPTION:
 % Saturate thermoSystem with water

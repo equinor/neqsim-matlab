@@ -3,7 +3,7 @@ function p = bubp(thermoSystem,t)
 % function p = bubp(thermoSystem,t)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
 %  - t            - Temperature. Defaults to thermoSystem temperature

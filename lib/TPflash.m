@@ -3,7 +3,7 @@ function [thermoSystem, hFig] = TPflash(thermoSystem,display)
 % function thermoSystem = TPflash(thermoSystem,display)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
 %  - display      - Set true to show result. Defaults to false.
