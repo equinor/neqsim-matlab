@@ -1,4 +1,3 @@
-global processOperations
 resetProcessOperations();
 
 % setting up feed fluid and thermodynamic model
@@ -29,10 +28,10 @@ inletSeparator = separator(wellStream,'inlet_separator');
 condensateValve = valve(inletSeparator.getOilOutStream,11.0,'condensate valve');
 
 % running process simulation
-processOperations.run
+runProcess()
 
 % display composition of the processunits
-processOperations.displayResult
+showProcess()
 
 % calculating hydrate equilibrium temperatures for gas and condesate
 gasHydrateTemperature = inletSeparator.getGasOutStream().getSolidFormationTemperature('hydrate');

@@ -1,5 +1,3 @@
-global processOperations
-
 resetProcessOperations();
 
 system1 = thermo('srk',280,10);
@@ -24,5 +22,5 @@ valve1 = valve(separator1.getGasOutStream,1.0,'troll_valve');
 
 runProcess();
 
-show(processOperations)
+showProcess();
 show(valve1)
