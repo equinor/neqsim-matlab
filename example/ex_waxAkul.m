@@ -1,3 +1,5 @@
+pathNeqSim();
+
 system1 = neqsim.thermo.system.SystemSrkEos(273,10);
 %system1.addComponent('methane', 10.0);
 %system1.addComponent('ethane', 10.0);
@@ -7,9 +9,7 @@ system1.addComponent('n-butane',0.23664);
 system1.addComponent('i-pentane',2.031);
 system1.addComponent('n-pentane',3.457);
 
-
 system1.addTBPfraction('C7',5.0,234.0/1000.0,0.85);
-
 
 %Characterise plussfraction
 system1.setHeavyTBPfractionAsPlusFraction();
@@ -17,8 +17,7 @@ system1.getCharacterization().getLumpingModel().setNumberOfLumpedComponents(12)
 system1.getCharacterization().characterisePlusFraction();
 
 %system1.getWaxModel().setWaxParameters(newParams);
-%%%%%%%%%%%%%%%%%%%
-
+%%
 system1.getWaxModel().addTBPWax();
 system1.createDatabase(1);
 
@@ -27,9 +26,7 @@ system1.setMultiphaseWaxCheck(1);
 
 system1.setMultiPhaseCheck(1);
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%%
 system1.setTemperature(280.0);
 system1.setPressure(5.0);
 
@@ -72,7 +69,7 @@ system1.setPressure(5.0);
 % 	... 11 more
 %
 %
-% Error in ex_waxAkul (line 37)
+% Error in ex_waxAkul (line 74)
 % TPflash(system1,1);
 TPflash(system1,1);
 
@@ -80,8 +77,7 @@ TPflash(system1,1);
 system1.getTemperature;
 waxfraction = system1.getPhase('oil').getWtFractionOfWaxFormingComponents();
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%
 %wtfracWax = system1.getPhase('wax').getNumberOfMolesInPhase()*system1.getPhase('wax').getMolarMass()/(system1.getMolarMass()*system1.getNumberOfMoles());
 wtfracWax = system1.getWtFraction(system1.getPhaseNumberOfPhase('wax'));
 

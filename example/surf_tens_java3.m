@@ -1,7 +1,7 @@
 %calculate the interfacial tension of methane + n-butane at310.95K and
 %108 Bar
 %reference comp. : highest boiling point
-clear all
+pathNeqSim();
 
 system1 = neqsim.thermo.system.SystemPrEos(310.95,108); %
 system1.addComponent('methane',0.8); %mole frac like feed
@@ -70,7 +70,9 @@ for i = 1:310
         % plot density profile at interface
         j = j + 1;
         pressure(j) = pressure_ini + i*0.5;
-        % todo: this fails
+        % todo: this fails MATLAB:UndefinedFunction: No method
+        % 'getSurfaceTension' with matching signature found for class
+        % 'neqsim.physicalProperties.interfaceProperties.InterfaceProperties'.
         int_tension(j) = 1e3*system1.getInterphaseProperties().getSurfaceTension(0); %unit of interfacial tension mN\m
     else
         disp('only one phase');

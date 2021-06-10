@@ -668,7 +668,9 @@ testSystem.initPhysicalProperties();
 % %       chemP(i,1:500)  = system1.getInterphaseProperties().getSurfaceTensionModel(0).getChemicalPotential(i-1);
 %     end
 
-% todo: this fails
+% todo: this fails MATLAB:UndefinedFunction: Undefined function 'getz' for
+% input arguments of type
+% 'neqsim.physicalProperties.interfaceProperties.surfaceTension.GTSurfaceTension'.
 zsurf = (testSystem.getInterphaseProperties().getSurfaceTensionModel(0).getz()).*1e9;
 
 int_tension = 1e3*testSystem.getInterphaseProperties().getSurfaceTension(0) %unit of interfacial tension mN\m

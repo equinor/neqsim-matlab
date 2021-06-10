@@ -1,7 +1,7 @@
 %calculate the interfacial tension of methane + n-butane at310.95K and
 %108 Bar
 %reference comp. : highest boiling point
-clear all
+pathNeqSim();
 
 system1 = neqsim.thermo.system.SystemPrEos(310.95,108); %
 system1.addComponent('methane',0.8); %mole frac like feed
@@ -15,7 +15,10 @@ system1.getInterphaseProperties().setInterfacialTensionModel(2); % GT == 1  Para
 system1.initPhysicalProperties();
 
 if (system1.getNumberOfPhases() > 1)
-    % todo: this fails
+    % todo: this fails MATLAB:Java:GenericException: Java exception
+    % occurred: java.lang.NullPointerException
+
+	at neqsim.physicalProperties.interfaceProperties.surfaceTension.LGTSurfaceTension.getMolarDensity(LGTSurfaceTension.java:176)
     dens1 = system1.getInterphaseProperties().getSurfaceTensionModel(0).getMolarDensity(0);
     dens2 = system1.getInterphaseProperties().getSurfaceTensionModel(0).getMolarDensity(1);
     zsurf = (system1.getInterphaseProperties().getSurfaceTensionModel(0).getz()).*1e9;

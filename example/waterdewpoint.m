@@ -18,14 +18,15 @@ system1.setMixingRule(9);
 % defining streams
 inStream = stream(system1,'teststream');
 
-temperature = [];
-ppmwater = [];
-for i = 1:15
+numPoints = 15;
+temperature = zeros(numPoints,1);
+ppmwater = zeros(numPoints,1);
+for i = 15:-1:1
     system1.addComponent('water',10e-6);
     %inStream.getSolidFormationTemperature('hydrate'); %use names hydrate or water
-    dewt(system1); %use this function to calculate liquid water dewpoint
+    dewt(system1); % use this function to calculate liquid water dewpoint
     temperature(i) = system1.getTemperature() - 273.15;
-    ppmwater(i) = system1.getPhase(0).getComponent('water').getx()*1e6
+    ppmwater(i) = system1.getPhase(0).getComponent('water').getx()*1e6;
 end
 
 plot(temperature,ppmwater);

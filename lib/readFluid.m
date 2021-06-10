@@ -1,4 +1,21 @@
 function system = readFluid(ID)
-system = neqsim.thermo.system.SystemSrkEos(298.0,1.0);
+% Summary description
+% function system = readFluid(ID)
+%
+% INPUT:
+%  - ID     - Desc
+%
+% OUTPUT:
+%  - system - Desc
+%
+% DESCRIPTION:
+%
+%
+% EXAMPLE:
+% system = readFluid(ID);
+
+pathNeqSim();
+
+system = thermo();
 system = system.readObject(ID);
 end

@@ -1,35 +1,59 @@
-function system = thermo(eosname,temp,pres)
-if (nargin < 1)
+function system = thermo(eosname,t,p)
+% Summary description
+% function system = thermo(eosname,t,p)
+%
+% OPTIONAL INPUT:
+%  - eosname - Desc
+%  - t       - Desc
+%  - p       - Desc
+%
+% OUTPUT:
+%  - system  - Desc
+%
+% DESCRIPTION:
+%
+%
+% EXAMPLE:
+% system = thermo(eosname,temp,pres);
+
+narginchk(0,3);
+
+pathNeqSim();
+
+if nargin < 1
     eosname = 'srk';
-    disp('No method specified. Using default method : SRK-EOS')
-end
-if (strcmp('srk',eosname))
-    system = neqsim.thermo.system.SystemSrkEos(298,1.0);
-elseif (strcmp('pr',eosname))
-    system = neqsim.thermo.system.SystemPrEos(298,1.0);
-elseif (strcmp('cpa',eosname))
-    system = neqsim.thermo.system.SystemSrkCPAstatoil(298,1.0);
-elseif (strcmp('srk-mc',eosname))
-    system = neqsim.thermo.system.SystemSrkMathiasCopeman(298,1.0);
-elseif (strcmp('umr',eosname))
-    system = neqsim.thermo.system.SystemUMRPRUMCEos(298,1.0);
-elseif (strcmp('GERG2004',eosname))
-    system = neqsim.thermo.system.SystemGERG2004Eos(298,1.0);
-elseif (strcmp('ScSrk',eosname))
-    system = neqsim.thermo.system.SystemSrkSchwartzentruberEos(298,1.0);
-elseif (strcmp('electrolyte',eosname))
-    system = neqsim.thermo.system.SystemFurstElectrolyteEos(298,1.0);
-elseif (strcmp('electrolyteCPA',eosname))
-    system = neqsim.thermo.system.SystemElectrolyteCPAstatoil(298,1.0);
-elseif (strcmp('UMR-PRU-EoS',eosname))
-    system = neqsim.thermo.system.SystemUMRPRUMCEos(298,1.0);
-else
-    system = neqsim.thermo.system.SystemSrkEos(298,1.0);
+    %     disp('No method specified. Using default method : SRK-EOS')
 end
 
-if (nargin >= 3)
-    system.setPressure(pres);
+if nargin < 2
+    t = 298.15;
 end
-if (nargin >= 2)
-    system.setTemperature(temp);
+
+if nargin < 3
+    p = 1.0;
+end
+
+switch upper(eosname)
+    case upper('srk')
+        system = neqsim.thermo.system.SystemSrkEos(t,p);
+    case upper('pr')
+        system = neqsim.thermo.system.SystemPrEos(t,p);
+    case upper('cpa')
+        system = neqsim.thermo.system.SystemSrkCPAstatoil(t,p);
+    case upper('srk-mc')
+        system = neqsim.thermo.system.SystemSrkMathiasCopeman(t,p);
+    case upper('umr')
+        system = neqsim.thermo.system.SystemUMRPRUMCEos(t,p);
+    case upper('GERG2004')
+        system = neqsim.thermo.system.SystemGERG2004Eos(t,p);
+    case upper('ScSrk')
+        system = neqsim.thermo.system.SystemSrkSchwartzentruberEos(t,p);
+    case upper('electrolyte')
+        system = neqsim.thermo.system.SystemFurstElectrolyteEos(t,p);
+    case upper('electrolyteCPA')
+        system = neqsim.thermo.system.SystemElectrolyteCPAstatoil(t,p);
+    case upper('UMR-PRU-EoS')
+        system = neqsim.thermo.system.SystemUMRPRUMCEos(t,p);
+    otherwise
+        system = neqsim.thermo.system.SystemSrkEos(t,p);
 end

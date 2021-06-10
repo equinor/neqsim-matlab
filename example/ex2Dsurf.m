@@ -1,4 +1,5 @@
-clear all;
+pathNeqSim();
+
 test = neqsim.thermo.system.SystemSrkEos();
 test.addComponent('methane',10.0);
 test.addComponent('n-heptane',12.0);

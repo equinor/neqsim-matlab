@@ -1,4 +1,3 @@
-clear all
 hold on
 
 syst = thermo('srk',190,0.01);
@@ -15,4 +14,4 @@ for i = (80:200)
     dens(j) = a(1)
 end
 
-plot([80:200],dens)
+plot(80:200,dens)

@@ -1,3 +1,5 @@
+pathNeqSim();
+
 system1 = neqsim.thermo.system.SystemPrEos(240.93,30.00);
 system1.addComponent('methane',0.736); %mole frac like feed
 system1.addComponent('n-butane',0.464);
@@ -12,11 +14,13 @@ TPflash(system1,0);
 
 system1.initPhysicalProperties();
 
-% todo: this fails
+% todo: this fails MATLAB:UndefinedFunction: No method 'getSurfaceTension'
+% with matching signature found for
+% class'neqsim.physicalProperties.interfaceProperties.InterfaceProperties'.
 system1.getInterphaseProperties().getSurfaceTension(0);
 
-temperature = (-195 + 273.15):1.54:(200)
-pressure = 1:5:400
+temperature = (-195 + 273.15):1.54:(200);
+pressure = 1:5:400;
 
 for n = 1:80
     system1.setTemperature(temperature(n));

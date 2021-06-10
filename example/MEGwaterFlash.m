@@ -17,6 +17,8 @@ fluid1.addComponent('water',0.7);
 fluid1.addComponent('MEG',0.3);
 fluid1.setMixingRule('classic-Tx-cpa'); % could also use fluid1.setMixingRule(10);
 fluid1.setMultiPhaseCheck(1);
+
+% todo: This line gives lots of java.sql.SQLException: Invalid cursor state - no current row.
 fluid1.setHydrateCheck(1);
 
 fluid1.setPressure(100.0,'bara')

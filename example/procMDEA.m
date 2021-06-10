@@ -3,7 +3,6 @@ global processOperations
 resetProcessOperations();
 processOperations.clearAll
 
-
 system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+45.0,66.0);
 system1.addComponent('methane',5.0);
 system1.addComponent('MDEA',0.1);

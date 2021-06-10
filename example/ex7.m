@@ -1,5 +1,3 @@
-clear all
-
 a = thermo('srk',190,10);
 a.addComponent('methane',10.0);
 %a.addComponent('ethane',5.0);

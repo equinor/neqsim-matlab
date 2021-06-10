@@ -1,5 +1,4 @@
 % Verification of NeqSim for gas 1
-
 components = ["water"; "nitrogen"; "CO2"; "H2S"; "methane"; "ethane"; "propane"; "i-butane"; "n-butane"; "i-pentane"; "n-pentane"; "n-hexane"];
 fractions1 = [2.18, 0.48, 1.77, 0, 62.88, 12.36, 9.58, 2.21, 2.47, 0.98, 0.46, 4.63];
 fractions2 = [0.054, 0.454, 1.514, 0, 89.92, 5.324, 1.535, 0.232, 0.329, 0.094, 0.107, 0.437];
@@ -7,14 +6,15 @@ P_bar = [1, 10, 100, 200, 1, 10, 100, 200, 1, 10, 100, 200];
 T_C = [15, 15, 15, 15, 30, 30, 30, 30, 150, 150, 150, 150];
 
 fluid = thermo('srk',298,10);
-for c = 1:components.length
+for c = 1:numel(components)
     fluid.addComponent(components(c),fractions1(c));
 end
 
 fluid.setMixingRule(2);
 fluid.setMultiPhaseCheck(1);
 
-enthalpy = zeros(1,12);
+% be careful not to overload (replace) functions with variables
+enthalpy_ = zeros(1,12);
 entropy = zeros(1,12);
 numberOfPhases = zeros(1,12);
 mixMolarVolume = zeros(1,12);
@@ -41,7 +41,6 @@ gasViscosity = zeros(1,12);
 gasThermalConductivity = zeros(1,12);
 gasSoundSpeed = zeros(1,12);
 gasJouleThomsonCoefficient = zeros(1,12);
-
 
 oilFractionc = zeros(1,12);
 oilMolarVolume = zeros(1,12);
@@ -71,7 +70,6 @@ waterThermalConductivity = zeros(1,12);
 waterSoundSpeed = zeros(1,12);
 waterJouleThomsonCoefficient = zeros(1,12);
 
-
 for c = 1:size(P_bar,2)
     fluid.setTemperature(T_C(c)+273.15);
     fluid.setPressure(P_bar(c));
@@ -79,7 +77,7 @@ for c = 1:size(P_bar,2)
     fluid.init(2);
     fluid.initPhysicalProperties();
     
-    enthalpy(c) = fluid.getEnthalpy();
+    enthalpy_(c) = fluid.getEnthalpy();
     entropy(c) = fluid.getEntropy();
     numberOfPhases(c) = fluid.getNumberOfPhases();
     mixMolarVolume(c) = 1.0/fluid.getDensity("mol/m3");
@@ -143,20 +141,16 @@ for c = 1:size(P_bar,2)
         waterSoundSpeed(c) = fluid.getPhase(phaseNumber).getSoundSpeed();
         waterJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient()/1e5;
     end
-    
 end
 
 errEnth = zeros(1,12);
-
 for c = 1:size(P_bar,2)
     fluid.setPressure(P_bar(c));
-    PHflash(fluid,enthalpy(1,c),0);
+    PHflash(fluid,enthalpy_(1,c),0);
     errEnth(c) = fluid.getTemperature() - 273.15 - T_C(c);
 end
 
-
 errEntr = zeros(1,12);
-
 for c = 1:size(P_bar,2)
     fluid.setPressure(P_bar(c));
     PSflash(fluid,entropy(1,c),0);

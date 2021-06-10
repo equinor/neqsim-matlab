@@ -1,3 +1,5 @@
+pathNeqSim();
+
 system1 = neqsim.thermo.system.SystemSrkEos(280.0,10.0);
 system1.addComponent('methane',10.0);
 system1.addComponent('n-heptane',10.0);
@@ -56,14 +58,12 @@ system2.getPhase(0).setTotalVolume(1.0);
 system2.init(3);
 system2
 
-
 % changig composition/molardensity of interface (volume of interface is constant
 system2.addComponent('methane',deltamolardensity_methane);
 system2.addComponent('n-heptane',deltamolardensity_n_heptane);
 system2.init_x_y();
 system2.init(3);
 system2
-
 
 for n = 1:100
     system2.addComponent('methane',deltamolardensity_methane);
@@ -75,7 +75,6 @@ for n = 1:100
 end
 
 system2
-
 
 % displaying derivatives of the interface
 disp 'interface dchempotdN(0) ', system2.getPhase(0).getComponent(0).getChemicalPotentialdN(0, system2.getPhase(0))

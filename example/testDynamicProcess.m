@@ -6,8 +6,7 @@ test.createDatabase(1);
 test.setMixingRule(2);
 TPflash(test)
 
-% this fails
-purgeStream = Stream('Purge Stream',test);
+purgeStream = stream(test,'Purge Stream');
 
 purgeValve = valve(purgeStream,7,'purgv');
 purgeValve.setOutletPressure(7.0);

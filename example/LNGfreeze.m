@@ -1,3 +1,4 @@
+pathNeqSim();
 system1 = neqsim.thermo.system.SystemSrkEos(100,50.0); %  Kelvin / bara
 system1.addComponent('methane',90.0); %mole frac like feed
 %system1.addComponent('ethane', 0.0.000293);

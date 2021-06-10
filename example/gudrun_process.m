@@ -23,7 +23,6 @@ system1.setMultiPhaseCheck(1);
 system1.setTemperature(273.15+16.0);
 system1.setPressure(36.0);
 
-
 % setting up process
 wellStream = stream(system1,'Gudrun inlet stream');
 inletSeparator = separator(wellStream,'inlet_separator');
@@ -34,7 +33,6 @@ processOperations.run
 
 % display composition of the processunits
 processOperations.displayResult
-
 
 % calculating hydrate equilibrium temperatures for gas and condesate
 gasHydrateTemperature = inletSeparator.getGasOutStream().getSolidFormationTemperature('hydrate');
