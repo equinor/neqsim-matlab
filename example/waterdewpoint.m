@@ -4,7 +4,7 @@ pressure = 70.0;
 temperatureGuess = -50.0; % cheched
 
 % Defining system of components
-system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+temperatureGuess,pressure);
+system1 = thermo('cpa',273.15+temperatureGuess,pressure);
 system1.addComponent('methane',0.94);
 system1.addComponent('ethane',0.05);
 system1.addComponent('propane',0.01);

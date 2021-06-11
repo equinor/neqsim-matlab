@@ -1,26 +1,26 @@
-function t = dewt(thermoSystem,pressure)
+function t = dewt(thermoSystem,p)
 % Summary description
-% function t = dewt(thermoSystem,pressure)
+% function t = dewt(thermoSystem,p)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - pressure   - Desc
+%  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - t          - Desc
+%  - t            - Desc
 %
 % DESCRIPTION:
 %
 %
 % EXAMPLE:
-% t = dewt(thermoSystem,pressure);
+% t = dewt(thermoSystem,p);
 
 pathNeqSim();
 
 if nargin > 1
-    thermoSystem.setPressure(pressure);
+    thermoSystem.setPressure(p);
 end
 thermoSystem.init(0)
 thermoSystem.init(1)

@@ -3,10 +3,10 @@ function p = dewp(thermoSystem,t)
 % function p = dewp(thermoSystem,t)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - t          - Desc
+%  - t          - Set temperature of thermoSystem
 %
 % OUTPUT:
 %  - p          - Desc
@@ -28,4 +28,3 @@ testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem)
 testFlash.dewPointPressureFlash;
 clear testFlash;
 p = thermoSystem.getPressure();
-

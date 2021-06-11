@@ -1,7 +1,4 @@
-% define thermodynamics
-pathNeqSim();
-
-system1 = neqsim.thermo.system.SystemSrkEos(323.15,70.00);
+system1 = thermo('srk',323.15,70.00);
 system1.addComponent('methane',1.0);
 system1.addComponent('H2S',0.03);
 system1.createDatabase(1);

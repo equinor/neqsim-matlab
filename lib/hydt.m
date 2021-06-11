@@ -3,10 +3,10 @@ function t = hydt(thermoSystem)
 % function t = hydt(thermoSystem)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OUTPUT:
-%  - t          - Desc
+%  - t            - Set temperature of thermoSystem
 %
 % DESCRIPTION:
 %

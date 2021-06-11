@@ -15,11 +15,11 @@ function S = density(thermoSystem,t,p)
 % DESCRIPTION:
 % Calculates the density for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
-% The output is total density, gas density, liquid density
+% The output is mix density, gas density, liquid density
 % and the number of phases.
 %
 % EXAMPLE:
-%
+% S = density(thermoSystem,t,p)
 
 % Even Solbraa, 2001.
 
@@ -27,7 +27,9 @@ if nargin > 2
     thermoSystem.setPressure(p);
 end
 if nargin > 1
-    thermoSystem.setTemperature(t);
+    if ~isempty(t)
+        thermoSystem.setTemperature(t);
+    end
     TPflash(thermoSystem,0);
 end
 thermoSystem.init(2);

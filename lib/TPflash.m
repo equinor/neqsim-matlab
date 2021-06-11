@@ -1,9 +1,9 @@
 function [thermoSystem, hFig] = TPflash(thermoSystem,display)
 % Summary description
-% function thermoSystem = TPflash(thermoSystem,display)
+% function [thermoSystem, hFig] = TPflash(thermoSystem,display)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
 %  - display      - Set true to show result. Defaults to false.
@@ -25,10 +25,6 @@ end
 testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
 testFlash.TPflash();
 if display
-    T = cell2table(cell(thermoSystem.createTable("test")));
-    hFig = uitableplot(T);
-else
-    hFig = gobjects(1);
-%     testFlash.displayResult();
+    hFig = show(thermoSystem);
 end
 clear testFlash;

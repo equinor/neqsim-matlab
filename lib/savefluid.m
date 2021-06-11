@@ -1,18 +1,15 @@
 function savefluid(thermoSystem,filepath)
-% Save to file
+% Save thermoSystem to file
 % function  = savefluid(thermoSystem,filepath)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
-%  - filepath     - Desc
-%
-% OUTPUT:
-%  -  - Desc
+%  - thermoSystem - Thermodynamic system object
+%  - filepath     - Filepath to store fluid at
 %
 % DESCRIPTION:
-%
+% Save thermoSystem to file
 %
 % EXAMPLE:
-%  = savefluid(thermoSystem,filepath);
+% savefluid(thermoSystem,filepath);
 
 thermoSystem.saveObjectToFile(filepath,"")

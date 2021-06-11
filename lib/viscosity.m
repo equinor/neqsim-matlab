@@ -10,12 +10,13 @@ function S = viscosity(thermoSystem,t,p)
 %  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - S            - Array with system viscosity, gas viscosity, liquid viscosity
-% and the number of phases.
+%  - S            - Output array
 %
 % DESCRIPTION:
 % Calculates the viscosity for a given thermodynamic system
 % If temperature or pressure are specified - a TP flash is done.
+% The output is mix viscosity, gas phase viscosity, liquid phase viscosity
+% and the number of phases.
 %
 % EXAMPLE:
 % S = viscosity(thermoSystem,t,p);
@@ -26,7 +27,9 @@ if nargin > 2
     thermoSystem.setPressure(p);
 end
 if nargin > 1
-    thermoSystem.setTemperature(t);
+    if ~isempty(t)
+        thermoSystem.setTemperature(t);
+    end
     TPflash(thermoSystem,0);
 end
 thermoSystem.init(2);
