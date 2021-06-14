@@ -1,8 +1,7 @@
-system1 = neqsim.thermo.system.SystemSrkEos(280,10);
+system1 = thermo('srk', 290.0, 10.0);
 system1.addComponent('methane',10.0);
 system1.addComponent('CO2',1.0);
 system1.setMixingRule(2);
-
 %example of direct calculation of results
 results = system1.calcResultTable();
 
