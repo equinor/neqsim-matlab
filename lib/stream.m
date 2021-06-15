@@ -3,7 +3,7 @@ function stream = stream(thermoSystem,name,t,p)
 % function stream = stream(thermoSystem,name,t,p)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
 %  - name       - Name of stream

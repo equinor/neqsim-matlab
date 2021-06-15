@@ -1,8 +1,7 @@
-global processOperations
 resetProcessOperations();
 
 % setting up feed fluid and thermodynamic model
-system1 = neqsim.thermo.system.SystemSrkCPAstatoil(273.15+16.0,50.0);
+system1 = thermo('cpa',273.15+16.0,50.0);
 system1.addComponent('CO2',0.0448);
 system1.addComponent('nitrogen',0.005);
 system1.addComponent('methane',0.7791);
@@ -29,10 +28,10 @@ inletSeparator = separator(wellStream,'inlet_separator');
 condensateValve = valve(inletSeparator.getOilOutStream,11.0,'condensate valve');
 
 % running process simulation
-processOperations.run
+runProcess()
 
 % display composition of the processunits
-processOperations.displayResult
+showProcess()
 
 % calculating hydrate equilibrium temperatures for gas and condesate
 gasHydrateTemperature = inletSeparator.getGasOutStream().getSolidFormationTemperature('hydrate');

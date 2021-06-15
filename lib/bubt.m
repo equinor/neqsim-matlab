@@ -3,12 +3,13 @@ function p = bubt(thermoSystem,t)
 % function p = bubt(thermoSystem,t)
 %
 % INPUT:
-%  - thermoSystem - Thermodynamic system
+%  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - t            - Temperature. Defaults to thermoSystem temperature%
+%  - t            - Temperature. Defaults to thermoSystem temperature
+%
 % OUTPUT:
-%  - p            - Desc
+%  - p            - Pressure of thermoSystem after flash
 %
 % DESCRIPTION:
 % Get pressure of thermoSystem after bubble point temperature flash

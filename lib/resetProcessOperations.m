@@ -7,8 +7,9 @@ function resetProcessOperations()
 
 global processOperations
 
+% This creates processOperations object if it does not already exist
 pathNeqSim();
 
 if ~isempty(processOperations)
-    processOperations.clearAll()
+    processOperations.clearAll();
 end
