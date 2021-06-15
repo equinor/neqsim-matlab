@@ -6,9 +6,9 @@ system1.setMixingRule(2);
 results = system1.calcResultTable();
 
 system1.initProperties();
-ent1 = system1.getEnthalpy('kJ/kg')
+ent1 = system1.getEnthalpy('kJ/kg');
 
 resetProcessOperations()
 stream1 = stream(system1,'troll1');
-runProcess()
-streamResults = stream1.getResultTable();
+runProcess();
+streamResults = cell(stream1.getResultTable());
