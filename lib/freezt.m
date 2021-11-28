@@ -1,5 +1,5 @@
 function t = freezt(thermoSystem,p)
-% Summary description
+% Get freezing temperature of thermosystem at a given pressure
 % function t = freezt(thermoSystem,p)
 %
 % INPUT:
@@ -9,10 +9,10 @@ function t = freezt(thermoSystem,p)
 %  - p            - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - t            - Desc
+%  - t            - Freezing temperature
 %
 % DESCRIPTION:
-%
+% Get freezing temperature of thermosystem at a given pressure
 %
 % EXAMPLE:
 % t = freezt(thermoSystem,pressure);
@@ -27,4 +27,3 @@ thermoSystem.init(1)
 testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
 testFlash.freezingPointTemperatureFlash();
 t = thermoSystem.getTemperature();
-clear testFlash;

@@ -13,4 +13,3 @@ function saturateWithWater(thermoSystem)
 
 testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
 testFlash.saturateWithWater();
-% clear testFlash;

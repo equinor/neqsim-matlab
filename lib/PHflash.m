@@ -1,6 +1,6 @@
-function thermoSystem = PHflash(thermoSystem,enthalpy,display)
+function [thermoSystem, hFig] = PHflash(thermoSystem,enthalpy,display)
 % Run PH (pressure, enthalpy) flash on thermoSystem
-% function thermoSystem = PHflash(thermoSystem,enthalpy,display)
+% function [thermoSystem, hFig] = PHflash(thermoSystem,enthalpy,display)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system object
@@ -10,7 +10,7 @@ function thermoSystem = PHflash(thermoSystem,enthalpy,display)
 %  - display      - Set true to show result. Defaults to false.
 %
 % OUTPUT:
-%  - thermoSystem - Desc
+%  - thermoSystem - Thermodynamic system object
 %
 % DESCRIPTION:
 % Run PH (pressure, enthalpy) flash on thermoSystem
@@ -23,12 +23,12 @@ narginchk(2,3);
 pathNeqSim();
 
 if nargin < 3
-    display = false;
+    display = nargout > 1;
 end
 
 testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
-testFlash.PHflash(enthalpy,0);
+testFlash.PHflash(enthalpy,0); % Input 2 is type of flash. Specified in Neqsim code
+
 if display
-    testFlash.displayResult();
+    hFig = show(thermoSystem);
 end
-clear testFlash;

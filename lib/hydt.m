@@ -1,15 +1,15 @@
 function t = hydt(thermoSystem)
-% Summary description
+% Get hydration temperature of thermoSystem
 % function t = hydt(thermoSystem)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system object
 %
 % OUTPUT:
-%  - t            - Set temperature of thermoSystem
+%  - t            - Hydration temperature
 %
 % DESCRIPTION:
-%
+% Get hydration temperature of thermoSystem
 %
 % EXAMPLE:
 % t = hydt(thermoSystem);
@@ -24,4 +24,3 @@ testFlash.setRunAsThread(1);
 testFlash.hydrateFormationTemperature();
 testFlash.waitAndCheckForFinishedCalculation(100000);
 t = thermoSystem.getTemperature();
-clear testFlash;

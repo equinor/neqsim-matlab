@@ -1,30 +1,33 @@
 function p = dewp(thermoSystem,t)
-% Summary description
+% Get dew point pressure of thermoSystem given a temperature
 % function p = dewp(thermoSystem,t)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system object
 %
 % OPTIONAL INPUT:
-%  - t          - Set temperature of thermoSystem
+%  - t            - Set temperature of thermoSystem
 %
 % OUTPUT:
-%  - p          - Desc
+%  - p            - Pressure at dew point
 %
 % DESCRIPTION:
-%
+% Get thermoSystem pressure after dew point pressure flash
 %
 % EXAMPLE:
+% p = dewp(thermoSystem);
 % p = dewp(thermoSystem,t);
+
+narginchk(1,2);
 
 pathNeqSim();
 
 if nargin > 1
     thermoSystem.setTemperature(t);
 end
+
 thermoSystem.init(0)
 thermoSystem.init(1)
 testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
-testFlash.dewPointPressureFlash;
-clear testFlash;
+testFlash.dewPointPressureFlash();
 p = thermoSystem.getPressure();

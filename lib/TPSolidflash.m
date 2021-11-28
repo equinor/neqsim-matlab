@@ -1,6 +1,6 @@
-function thermoSystem = TPSolidflash(thermoSystem,display)
-% Summary description
-% function thermoSystem = TPSolidflash(thermoSystem,display)
+function [thermoSystem, hFig] = TPSolidflash(thermoSystem,display)
+% Run TP (temperature, pressure) solid flash on thermoSystem
+% function [thermoSystem, hFig] = TPSolidflash(thermoSystem,display)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system object
@@ -12,17 +12,22 @@ function thermoSystem = TPSolidflash(thermoSystem,display)
 %  - thermoSystem - Desc
 %
 % DESCRIPTION:
-%
+% Run TP (temperature, pressure) solid flash on thermoSystem
 %
 % EXAMPLE:
 % thermoSystem = TPSolidflash(thermoSystem);
 
-narginchk(1,1);
+narginchk(1,2);
 
 pathNeqSim();
 
+if nargin < 2
+    display = nargout > 1;
+end
+
 testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
 testFlash.TPSolidflash();
+
 if display
-    show(thermoSystem)
+    hFig = show(thermoSystem);
 end

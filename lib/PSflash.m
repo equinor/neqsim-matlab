@@ -1,6 +1,6 @@
-function thermoSystem = PSflash(thermoSystem,entropy,display)
+function [thermoSystem, hFig] = PSflash(thermoSystem,entropy,display)
 % Run PS (pressure, entropy) flash on thermoSystem
-% function thermoSystem = PSflash(thermoSystem,entropy,display)
+% function [thermoSystem, hFig] = PSflash(thermoSystem,entropy,display)
 %
 % INPUT:
 %  - thermoSystem - Thermodynamic system object
@@ -23,12 +23,12 @@ narginchk(2,3);
 pathNeqSim();
 
 if nargin < 3
-    display = false;
+    display = nargin > 1;
 end
 
 testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
 testFlash.PSflash(entropy);
+
 if display
-    testFlash.displayResult();
+    hFig = show(thermoSystem);
 end
-clear testFlash;
