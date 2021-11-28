@@ -1,18 +1,18 @@
 function system = thermoArray(eosname,numb,temp,pres)
-% Summary description
+% Create array of thermoSystem objects
 % function system = thermoArray(eosname,numb,temp,pres)
 %
 % INPUT:
-%  - eosname - Desc
-%  - numb    - Desc
-%  - temp    - Desc
-%  - pres    - Desc
+%  - eosname - Type of EOS. Supports 'pr' and 'srk'. Defaults to srk
+%  - numb    - Number of elements to create. Defaults to 1.
+%  - temp    - Temperatures per element or single temperature for all.
+%  - pres    - Pressure per element or single pressure for all.
 %
 % OUTPUT:
-%  - system  - Desc
+%  - system  - Array of thermoSystem objects
 %
 % DESCRIPTION:
-%
+% Create array of thermoSystem objects
 %
 % EXAMPLE:
 % system = thermoArray(eosname,numb,temp,pres);
@@ -23,7 +23,12 @@ if nargin < 1
     eosname = 'srk';
     disp('No method specified. Using default method : SRK-EOS')
 end
-if (strcmp('pr',eosname))
+
+if nargin < 2 || isempty(numb)
+    numb = 1;
+end
+
+if strcmpi('pr',eosname)
     system = javaArray('neqsim.thermo.system.SystemPrEos',numb);
 else
     system = javaArray('neqsim.thermo.system.SystemSrkEos',numb);
@@ -50,7 +55,7 @@ else
 end
 
 for m = 1:numb
-    if (strcmp('pr',eosname))
+    if strcmpi('pr',eosname)
         system(m) = neqsim.thermo.system.SystemPrEos(temp1(m),pres1(m));
     else
         system(m) = neqsim.thermo.system.SystemSrkEos(temp1(m),pres1(m));

@@ -4,8 +4,8 @@ function thermoSystem = thermo(eosname,t,p)
 %
 % OPTIONAL INPUT:
 %  - eosname      - Type of EOS method. Defaults to 'srk'
-%  - t            - Temperature of thermoSystem
-%  - p            - Pressure of thermoSystem
+%  - t            - Temperature of thermoSystem in deg K. Defaults to 298.15
+%  - p            - Pressure of thermoSystem in barA. Defaults to 1.0
 %
 % OUTPUT:
 %  - thermoSystem - Thermodynamic system object
@@ -16,7 +16,7 @@ function thermoSystem = thermo(eosname,t,p)
 % srk, pr, cpa, srk-mc, umr, GERG2004, ScSrk, electrolyte, electrolyteCPA, UMR-PRU-EoS
 %
 % EXAMPLE:
-% system = thermo(eosname,temp,pres);
+% system = thermo(eosname,t,p);
 
 narginchk(0,3);
 
