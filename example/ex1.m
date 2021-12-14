@@ -23,4 +23,4 @@ valve1 = valve(separator1.getGasOutStream,1.0,'troll_valve');
 runProcess();
 
 showProcess();
-show(valve1)
+show(valve1);

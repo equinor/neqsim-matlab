@@ -17,8 +17,8 @@ for temperature = [270:2:590]
         TPflash(test,0);
         test.init(3);
         numberOfPhases(i,j) = test.getNumberOfPhases;
-        enthalpy(i,j) = test.getEnthalpy;
-        density(i,j) = test.getDensity;
+        enthalpy_(i,j) = test.getEnthalpy;
+        density_(i,j) = test.getDensity;
         internalEnergy(i,j) = test.getInternalEnergy;
         molarVolume(i,j) = test.getMolarVolume;
     end

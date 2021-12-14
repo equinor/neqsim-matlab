@@ -11,8 +11,8 @@ fluid1.addComponent('n-hexane',0.01);
 fluid1.setMixingRule('classic')
 TPflash(fluid1,1);
 
-srkdensity = fluid1.getPhase('gas').getDensity('kg/m3')
-GERG2008density = densityGERG2008(fluid1.getPhase('gas'))
+srkdensity = fluid1.getPhase('gas').getDensity('kg/m3');
+GERG2008density = densityGERG2008(fluid1.getPhase('gas'));
 
 GERG2008 = neqsim.thermo.util.GERG.NeqSimGERG2008();
-GERG2008density2 = GERG2008.getDensity(fluid1.getPhase('gas'))
+GERG2008density2 = GERG2008.getDensity(fluid1.getPhase('gas'));
