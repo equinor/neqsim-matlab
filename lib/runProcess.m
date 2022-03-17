@@ -4,9 +4,11 @@ function runProcess()
 %
 % DESCRIPTION:
 % Run processOperations simulation
-% Wrapper for processOperations.run() in java.
 
 global processOperations
 
-processOperations.run();
+if isempty(processOperations)
+    processOperations = neqsim.processSimulation.processSystem.ProcessSystem();
 end
+
+processOperations.run();

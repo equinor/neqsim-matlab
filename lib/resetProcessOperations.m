@@ -1,16 +1,15 @@
 function resetProcessOperations()
-%
+% Reset global variable processOperations
 % function resetProcessOperations()
 %
 % DESCRIPTION:
-% Wrapper for
+% Reset global variable processOperations
 
 global processOperations
 
-if ~isempty(processOperations)
-    processOperations.clearAll
-end
+% This creates processOperations object if it does not already exist
+pathNeqSim();
 
-if isempty(processOperations)
-    processOperations = neqsim.processSimulation.processSystem.ProcessSystem;
+if ~isempty(processOperations)
+    processOperations.clearAll();
 end

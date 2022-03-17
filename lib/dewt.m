@@ -1,10 +1,33 @@
-function t = dewt(testSystem,pressure)
-if nargin == 2
-    testSystem.setPressure(pressure);
+function t = dewt(thermoSystem,p)
+% Get dew point temperature of thermoSystem given a pressure
+% function t = dewt(thermoSystem,p)
+%
+% INPUT:
+%  - thermoSystem - Thermodynamic system object
+%
+% OPTIONAL INPUT:
+%  - p            - Set pressure of thermoSystem
+%
+% OUTPUT:
+%  - t            - Desc
+%
+% DESCRIPTION:
+% Get temperature of thermoSystem after dew point temperature flash
+%
+% EXAMPLE:
+% t = dewt(thermoSystem);
+% t = dewt(thermoSystem,p);
+
+narginchk(1,2);
+
+pathNeqSim();
+
+if nargin > 1
+    thermoSystem.setPressure(p);
 end
-testSystem.init(0)
-testSystem.init(1)
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(testSystem);
-testFlash.dewPointTemperatureFlash;
-t = testSystem.getTemperature;
-clear testFlash;
+
+thermoSystem.init(0)
+thermoSystem.init(1)
+testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
+testFlash.dewPointTemperatureFlash();
+t = thermoSystem.getTemperature();

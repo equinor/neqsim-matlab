@@ -1,5 +1,15 @@
-function [outputArg1] = componentNames()
-%COMPONENTNAMES Summary of this function goes here
-%   Detailed explanation goes here
-outputArg1 = neqsim.util.database.NeqSimDataBase.getComponentNames;
-end
+function components = componentNames()
+% Get all components available in database
+% function components = componentNames()
+%
+% OUTPUT:
+%  - components - Cell string array of components in database
+%
+% DESCRIPTION:
+% Get all components available in database
+
+narginchk(0,0);
+
+pathNeqSim();
+
+components = cellstr(neqsim.util.database.NeqSimDataBase.getComponentNames());

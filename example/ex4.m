@@ -1,8 +1,7 @@
-clear all
 ex2
 j = 0;
-temp = linspace(280,300,50)
-pres = linspace(1,20,10)
+temp = linspace(280,300,50);
+pres = linspace(1,20,10);
 
 for temp1 = linspace(280,300,50)
     k = 0;
