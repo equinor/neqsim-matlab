@@ -27,8 +27,8 @@ if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
         end
     end
     
-    neqsim.util.database.NeqSimDataBase.setDataBaseType("Derby");
-    neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:derby:classpath:data/neqsimthermodatabase");
+    % neqsim.util.database.NeqSimDataBase.setDataBaseType("Derby");
+    % neqsim.util.database.NeqSimDataBase.setConnectionString("jdbc:derby:classpath:data/neqsimthermodatabase");
     setappdata(0,appDataName,true);
     
     resetProcessOperations();
