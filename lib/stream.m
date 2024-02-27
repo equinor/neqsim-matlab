@@ -1,4 +1,4 @@
-function stream = stream(thermoSystem,name,t,p)
+function s = stream(thermoSystem,name,t,p)
 % Create processEquipment stream
 % function stream = stream(thermoSystem,name,t,p)
 %
@@ -11,7 +11,7 @@ function stream = stream(thermoSystem,name,t,p)
 %  - p          - Set pressure of thermoSystem
 %
 % OUTPUT:
-%  - stream     - Stream object
+%  - s          - Stream object
 %
 % DESCRIPTION:
 % Create processEquipment stream.
@@ -32,8 +32,8 @@ if nargin > 2
     thermoSystem.setTemperature(t);
 end
 
-stream = neqsim.processSimulation.processEquipment.stream.Stream(thermoSystem);
+s = neqsim.processSimulation.processEquipment.stream.Stream(thermoSystem);
 if nargin > 1
-    stream.setName(name);
+    s.setName(name);
 end
-processOperations.add(stream);
+processOperations.add(s);

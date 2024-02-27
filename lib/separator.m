@@ -1,27 +1,27 @@
-function separator = separator(stream,name)
+function sep = separator(s,name)
 % Create processEquipment separator
-% function separator = separator(stream,name)
+% function sep = separator(s,name)
 %
 % INPUT:
-%  - stream    - ProcessEquipment stream object
-%  - name      - Name of separator
+%  - s    - ProcessEquipment stream object
+%  - name - Name of separator
 %
 % OUTPUT:
-%  - separator - Separator object
+%  - sep  - Separator object
 %
 % DESCRIPTION:
 % Create processEquipment separator
 %
 % EXAMPLE:
-% separator1 = separator(stream1,name);
+% sep = separator(stream1,name);
 
 narginchk(2,3);
 
 global processOperations
 pathNeqSim();
 
-separator = neqsim.processSimulation.processEquipment.separator.ThreePhaseSeparator(stream);
+sep = neqsim.processSimulation.processEquipment.separator.ThreePhaseSeparator(s);
 if nargin > 1
-    separator.setName(name);
+    sep.setName(name);
 end
-processOperations.add(separator);
+processOperations.add(sep);

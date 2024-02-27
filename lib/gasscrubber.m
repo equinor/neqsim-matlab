@@ -1,27 +1,27 @@
-function gasscrubber = gasscrubber(stream,name)
+function scrubber = gasscrubber(s,name)
 % Create processEquipment gasscrubber
-% function gasscrubber = gasscrubber(stream,name)
+% function scrubber = gasscrubber(s,name)
 %
 % INPUT:
-%  - stream      - ProcessEquipment stream object
-%  - name        - Name of gas scrubber
+%  - stream   - ProcessEquipment stream object
+%  - name     - Name of gas scrubber
 %
 % OUTPUT:
-%  - gasscrubber - GasScrubberSimple object
+%  - scrubber - GasScrubberSimple object
 %
 % DESCRIPTION:
 % Create processEquipment gasscrubber
 %
 % EXAMPLE:
-% gasscrubber1 = gasscrubber(stream1,name);
+% scrubber = gasscrubber(stream1,name);
 
 narginchk(1,2);
 
 global processOperations
 pathNeqSim();
 
-gasscrubber = neqsim.processSimulation.processEquipment.separator.GasScrubberSimple(stream);
+scrubber = neqsim.processSimulation.processEquipment.separator.GasScrubberSimple(s);
 if nargin > 1
-    gasscrubber.setName(name);
+    scrubber.setName(name);
 end
-processOperations.add(gasscrubber);
+processOperations.add(scrubber);

@@ -1,13 +1,13 @@
-function molefractioncontroller = molefractioncontroller(stream,name)
+function mfc = molefractioncontroller(s,name)
 % Create controllerDevice molefractioncontroller
-% function molefractioncontroller = molefractioncontroller(stream,name)
+% function molefractioncontroller = molefractioncontroller(s,name)
 %
 % INPUT:
-%  - stream                 - ProcessEquipment stream object
-%  - name                   - Name of molefractioncontroller
+%  - s    - ProcessEquipment stream object
+%  - name - Name of molefractioncontroller
 %
 % OUTPUT:
-%  - molefractioncontroller - MoleFractionControllerUtil object
+%  - mfc  - MoleFractionControllerUtil object
 %
 % DESCRIPTION:
 % Create controllerDevice molefractioncontroller
@@ -20,8 +20,8 @@ narginchk(1,2);
 global processOperations
 pathNeqSim();
 
-molefractioncontroller = neqsim.processSimulation.controllerDevice.MoleFractionControllerUtil(stream);
+mfc = neqsim.processSimulation.controllerDevice.MoleFractionControllerUtil(s);
 if nargin > 1
-    molefractioncontroller.setName(name);
+    mfc.setName(name);
 end
-processOperations.add(molefractioncontroller);
+processOperations.add(mfc);
