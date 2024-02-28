@@ -17,11 +17,14 @@ if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
     addpath(fullfile(fileparts(mfilename('fullpath')),'lib'));
     
     librarypath = fullfile(baseFol,'ext');
-    
+
     jarFiles = cellstr(ls(fullfile(librarypath,'*.jar')));
     for k = numel(jarFiles):-1:1
         dynamicJavaPath = javaclasspath('-dynamic');
         currJar = fullfile(librarypath,jarFiles(k));
+        if ~isfile(fullfile(librarypath,jarFiles(k)))
+            currJar = jarFiles(k);
+        end
         if ~any(contains(dynamicJavaPath,currJar))
             javaclasspath(currJar);
         end
