@@ -1,9 +1,9 @@
-function fluid = flash(fluid,flashtype,spec1,spec2,unitspec1,unitspec2)
+function f = flash(f,flashtype,spec1,spec2,unitspec1,unitspec2)
 % Run a flash calculation for a fluid
-% function fluid = flash(fluid,flashtype,spec1,spec2,unitspec1,unitspec2)
+% function f = flash(f,flashtype,spec1,spec2,unitspec1,unitspec2)
 %
 % INPUT:
-%  - fluid     - a neqsim fluid java object
+%  - f         - a neqsim fluid java object
 %  - flashtype - a string defining the type of flash (TP, TV, PH, TS)
 %  - spec1     - the value for the first specification (temperature for the TP flash)
 %  - spec2     - the value for the seccond specification (pressure for the TP flash)
@@ -23,6 +23,6 @@ narginchk(6,6);
 
 pathNeqSim();
 
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(fluid);
+testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(f);
 testFlash.flash(flashtype,spec1,spec2,unitspec1,unitspec2);
-fluid.initProperties();
+f.initProperties();

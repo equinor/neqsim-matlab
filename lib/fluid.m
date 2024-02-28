@@ -1,13 +1,13 @@
-function fluid = fluid(definedcomponents,oilcomponents)
+function f = fluid(definedcomponents,oilcomponents)
 % Create NEQsim Fluid object
-% function fluid = fluid(definedcomponents,oilcomponents)
+% function f = fluid(definedcomponents,oilcomponents)
 %
 % INPUT:
 %  - definedcomponents - Array of struct with 
 %  - oilcomponents     - Desc
 %
 % OUTPUT:
-%  - fluid             - Desc
+%  - f                 - Desc
 %
 % DESCRIPTION:
 %
@@ -19,8 +19,8 @@ pathNeqSim();
 
 unit = 'mole/sec';
 fluidClass = neqsim.thermo.Fluid();
-fluid = fluidClass.create2(definedcomponents.names,definedcomponents.composition,unit);
+f = fluidClass.create2(definedcomponents.names,definedcomponents.composition,unit);
 
 if nargin > 1
-    fluid = fluidClass.addOilFractions(oilcomponents.names,oilcomponents.composition,oilcomponents.molarmass,oilcomponents.relativedensity,oilcomponents.plusfraction);
+    f = fluidClass.addOilFractions(oilcomponents.names,oilcomponents.composition,oilcomponents.molarmass,oilcomponents.relativedensity,oilcomponents.plusfraction);
 end

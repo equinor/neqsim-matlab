@@ -1,31 +1,31 @@
-function valve = valve(stream,p,name)
+function v = valve(s,p,name)
 % Create processEquipment ThrottlingValve
-% function valve = valve(stream,p,name)
+% function v = valve(s,p,name)
 %
 % INPUT:
-%  - stream - ProcessEquipment stream object
-%  - p      - Valve outlet pressure
+%  - s     - ProcessEquipment stream object
+%  - p     - Valve outlet pressure
 %
 % OPTIONAL INPUT:
-%  - name   - Name of valve
+%  - name  - Name of valve
 %
 % OUTPUT:
-%  - valve  - ThrottlingValve object
+%  - valve - ThrottlingValve object
 %
 % DESCRIPTION:
 % Create processEquipment ThrottlingValve
 %
 % EXAMPLE:
-% valve1 = valve(stream1,p,name);
+% valve1 = valve(s,p,name);
 
 narginchk(2,3);
 
 global processOperations
 pathNeqSim();
 
-valve = neqsim.processSimulation.processEquipment.valve.ThrottlingValve(stream);
-valve.setOutletPressure(p);
+v = neqsim.processSimulation.processEquipment.valve.ThrottlingValve(s);
+v.setOutletPressure(p);
 if nargin > 2
-    valve.setName(name);
+    v.setName(name);
 end
-processOperations.add(valve);
+processOperations.add(v);
