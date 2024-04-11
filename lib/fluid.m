@@ -1,23 +1,29 @@
-function f = fluid(definedcomponents,oilcomponents)
+function f = fluid(definedcomponents,oilcomponents,unit)
 % Create NEQsim Fluid object
-% function f = fluid(definedcomponents,oilcomponents)
+% function f = fluid(definedcomponents,oilcomponents,unit)
 %
 % INPUT:
-%  - definedcomponents - Array of struct with 
-%  - oilcomponents     - Desc
+%  - definedcomponents - struct with names and composition fractions.
+%
+% OPTIONAL INPUT:
+%  - oilcomponents     - struct with names, compositions, molarmass, relativedensity, plusfraction
+%  - unit              - Defaults to 'mole/sec'.
 %
 % OUTPUT:
-%  - f                 - Desc
+%  - f                 - NEQsim fluid object.
 %
 % DESCRIPTION:
-%
+% Create NEQsim Fluid object
 %
 % EXAMPLE:
 % fluid = fluid(definedcomponents,oilcomponents);
 
 pathNeqSim();
 
-unit = 'mole/sec';
+if nargin < 3
+    unit = 'mole/sec';
+end
+
 fluidClass = neqsim.thermo.Fluid();
 f = fluidClass.create2(definedcomponents.names,definedcomponents.composition,unit);
 
