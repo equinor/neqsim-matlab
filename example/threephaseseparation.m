@@ -66,7 +66,7 @@ volumeFractionOilInGasSample = separatedGasStream.getFluid().getPhaseFraction('o
 separatedGasStream.getFluid()
 separatedOilStream.getFluid()
 %4. Reduce temperature by delta T and flash it at constant volume
-for cdeltaT = 1:10
+for cdeltaT = 10:-1:1
     deltaT = 1.0;
     flash(separatedGasStream.getFluid(),'TV',(separatedGasStream.getTemperature("C") - deltaT),separatedGasStream.getFluid().getVolume("m3"),"C","m3");
     flash(separatedOilStream.getFluid(),'TV',(separatedOilStream.getTemperature("C") - deltaT),separatedOilStream.getFluid().getVolume("m3"),"C","m3");
