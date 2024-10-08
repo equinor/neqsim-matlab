@@ -16,7 +16,7 @@ system1.setMixingRule(9);
 system1.setMultiPhaseCheck(1);
 saturateWithWater(system1);
 
-wellStream = stream(system1,'Åsgard well stream');
+wellStream = stream(system1,'ï¿½sgard well stream');
 
 choke = valve(wellStream,80.0,'top side choke');
 seaCooler = heatexchanger(choke.getOutStream,303.15,'sea cooler');
@@ -43,11 +43,11 @@ LP1scrubber = gasscrubber(LP1cooler.getOutStream,'scrubber - LP1');
 %LP1scrubber.addScrubberSection('MeshPad 50 mm');
 
 % gas process
-HPmixer = mixer('HP mixer');
+HPmixer = mixer('HP mixer2');
 HPmixer.addStream(inletSeparator.getGasOutStream);
 HPmixer.addStream(LP1scrubber.getGasOutStream);
 
-gasProductCooler = heatexchanger(HPmixer.getOutStream);
+gasProductCooler = heatexchanger(HPmixer.getOutStream, 10.0, 'test');
 gasProductCooler.setdT(-5.0);
 gasProductCooler.setName('Gas Product Cooler');
 
@@ -55,7 +55,7 @@ gasProductScrubber = gasscrubber(gasProductCooler.getOutStream,'scrubber - gas f
 %gasProductScrubber.addScrubberSection('MeshPad 50 mm');
 MPmixer.addStream(gasProductScrubber.getLiquidOutStream);
 
-gasProductHeater = heatexchanger(gasProductScrubber.getGasOutStream);
+gasProductHeater = heatexchanger(gasProductScrubber.getGasOutStream, 10, 'test2');
 gasProductHeater.setdT(5.0);
 gasProductHeater.setName('Gas Product Heater');
 %gasProductStream = gasProductScrubber.getGasOutStream()
@@ -67,7 +67,7 @@ system2.addComponent('TEG',4.0);
 system2.setMultiPhaseCheck(1);
 system2.createDatabase(1);
 system2.setMixingRule(7);
-TEGstream = stream(system2);
+TEGstream = stream(system2, 'stream1');
 
 TEGabsorber = absorber('TEGAbsorber');
 TEGabsorber.addGasInStream(gasProductHeater.getOutStream);
@@ -76,10 +76,10 @@ TEGabsorber.setNumberOfStages(5);
 TEGabsorber.setStageEfficiency(0.5);
 % todo: Undefined function 'setWaterDewPointTemperature' for input
 % arguments of type
-% 'neqsim.processSimulation.processEquipment.absorber.SimpleTEGAbsorber'.
+% 'neqsim.processsimulation.processequipment.absorber.SimpleTEGAbsorber'.
 %TEGabsorber.setWaterDewPointTemperature(253.15,70.0);
 
-gasProductCooler2 = heatexchanger(TEGabsorber.getGasOutStream);
+gasProductCooler2 = heatexchanger(TEGabsorber.getGasOutStream, 10.0, "hxx2");
 gasProductCooler2.setdT(-5.0);
 gasProductCooler2.setName('Gas Product Cooler2');
 gasProductScrubber2 = gasscrubber(gasProductCooler2.getOutStream,'scrubber - gas scrubber');
@@ -89,10 +89,10 @@ gasProductScrubber2 = gasscrubber(gasProductCooler2.getOutStream,'scrubber - gas
 HP1recompressor = compressor(gasProductScrubber2.getGasOutStream,200.0,'HP compressor');
 HP1cooler = heatexchanger(HP1recompressor.getOutStream,288.15,'HP cooler');
 
-% Åsgard pipeline
-choke2 = valve(HP1cooler.getOutStream,110.0,'Kårstø choke');
-seaCooler2 = heatexchanger(choke2.getOutStream,278.15,'sea cooler');
-inletSeparator2 = separator(seaCooler2.getOutStream(),'Kårstø inlet_separator');
+% ï¿½sgard pipeline
+choke2 = valve(HP1cooler.getOutStream,110.0,'Kï¿½rstï¿½ choke');
+seaCooler2 = heatexchanger(choke2.getOutStream,278.15,'sea cooler2');
+inletSeparator2 = separator(seaCooler2.getOutStream(),'Kï¿½rstï¿½ inlet_separator');
 
 runProcess();
 

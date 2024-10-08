@@ -26,7 +26,7 @@ if nargin < 3
     display = nargout > 1;
 end
 
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
+testFlash = neqsim.thermodynamicoperations.ThermodynamicOperations(thermoSystem);
 testFlash.PHflash(enthalpy,0); % Input 2 is type of flash. Specified in Neqsim code
 
 if display

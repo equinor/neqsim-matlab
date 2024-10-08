@@ -3,7 +3,7 @@ function mfc = molefractioncontroller(s,name)
 % function molefractioncontroller = molefractioncontroller(s,name)
 %
 % INPUT:
-%  - s    - ProcessEquipment stream object
+%  - s    - processequipment stream object
 %  - name - Name of molefractioncontroller
 %
 % OUTPUT:
@@ -20,7 +20,7 @@ narginchk(1,2);
 global processOperations
 pathNeqSim();
 
-mfc = neqsim.processSimulation.controllerDevice.MoleFractionControllerUtil(s);
+mfc = neqsim.processsimulation.controllerdevice.MoleFractionControllerUtil(s);
 if nargin > 1
     mfc.setName(name);
 end

@@ -24,6 +24,6 @@ if nargin > 2
 end
 thermoSystem.init(0)
 thermoSystem.init(1)
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
+testFlash = neqsim.thermodynamicoperations.ThermodynamicOperations(thermoSystem);
 testFlash.freezingPointTemperatureFlash();
 t = thermoSystem.getTemperature();

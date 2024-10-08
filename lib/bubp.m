@@ -26,6 +26,6 @@ if nargin > 1
     thermoSystem.setTemperature(t);
 end
 
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
+testFlash = neqsim.thermodynamicoperations.ThermodynamicOperations(thermoSystem);
 testFlash.bubblePointPressureFlash(0);
 p = thermoSystem.getPressure();

@@ -1,5 +1,5 @@
 function s = stream(thermoSystem,name,t,p)
-% Create processEquipment stream
+% Create processequipment stream
 % function stream = stream(thermoSystem,name,t,p)
 %
 % INPUT:
@@ -14,8 +14,8 @@ function s = stream(thermoSystem,name,t,p)
 %  - s          - Stream object
 %
 % DESCRIPTION:
-% Create processEquipment stream.
-% Streams are used when creating other processEquipment objects
+% Create processequipment stream.
+% Streams are used when creating other processequipment objects
 %
 % EXAMPLE:
 % stream_1 = stream(thermoSystem,name,t,p);
@@ -32,7 +32,7 @@ if nargin > 2
     thermoSystem.setTemperature(t);
 end
 
-s = neqsim.processSimulation.processEquipment.stream.Stream(thermoSystem);
+s = neqsim.processsimulation.processequipment.stream.Stream(name, thermoSystem);
 if nargin > 1
     s.setName(name);
 end

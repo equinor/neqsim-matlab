@@ -19,7 +19,7 @@ pathNeqSim();
 if ~thermoSystem.doHydrateCheck()
     thermoSystem.setHydrateCheck(1);
 end
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
+testFlash = neqsim.thermodynamicoperations.ThermodynamicOperations(thermoSystem);
 testFlash.setRunAsThread(1);
 testFlash.hydrateFormationTemperature();
 testFlash.waitAndCheckForFinishedCalculation(100000);

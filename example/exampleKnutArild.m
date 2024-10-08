@@ -28,7 +28,7 @@ system1.setMultiPhaseCheck(1);
 TPflash(system1,1);
 bubp(system1);
 %system1.saveFluid(37);
-% BubP = thermodynamicOperations.flashOps.saturationOps.bubblePointPressureFlashDer(system1);
+% BubP = thermodynamicoperations.flashOps.saturationOps.bubblePointPressureFlashDer(system1);
 % BubP.run();
 %
 % bubpPres = BubP.getThermoSystem().getPressure();

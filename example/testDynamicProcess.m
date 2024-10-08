@@ -24,24 +24,24 @@ valve_2.setPercentValveOpening(50);
 valve_3 = valve(separator_1.getGasOutStream(),5.0,'outV');
 valve_3.setPercentValveOpening(50);
 
-separatorLevelTransmitter = neqsim.processSimulation.measurementDevice.LevelTransmitter(separator_1);
+separatorLevelTransmitter = neqsim.processsimulation.measurementDevice.LevelTransmitter(separator_1);
 separatorLevelTransmitter.setName('separatorLEvelTransmitter1');
 separatorLevelTransmitter.setUnit('meter');
 separatorLevelTransmitter.setMaximumValue(1.0);
 separatorLevelTransmitter.setMinimumValue(0.0);
 
-separatorLevelController = neqsim.processSimulation.controllerDevice.ControllerDeviceBaseClass();
+separatorLevelController = neqsim.processsimulation.controllerdevice.ControllerDeviceBaseClass();
 separatorLevelController.setReverseActing(false);
 separatorLevelController.setTransmitter(separatorLevelTransmitter);
 separatorLevelController.setControllerSetPoint(0.3);
 separatorLevelController.setControllerParameters(1.0,300.0,10.0);
 
-separatorPressureTransmitter = neqsim.processSimulation.measurementDevice.PressureTransmitter(separator_1.getGasOutStream());
+separatorPressureTransmitter = neqsim.processsimulation.measurementDevice.PressureTransmitter(separator_1.getGasOutStream());
 separatorPressureTransmitter.setUnit('bar');
 separatorPressureTransmitter.setMaximumValue(10.0);
 separatorPressureTransmitter.setMinimumValue(1.0);
 
-separatorPressureController = neqsim.processSimulation.controllerDevice.ControllerDeviceBaseClass();
+separatorPressureController = neqsim.processsimulation.controllerdevice.ControllerDeviceBaseClass();
 separatorPressureController.setTransmitter(separatorPressureTransmitter);
 separatorPressureController.setReverseActing(false);
 separatorPressureController.setControllerSetPoint(7.0);

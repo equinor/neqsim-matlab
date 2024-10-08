@@ -1,9 +1,9 @@
 function cmp = compressor(s,p,name)
-% Create processEquipment compressor
+% Create processequipment compressor
 % function compressor = compressor(s,p,name)
 %
 % INPUT:
-%  - s    - ProcessEquipment stream object
+%  - s    - processequipment stream object
 %  - p    - Outlet pressure of compressor
 %
 % OPTIONAL INPUT:
@@ -13,7 +13,7 @@ function cmp = compressor(s,p,name)
 %  - cmp  - Compressor object
 %
 % DESCRIPTION:
-% Create processEquipment compressor
+% Create processequipment compressor
 % 
 % EXAMPLE:
 % cmp = compressor(stream1,p,name)
@@ -23,7 +23,7 @@ narginchk(2,3);
 global processOperations
 pathNeqSim();
 
-cmp = neqsim.processSimulation.processEquipment.compressor.Compressor(s);
+cmp = neqsim.processsimulation.processequipment.compressor.Compressor(name, s);
 cmp.setOutletPressure(p);
 if nargin > 2
     cmp.setName(name);

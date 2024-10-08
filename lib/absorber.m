@@ -1,5 +1,5 @@
 function absorber = absorber(name)
-% Create processEquipment absorber
+% Create processequipment absorber
 % function absorber = absorber(name)
 %
 % OPTIONAL INPUT:
@@ -9,7 +9,7 @@ function absorber = absorber(name)
 %  - absorber - SimpleTEGAbsorber object
 %
 % DESCRIPTION:
-% Create processEquipment absorber
+% Create processequipment absorber
 %
 % EXAMPLE:
 % absorber_1 = absorber(name);
@@ -19,8 +19,5 @@ narginchk(0,1);
 global processOperations
 pathNeqSim();
 
-absorber = neqsim.processSimulation.processEquipment.absorber.SimpleTEGAbsorber();
-if nargin > 0
-    absorber.setName(name);
-end
+absorber = neqsim.processsimulation.processequipment.absorber.SimpleTEGAbsorber(name);
 processOperations.add(absorber);

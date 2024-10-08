@@ -23,6 +23,6 @@ narginchk(6,6);
 
 pathNeqSim();
 
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(f);
+testFlash = neqsim.thermodynamicoperations.ThermodynamicOperations(f);
 testFlash.flash(flashtype,spec1,spec2,unitspec1,unitspec2);
 f.initProperties();

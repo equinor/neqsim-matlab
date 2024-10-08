@@ -36,7 +36,7 @@ thermoSystem.init(2);
 thermoSystem.initPhysicalProperties();
 
 S(4) = thermoSystem.getNumberOfPhases();
-S(1) = thermoSystem.getConductivity();
+S(1) = thermoSystem.getThermalConductivity();
 if thermoSystem.getNumberOfPhases == 1
     if thermoSystem.getPhase(0).getPhaseType == 1
         S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getConductivity();

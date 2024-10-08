@@ -27,7 +27,7 @@ end
 
 thermoSystem.init(0)
 thermoSystem.init(1)
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
+testFlash = neqsim.thermodynamicoperations.ThermodynamicOperations(thermoSystem);
 testFlash.calcPTphaseEnvelope();
 
 if display

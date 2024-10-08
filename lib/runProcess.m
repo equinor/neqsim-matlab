@@ -8,7 +8,7 @@ function runProcess()
 global processOperations
 
 if isempty(processOperations)
-    processOperations = neqsim.processSimulation.processSystem.ProcessSystem();
+    processOperations = neqsim.processsimulation.processsystem.ProcessSystem();
 end
 
 processOperations.run();

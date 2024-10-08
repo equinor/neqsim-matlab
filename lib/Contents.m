@@ -1,12 +1,12 @@
 % LIB
 %
 % Files
-%   absorber               - Create processEquipment absorber
+%   absorber               - Create processequipment absorber
 %   addfluids              - Summary description
 %   bubp                   - Get thermoSystem pressure after bubblepoint pressure flash
 %   bubt                   - Get pressure of thermoSystem after bubble point temperature flash
 %   componentNames         - Get all components available in database
-%   compressor             - Create processEquipment compressor
+%   compressor             - Create processequipment compressor
 %   conductivity           - Calculates the conductivity for a given thermodynamic system
 %   density                - Calculates the density for a given thermodynamic system
 %   densityGERG2008        - Calculates the density using GERG2008 for a given thermodynamic system
@@ -19,13 +19,13 @@
 %   flash                  - Run a flash calculation for a fluid
 %   fluid                  - Create NEQsim Fluid object
 %   freezt                 - Summary description
-%   gasscrubber            - Create processEquipment gasscrubber
+%   gasscrubber            - Create processequipment gasscrubber
 %   gibbsenergy            - Calculates the molar gibbsenergy for a given thermodynamic system
 %   heatexchanger          - Summary description
 %   helmholtzenergy        - Calculates the helmholtzenergy for a given thermodynamic system
 %   hydt                   - Summary description
 %   kinvisc                - Calculates the kinematic viscosity for a given thermodynamic system
-%   mixer                  - Create processEquipment mixer
+%   mixer                  - Create processequipment mixer
 %   molarmass              - Calculates the molar mass for a given thermodynamic system
 %   molefrac               - Calculates the molefraction of component n in a phase for a given thermodynamic system
 %   molefractioncontroller - Create controllerDevice molefractioncontroller
@@ -39,16 +39,16 @@
 %   runProcess             - Run Process operation simulation
 %   saturateWithWater      - Saturate thermoSystem with water
 %   savefluid              - Save thermoSystem to file
-%   separator              - Create processEquipment separator
+%   separator              - Create processequipment separator
 %   show                   - Show summary table of NEQSIM object if available
 %   showProcess            - Show Process operation simulation result
-%   splitter               - Create processEquipment splitter
-%   stream                 - Create processEquipment stream
+%   splitter               - Create processequipment splitter
+%   stream                 - Create processequipment stream
 %   thermo                 - Create thermoSystem
 %   thermoArray            - Summary description
 %   TPflash                - Summary description
 %   TPSolidflash           - Summary description
-%   valve                  - Create processEquipment ThrottlingValve
+%   valve                  - Create processequipment ThrottlingValve
 %   viscosity              - Calculates the viscosity for a given thermodynamic system
 %   waterdewt              - Get water dew point temperature of a thermoSystem
 %   Z                      - Calculates the compressibility for a given thermodynamic system

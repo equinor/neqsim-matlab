@@ -11,7 +11,7 @@ system1.init(0);
 %TPflash(system1,0);
 %freezt(system1)
 startT = 180;
-operation = neqsim.thermodynamicOperations.flashOps.saturationOps.freezingPointTemperatureFlash(system1);
+operation = neqsim.thermodynamicoperations.flashOps.saturationOps.freezingPointTemperatureFlash(system1);
 
 for i = 1:800
     system1.setTemperature(startT+i/20)

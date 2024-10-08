@@ -3,7 +3,7 @@ function he = heatexchanger(s,outTemperature,name)
 % function he = heatexchanger(s,outTemperature,name)
 %
 % INPUT:
-%  - s              - ProcessEquipment stream object
+%  - s              - processequipment stream object
 %  - outTemperature - Outlet temperature of heat exchanger
 %  - name           - Name of heatexchanger
 %
@@ -21,7 +21,7 @@ narginchk(1,3);
 global processOperations
 pathNeqSim();
 
-he = neqsim.processSimulation.processEquipment.heatExchanger.Heater(s);
+he = neqsim.processsimulation.processequipment.heatExchanger.Heater(name, s);
 if nargin > 1
     he.setOutTemperature(outTemperature)
 end

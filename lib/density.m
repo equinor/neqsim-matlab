@@ -36,8 +36,9 @@ thermoSystem.init(2);
 
 S(4) = thermoSystem.getNumberOfPhases();
 S(1) = thermoSystem.getDensity;
+thermoSystem.getPhase(0).getType
 if thermoSystem.getNumberOfPhases == 1
-    if thermoSystem.getPhase(0).getPhaseType == 1
+    if thermoSystem.getPhase(0).getType == 'GAS'
         S(2) = thermoSystem.getPhase(0).getDensity();
         S(3) = 0;
     else

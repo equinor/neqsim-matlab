@@ -25,7 +25,7 @@ if nargin < 2
     display = nargout > 1;
 end
 
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
+testFlash = neqsim.thermodynamicoperations.ThermodynamicOperations(thermoSystem);
 testFlash.TPflash();
 
 if display

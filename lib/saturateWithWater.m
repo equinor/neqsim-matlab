@@ -11,5 +11,5 @@ function saturateWithWater(thermoSystem)
 % EXAMPLE:
 % saturateWithWater(thermoSystem);
 
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
+testFlash = neqsim.thermodynamicoperations.ThermodynamicOperations(thermoSystem);
 testFlash.saturateWithWater();

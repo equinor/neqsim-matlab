@@ -26,7 +26,7 @@ if nargin < 3
     display = nargin > 1;
 end
 
-testFlash = neqsim.thermodynamicOperations.ThermodynamicOperations(thermoSystem);
+testFlash = neqsim.thermodynamicoperations.ThermodynamicOperations(thermoSystem);
 testFlash.PSflash(entropy);
 
 if display
