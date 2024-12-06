@@ -14,7 +14,7 @@ function cmp = compressor(s,p,name)
 %
 % DESCRIPTION:
 % Create processequipment compressor
-% 
+%
 % EXAMPLE:
 % cmp = compressor(stream1,p,name)
 

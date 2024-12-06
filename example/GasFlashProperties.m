@@ -76,7 +76,7 @@ for c = 1:size(P_bar,2)
     TPflash(fluid,0);
     fluid.init(2);
     fluid.initPhysicalProperties();
-    
+
     enthalpy_(c) = fluid.getEnthalpy();
     entropy(c) = fluid.getEntropy();
     numberOfPhases(c) = fluid.getNumberOfPhases();
@@ -90,7 +90,7 @@ for c = 1:size(P_bar,2)
     mixKappa(c) = fluid.getKappa();
     mixViscosity(c) = fluid.getViscosity("kg/msec");
     mixThermalConductivity(c) = fluid.getConductivity("W/mK");
-    
+
     if (fluid.hasPhaseType("gas"))
         phaseNumber = fluid.getPhaseNumberOfPhase("gas");
         gasFractionc(c) = fluid.getMoleFraction(phaseNumber)*100;
@@ -107,7 +107,7 @@ for c = 1:size(P_bar,2)
         gasSoundSpeed(c) = fluid.getPhase(phaseNumber).getSoundSpeed();
         gasJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient()/1e5;
     end
-    
+
     if (fluid.hasPhaseType("oil"))
         phaseNumber = fluid.getPhaseNumberOfPhase("oil");
         oilFractionc(c) = fluid.getMoleFraction(phaseNumber)*100;
@@ -124,7 +124,7 @@ for c = 1:size(P_bar,2)
         oilSoundSpeed(c) = fluid.getPhase(phaseNumber).getSoundSpeed();
         oilJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient()/1e5;
     end
-    
+
     if (fluid.hasPhaseType("aqueous"))
         phaseNumber = fluid.getPhaseNumberOfPhase("aqueous");
         waterFractionc(c) = fluid.getMoleFraction(phaseNumber)*100;

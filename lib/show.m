@@ -35,7 +35,7 @@ try
     elseif isa(obj,'neqsim.thermo.system.SystemInterface') || ismember('createTable',functions)
         C = cell(obj.createTable("test"));
     end
-    
+
     try
         indEmpty = all(cellfun(@isempty,C),1);
         C(:,indEmpty) = [];
