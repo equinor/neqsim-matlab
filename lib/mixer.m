@@ -19,7 +19,7 @@ narginchk(0,1);
 global processOperations
 pathNeqSim();
 
-mixer = neqsim.processsimulation.processequipment.mixer.StaticMixer(name);
+mixer = neqsim.process.equipment.mixer.StaticMixer(name);
 if nargin > 0
     mixer.setName(name);
 end

@@ -36,5 +36,5 @@ outstream = choke.getOutStream;
 
 runProcess();
 
-outstream.getHydrateEquilibriumTemperature();
+hydt = outstream.getHydrateEquilibriumTemperature();
 %outstream.displayResult

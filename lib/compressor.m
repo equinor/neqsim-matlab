@@ -23,7 +23,7 @@ narginchk(2,3);
 global processOperations
 pathNeqSim();
 
-cmp = neqsim.processsimulation.processequipment.compressor.Compressor(name, s);
+cmp = neqsim.process.equipment.compressor.Compressor(name, s);
 cmp.setOutletPressure(p);
 if nargin > 2
     cmp.setName(name);

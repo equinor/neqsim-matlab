@@ -24,24 +24,24 @@ valve_2.setPercentValveOpening(50);
 valve_3 = valve(separator_1.getGasOutStream(),5.0,'outV');
 valve_3.setPercentValveOpening(50);
 
-separatorLevelTransmitter = neqsim.processsimulation.measurementDevice.LevelTransmitter(separator_1);
+separatorLevelTransmitter = neqsim.process.measurementdevice.LevelTransmitter(separator_1);
 separatorLevelTransmitter.setName('separatorLEvelTransmitter1');
 separatorLevelTransmitter.setUnit('meter');
 separatorLevelTransmitter.setMaximumValue(1.0);
 separatorLevelTransmitter.setMinimumValue(0.0);
 
-separatorLevelController = neqsim.processsimulation.controllerdevice.ControllerDeviceBaseClass();
+separatorLevelController = neqsim.process.controllerdevice.ControllerDeviceBaseClass();
 separatorLevelController.setReverseActing(false);
 separatorLevelController.setTransmitter(separatorLevelTransmitter);
 separatorLevelController.setControllerSetPoint(0.3);
 separatorLevelController.setControllerParameters(1.0,300.0,10.0);
 
-separatorPressureTransmitter = neqsim.processsimulation.measurementDevice.PressureTransmitter(separator_1.getGasOutStream());
+separatorPressureTransmitter = neqsim.process.measurementdevice.PressureTransmitter(separator_1.getGasOutStream());
 separatorPressureTransmitter.setUnit('bar');
 separatorPressureTransmitter.setMaximumValue(10.0);
 separatorPressureTransmitter.setMinimumValue(1.0);
 
-separatorPressureController = neqsim.processsimulation.controllerdevice.ControllerDeviceBaseClass();
+separatorPressureController = neqsim.process.controllerdevice.ControllerDeviceBaseClass();
 separatorPressureController.setTransmitter(separatorPressureTransmitter);
 separatorPressureController.setReverseActing(false);
 separatorPressureController.setControllerSetPoint(7.0);
@@ -55,9 +55,10 @@ valve_3.setController(separatorPressureController);
 
 runProcess();
 % todo: fails [main] ERROR neqsim.thermo.phase.PhaseEos - Failed to solve for molarVolume within the iteration limit.
+processOperations.setTimeStep(0.1);
 processOperations.runTransient();
 
-processOperations.setTimeStep(30.0);
+
 i = 0;
 
 for K = 1:10

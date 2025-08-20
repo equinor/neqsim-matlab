@@ -23,7 +23,7 @@ narginchk(2,3);
 global processOperations
 pathNeqSim();
 
-v = neqsim.processsimulation.processequipment.valve.ThrottlingValve(name, s);
+v = neqsim.process.equipment.valve.ThrottlingValve(name, s);
 v.setOutletPressure(p);
 if nargin > 2
     v.setName(name);

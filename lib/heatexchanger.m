@@ -21,7 +21,7 @@ narginchk(1,3);
 global processOperations
 pathNeqSim();
 
-he = neqsim.processsimulation.processequipment.heatExchanger.Heater(name, s);
+he = neqsim.process.equipment.heatexchanger.Heater(name, s);
 if nargin > 1
     he.setOutTemperature(outTemperature)
 end

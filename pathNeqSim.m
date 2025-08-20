@@ -38,5 +38,5 @@ if ~isappdata(0,appDataName) || ~getappdata(0,appDataName)
 end
 
 if isempty(processOperations)
-    processOperations = neqsim.processsimulation.processsystem.ProcessSystem;
+    processOperations = neqsim.process.processmodel.ProcessSystem;
 end

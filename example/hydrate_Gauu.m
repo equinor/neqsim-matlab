@@ -40,7 +40,6 @@ system1.setMultiPhaseCheck(1);
 
 hydt(system1);
 %TPflash(system1);
-system1
 % defining streams
 %inStream = stream(system1,'teststream');
 %processOperations.run();

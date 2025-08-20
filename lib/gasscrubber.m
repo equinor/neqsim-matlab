@@ -20,7 +20,7 @@ narginchk(1,2);
 global processOperations
 pathNeqSim();
 
-scrubber = neqsim.processsimulation.processequipment.separator.GasScrubberSimple(name, s);
+scrubber = neqsim.process.equipment.separator.GasScrubberSimple(name, s);
 if nargin > 1
     scrubber.setName(name);
 end

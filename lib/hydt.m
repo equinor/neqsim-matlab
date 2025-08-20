@@ -16,9 +16,7 @@ function t = hydt(thermoSystem)
 
 pathNeqSim();
 
-if ~thermoSystem.doHydrateCheck()
-    thermoSystem.setHydrateCheck(1);
-end
+thermoSystem.setHydrateCheck(1);
 testFlash = neqsim.thermodynamicoperations.ThermodynamicOperations(thermoSystem);
 testFlash.setRunAsThread(1);
 testFlash.hydrateFormationTemperature();

@@ -38,7 +38,7 @@ thermoSystem.initPhysicalProperties;
 S(4) = thermoSystem.getNumberOfPhases();
 S(1) = thermoSystem.getViscosity();
 if thermoSystem.getNumberOfPhases() == 1
-    if thermoSystem.getPhase(0).getPhaseType() == 1
+    if thermoSystem.getPhase(0).getPhaseTypeName() == 'gas'
         S(2) = thermoSystem.getPhase(0).getPhysicalProperties.getViscosity();
         S(3) = 0;
     else

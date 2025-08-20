@@ -23,7 +23,7 @@ narginchk(1,3);
 global processOperations
 pathNeqSim();
 
-split = neqsim.processsimulation.processequipment.splitter.Splitter(name, s);
+split = neqsim.process.equipment.splitter.Splitter(name, s);
 if nargin > 1
     split.setSplitNumber(numb)
 end

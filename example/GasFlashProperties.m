@@ -89,7 +89,7 @@ for c = 1:size(P_bar,2)
     mixCv(c) = fluid.getCv("J/molK");
     mixKappa(c) = fluid.getKappa();
     mixViscosity(c) = fluid.getViscosity("kg/msec");
-    mixThermalConductivity(c) = fluid.getConductivity("W/mK");
+    mixThermalConductivity(c) = fluid.getThermalConductivity("W/mK");
     
     if (fluid.hasPhaseType("gas"))
         phaseNumber = fluid.getPhaseNumberOfPhase("gas");
@@ -103,7 +103,7 @@ for c = 1:size(P_bar,2)
         gasWtFraction(c) = fluid.getWtFraction(phaseNumber)*100;
         gasKappa(c) = fluid.getPhase(phaseNumber).getGamma();
         gasViscosity(c) = fluid.getPhase(phaseNumber).getViscosity("kg/msec");
-        gasThermalConductivity(c) = fluid.getPhase(phaseNumber).getConductivity("W/mK");
+        gasThermalConductivity(c) = fluid.getPhase(phaseNumber).getThermalConductivity("W/mK");
         gasSoundSpeed(c) = fluid.getPhase(phaseNumber).getSoundSpeed();
         gasJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient()/1e5;
     end
@@ -120,7 +120,7 @@ for c = 1:size(P_bar,2)
         oilWtFraction(c) = fluid.getWtFraction(phaseNumber)*100;
         oilKappa(c) = fluid.getPhase(phaseNumber).getGamma();
         oilViscosity(c) = fluid.getPhase(phaseNumber).getViscosity("kg/msec");
-        oilThermalConductivity(c) = fluid.getPhase(phaseNumber).getConductivity("W/mK");
+        oilThermalConductivity(c) = fluid.getPhase(phaseNumber).getThermalConductivity("W/mK");
         oilSoundSpeed(c) = fluid.getPhase(phaseNumber).getSoundSpeed();
         oilJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient()/1e5;
     end
@@ -137,7 +137,7 @@ for c = 1:size(P_bar,2)
         waterWtFraction(c) = fluid.getWtFraction(phaseNumber)*100;
         waterKappa(c) = fluid.getPhase(phaseNumber).getGamma();
         waterViscosity(c) = fluid.getPhase(phaseNumber).getViscosity("kg/msec");
-        waterThermalConductivity(c) = fluid.getPhase(phaseNumber).getConductivity("W/mK");
+        waterThermalConductivity(c) = fluid.getPhase(phaseNumber).getThermalConductivity("W/mK");
         waterSoundSpeed(c) = fluid.getPhase(phaseNumber).getSoundSpeed();
         waterJouleThomsonCoefficient(c) = fluid.getPhase(phaseNumber).getJouleThomsonCoefficient()/1e5;
     end

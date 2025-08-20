@@ -32,7 +32,7 @@ if nargin > 2
     thermoSystem.setTemperature(t);
 end
 
-s = neqsim.processsimulation.processequipment.stream.Stream(name, thermoSystem);
+s = neqsim.process.equipment.stream.Stream("", thermoSystem);
 if nargin > 1
     s.setName(name);
 end

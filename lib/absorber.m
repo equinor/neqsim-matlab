@@ -19,5 +19,5 @@ narginchk(0,1);
 global processOperations
 pathNeqSim();
 
-absorber = neqsim.processsimulation.processequipment.absorber.SimpleTEGAbsorber(name);
+absorber = neqsim.process.equipment.absorber.SimpleTEGAbsorber(name);
 processOperations.add(absorber);

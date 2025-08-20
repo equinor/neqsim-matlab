@@ -20,7 +20,7 @@ narginchk(2,3);
 global processOperations
 pathNeqSim();
 
-sep = neqsim.processsimulation.processequipment.separator.ThreePhaseSeparator(name, s);
+sep = neqsim.process.equipment.separator.ThreePhaseSeparator(name, s);
 if nargin > 1
     sep.setName(name);
 end
