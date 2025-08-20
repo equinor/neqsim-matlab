@@ -76,7 +76,7 @@ for cdeltaT = 10:-1:1
     pressureAfterTemperatureReduction = separatedGasStream.getFluid().getPressure('bara');
     %separatedGasStream.getFluid()
     %separatedOilStream.getFluid()
-    
+
     %Calculate change in fluid density
     changeInDensityGas(cdeltaT) = (gasDensityAfterTemperatureReduction - gasDensityAtSeparatorConditions)/gasDensityAtSeparatorConditions*100;
     changeInDensityOil(cdeltaT) = (oilDensityAfterTemperatureReduction - oilDensityAtSeparatorConditions)/oilDensityAtSeparatorConditions*100;

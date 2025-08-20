@@ -23,7 +23,7 @@ function S = dynvisc(thermoSystem,t,p)
 
 % Even Solbraa, 2001.
 
-if nargin > 2 
+if nargin > 2
     thermoSystem.setPressure(p);
 end
 if nargin > 1

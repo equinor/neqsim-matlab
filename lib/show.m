@@ -39,6 +39,7 @@ try
     if any(fnames == "getResultTable")
         C = toCell2D(obj.getResultTable());
     end
+
 catch ME
     lastErr = ME;
 end
