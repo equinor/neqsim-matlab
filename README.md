@@ -11,7 +11,7 @@ NeqSim, a robust and high-performance open-source library for thermodynamic and 
 
 *   **Java-native = MATLAB-native.** MATLAB possesses a built-in Java bridge, enabling the direct loading and use of NeqSim's Java classes. This eliminates the need for wrappers, MEX files, or a Python layer, streamlining the workflow and ensuring efficient communication between the two environments.
 
-*   **Fast & robust.** NeqSim's performance is a key advantage. Running on the Java Virtual Machine (JVM) with Just-In-Time (JIT) optimization, it delivers high-speed calculations. The maturity of its numerical solvers contributes to stable and reliable phase behavior and property calculations, essential for complex process simulations such as CO2 removal, oil and gas transport, and flow assurance.
+*   **Fast & robust.** NeqSim's performance is a key advantage. Running on the Java Virtual Machine (JVM) with Just-In-Time (JIT) optimization, it delivers high-speed calculations. The maturity of its numerical solvers contributes to stable and reliable phase behavior and property calculations, essential for complex process simulations such as CO2 removal and transport, electrolyte calculations, hydrogen projects, process optimization and process safety, oil and gas transport, and flow assurance.
 
 *   **A full process & thermodynamics toolbox.** All of NeqSim's extensive Java Application Programming Interfaces (APIs) are directly accessible from MATLAB. This provides users with a complete suite of tools, including thermodynamic systems, unit operations, property models, and flash calculations, making NeqSim a practical, production-grade toolbox for a variety of applications.
 
