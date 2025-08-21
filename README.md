@@ -42,7 +42,7 @@ Of course. Here is the provided text formatted as a Markdown document, ready to 
 
 ### 1) Build / Obtain the JARs
 
-Build from source using Maven. This will generate the necessary JAR file in the `target/` directory, along with any dependencies.
+From https://github.com/equinor/neqsim build from source using Maven. This will generate the necessary JAR file in the `target/` directory, along with any dependencies.
 
 ```sh
 mvn -DskipTests package
