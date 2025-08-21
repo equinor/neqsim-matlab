@@ -1,5 +1,21 @@
 ![NeqSim Logo](https://github.com/equinor/neqsim/blob/master/docs/wiki/neqsimlogocircleflatsmall.png)
 
+### NeqSim: A Powerful Java-Based Thermodynamic Toolbox for MATLAB
+
+NeqSim, a robust and high-performance open-source library for thermodynamic and process simulation, offers seamless integration with MATLAB, making it an ideal toolbox for engineers and researchers. Its foundation in Java allows for direct utilization within the MATLAB environment, bypassing the need for complex wrappers or intermediary layers. This direct integration, coupled with NeqSim's comprehensive capabilities, provides a powerful platform for a wide range of process and thermodynamic calculations.
+
+**Why NeqSim fits perfectly with MATLAB:**
+
+*   **Java-native = MATLAB-native.** MATLAB possesses a built-in Java bridge, enabling the direct loading and use of NeqSim's Java classes. This eliminates the need for wrappers, MEX files, or a Python layer, streamlining the workflow and ensuring efficient communication between the two environments.
+
+*   **Fast & robust.** NeqSim's performance is a key advantage. Running on the Java Virtual Machine (JVM) with Just-In-Time (JIT) optimization, it delivers high-speed calculations. A benchmark demonstrated NeqSim's capability to perform 5,000 multiphase flash calculations in just 2.8 seconds. The maturity of its numerical solvers contributes to stable and reliable phase behavior and property calculations, essential for complex process simulations such as CO2 removal, oil and gas transport, and flow assurance.
+
+*   **A full process & thermodynamics toolbox.** All of NeqSim's extensive Java Application Programming Interfaces (APIs) are directly accessible from MATLAB. This provides users with a complete suite of tools, including thermodynamic systems, unit operations, property models, and flash calculations, making NeqSim a practical, production-grade toolbox for a variety of applications.
+
+*   **Use the GitHub Java code as-is.** The entire NeqSim Java codebase is available on GitHub and can be directly utilized. By building the repository into a JAR file using tools like Maven or Gradle, users can add it to MATLAB's classpath. This also allows for the inclusion of custom Java classes, which can be immediately called from within MATLAB, offering a high degree of flexibility and customization.
+
+In essence, NeqSim's Java architecture, combined with MATLAB's inherent capabilities, creates a powerful and user-friendly environment for advanced process and thermodynamic modeling and simulation.
+
 # NeqSim Matlab
 NeqSim Matlab is part of the [NeqSim project](https://equinor.github.io/neqsimhome/). NeqSim Matlab is a Matlab interface to the [NeqSim Java library](https://github.com/equinor/neqsim) for estimation of fluid behavior and process design.
 
