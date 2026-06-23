@@ -1,0 +1,145 @@
+name: Update NeqSim JAR
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Optional NeqSim version override (for example 3.14.0-Java8)
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-jar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve version and download JAR from Maven Central
+        id: download
+        env:
+          REQUESTED_VERSION: ${{ inputs.version || '' }}
+        run: |
+          set -euo pipefail
+
+          BASE_URL="https://repo1.maven.org/maven2/com/equinor/neqsim/neqsim"
+          METADATA_URL="$BASE_URL/maven-metadata.xml"
+
+          add_candidate() {
+            local candidate="$1"
+            if [[ -z "$candidate" ]]; then
+              return
+            fi
+            for existing in "${candidates[@]:-}"; do
+              if [[ "$existing" == "$candidate" ]]; then
+                return
+              fi
+            done
+            candidates+=("$candidate")
+          }
+
+          normalize_java8_version() {
+            local version="$1"
+            version="${version#refs/tags/}"
+            version="${version#v}"
+            if [[ "$version" != *-Java8 ]]; then
+              version="${version}-Java8"
+            fi
+            printf '%s' "$version"
+          }
+
+          add_variants() {
+            local version="$1"
+            if [[ -z "$version" ]]; then
+              return
+            fi
+
+            add_candidate "$(normalize_java8_version "$version")"
+          }
+
+          candidates=()
+          requested="${REQUESTED_VERSION#refs/tags/}"
+          add_variants "$requested"
+
+          metadata="$(curl -fsSL "$METADATA_URL")"
+          release_version="$(printf '%s' "$metadata" | tr -d '\n' | sed -n 's:.*<release>\(.*\)</release>.*:\1:p')"
+          add_variants "$release_version"
+
+          selected_version=""
+          selected_url=""
+          for version in "${candidates[@]}"; do
+            url="$BASE_URL/$version/neqsim-$version.jar"
+            if curl -fsI "$url" > /dev/null; then
+              selected_version="$version"
+              selected_url="$url"
+              break
+            fi
+          done
+
+          if [[ -z "$selected_version" ]]; then
+            echo "Unable to resolve a downloadable NeqSim JAR version from Maven Central." >&2
+            echo "Tried candidates: ${candidates[*]}" >&2
+            exit 1
+          fi
+
+          if [[ "$selected_version" != *-Java8 ]]; then
+            echo "Resolved version is not a Java8 artifact: $selected_version" >&2
+            exit 1
+          fi
+
+          current_jar="$(ls ext/neqsim-*.jar 2>/dev/null | head -n 1 || true)"
+          current_version=""
+          if [[ -n "$current_jar" ]]; then
+            current_name="$(basename "$current_jar")"
+            current_version="${current_name#neqsim-}"
+            current_version="${current_version%.jar}"
+          fi
+
+          if [[ "$selected_version" == "$current_version" ]]; then
+            echo "NeqSim JAR already up to date: $selected_version"
+            echo "updated=false" >> "$GITHUB_OUTPUT"
+            echo "version=$selected_version" >> "$GITHUB_OUTPUT"
+            echo "jar_name=neqsim-$selected_version.jar" >> "$GITHUB_OUTPUT"
+            echo "download_url=$BASE_URL/$selected_version/neqsim-$selected_version.jar" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          jar_name="neqsim-$selected_version.jar"
+          curl -fsSL "$selected_url" -o "$jar_name"
+
+          old_jar="$(ls ext/neqsim-*.jar 2>/dev/null | head -n 1 || true)"
+          if [[ -n "$old_jar" ]]; then
+            git rm "$old_jar"
+          fi
+
+          mv "$jar_name" "ext/$jar_name"
+          git add "ext/$jar_name"
+
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+          echo "version=$selected_version" >> "$GITHUB_OUTPUT"
+          echo "jar_name=$jar_name" >> "$GITHUB_OUTPUT"
+          echo "download_url=$selected_url" >> "$GITHUB_OUTPUT"
+
+      - name: Create Pull Request
+        if: steps.download.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: update neqsim jar to ${{ steps.download.outputs.version }}"
+          title: "chore: update neqsim jar to ${{ steps.download.outputs.version }}"
+          body: |
+            Automated update of NeqSim JAR in `ext`.
+
+            - Source: Maven Central
+            - Version: `${{ steps.download.outputs.version }}`
+            - Artifact: `${{ steps.download.outputs.jar_name }}`
+            - URL: `${{ steps.download.outputs.download_url }}`
+
+            Triggered by `${{ github.event_name }}`.
+          branch: "chore/update-neqsim-jar-${{ steps.download.outputs.version }}"
+          delete-branch: true
