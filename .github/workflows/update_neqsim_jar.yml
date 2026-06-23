@@ -28,6 +28,10 @@ jobs:
         run: |
           set -euo pipefail
 
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git config --global diff.renames no
+
           BASE_URL="https://repo1.maven.org/maven2/com/equinor/neqsim/neqsim"
           METADATA_URL="$BASE_URL/maven-metadata.xml"
 
@@ -115,11 +119,19 @@ jobs:
 
           old_jar="$(ls ext/neqsim-*.jar 2>/dev/null | head -n 1 || true)"
           if [[ -n "$old_jar" ]]; then
-            git rm "$old_jar"
+            echo "Removing old JAR: $old_jar"
+            git rm -f "$old_jar"
           fi
 
+          echo "Adding new JAR: ext/$jar_name"
           mv "$jar_name" "ext/$jar_name"
           git add "ext/$jar_name"
+
+          echo "Git status before PR creation:"
+          git status
+
+          echo "Git diff --cached:"
+          git diff --cached --name-status
 
           echo "updated=true" >> "$GITHUB_OUTPUT"
           echo "version=$selected_version" >> "$GITHUB_OUTPUT"
